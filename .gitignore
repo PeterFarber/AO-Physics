@@ -1,0 +1,15 @@
+node_modules
+.vscode
+.cache/
+
+jolt
+lua_jolt/build
+
+aos/process/libs
+
+
+**/*.a
+process.js
+process.wasm
+**/package-lock.json
+**/yarn.lock
