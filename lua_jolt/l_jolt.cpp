@@ -24,15 +24,6 @@ extern "C"
     return 0;
   }
 
-  /**
-   * @brief Updates the physics world by simulating the specified number of steps with the given delta time.
-   *
-   * This function updates the physics simulation by iterating over each active body in the jolt_state and performing collision detection and resolution. It takes the number of steps and delta time as input parameters.
-   *
-   * @param steps The number of steps to simulate.
-   * @param deltaTime The time interval between each step.
-   * @return int Returns 0 on success.
-   */
   static int update_world(lua_State *L)
   {
     int steps = luaL_checknumber(L, 1);
@@ -87,19 +78,7 @@ extern "C"
     Factory::sInstance = nullptr;
     return 0;
   }
-  
-  /**
-   * Creates a box-shaped body in the physics simulation.
-   *
-   * @param x_size The size of the box along the x-axis.
-   * @param y_size The size of the box along the y-axis.
-   * @param z_size The size of the box along the z-axis.
-   * @param x_pos The x-coordinate of the box's position.
-   * @param y_pos The y-coordinate of the box's position.
-   * @param z_pos The z-coordinate of the box's position.
-   * @param motion_type_string The motion type of the box ('D' for dynamic, 'S' for static, 'K' for kinematic).
-   * @return The index and sequence number of the created box body.
-   */
+
   static int create_box(lua_State *L)
   {
     double x_size = luaL_checknumber(L, 1);
@@ -135,22 +114,12 @@ extern "C"
     return 1;
   }
 
-  /**
-   * Creates a sphere-shaped body in the physics simulation.
-   *
-   * @param radius The radius of the sphere.
-   * @param x_pos The x-coordinate of the sphere's position.
-   * @param y_pos The y-coordinate of the sphere's position.
-   * @param z_pos The z-coordinate of the sphere's position.
-   * @param motion_type_string The motion type of the sphere ('D' for dynamic, 'S' for static, 'K' for kinematic).
-   * @return The index and sequence number of the created sphere body.
-   */
   static int create_sphere(lua_State *L)
   {
-    double radius = luaL_checknumber(L, 1); // radius of the sphere
-    double x_pos = luaL_checknumber(L, 2); // x-coordinate of the sphere's position
-    double y_pos = luaL_checknumber(L, 3); // y-coordinate of the sphere's position
-    double z_pos = luaL_checknumber(L, 4); // z-coordinate of the sphere's position
+    double radius = luaL_checknumber(L, 1);                  // radius of the sphere
+    double x_pos = luaL_checknumber(L, 2);                   // x-coordinate of the sphere's position
+    double y_pos = luaL_checknumber(L, 3);                   // y-coordinate of the sphere's position
+    double z_pos = luaL_checknumber(L, 4);                   // z-coordinate of the sphere's position
     const char *motion_type_string = luaL_checkstring(L, 5); // motion type of the sphere ('D' for dynamic, 'S' for static, 'K' for kinematic)
 
     EMotionType motion_type;
@@ -179,19 +148,9 @@ extern "C"
     return 1;
   }
 
-
-  /**
-   * Sets the linear velocity of a body in the physics simulation.
-   *
-   * @param body_id The index and sequence number of the body.
-   * @param x_vel The x-component of the linear velocity.
-   * @param y_vel The y-component of the linear velocity.
-   * @param z_vel The z-component of the linear velocity.
-   * @return int Returns 0 on success.
-   */
   static int set_linear_velocity(lua_State *L)
   {
-    int body_id = luaL_checknumber(L, 1); // The index and sequence number of the body
+    int body_id = luaL_checknumber(L, 1);  // The index and sequence number of the body
     double x_vel = luaL_checknumber(L, 2); // The x-component of the linear velocity
     double y_vel = luaL_checknumber(L, 3); // The y-component of the linear velocity
     double z_vel = luaL_checknumber(L, 4); // The z-component of the linear velocity
@@ -203,15 +162,14 @@ extern "C"
     return 0;
   }
 
-
   // library to be registered
   static const struct luaL_Reg jolt_funcs[] = {
-      {"create_world", create_world},               
-      {"update_world", update_world},              
-      {"destroy_world", destroy_world},            
+      {"create_world", create_world},
+      {"update_world", update_world},
+      {"destroy_world", destroy_world},
 
-      {"create_box", create_box},                   
-      {"create_sphere", create_sphere},             
+      {"create_box", create_box},
+      {"create_sphere", create_sphere},
       {"set_linear_velocity", set_linear_velocity},
       {NULL, NULL} /* sentinel */
   };
