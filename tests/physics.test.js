@@ -50,14 +50,75 @@ describe('Physics Tests', async () => {
   it('Jolt', async () => {
     const result = await handle(getEval(`
 local jolt = require('jolt')
+local json = require('json')
 jolt.create_world()
-local box_id = jolt.create_box(10,1,10, 0.0, 0.0, 0.0, 'Static')
-local sphere_id = jolt.create_sphere(0.5, 0.0, 2.0, 0.0, 'Dynamic')
-jolt.set_linear_velocity(sphere_id, 0, 0, 0)
-jolt.update_world(100, 0.01666666666)
+local floor_id = jolt.create_floor(100,1,100, 0.0, 0.0, 0.0)
+
+local vel = 4;
+local pos = 10;
+local cubes = 30;
+local spheres = 30;
+local capsules = 10;
+
+-- Loop 10 times creating boxes, spheres, and capsules with random positions and velocities
+for i=1, cubes do
+  local x = math.random(-pos, pos)
+  local y = math.random(2, 10)
+  local z = math.random(-pos, pos)
+  local vx = math.random(-vel, vel)
+  local vy = math.random(-vel, vel)
+  local vz = math.random(-vel, vel)
+  local id = jolt.create_box(1,1,1, x, y, z, 'Dynamic', "MOVING")
+  jolt.set_linear_velocity(id, vx, vy, vz)
+end
+
+
+for i=1, spheres do
+  local x = math.random(-pos, pos)
+  local y = math.random(2, 10)
+  local z = math.random(-pos, pos)
+  local vx = math.random(-vel, vel)
+  local vy = math.random(-vel, vel)
+  local vz = math.random(-vel, vel)
+  local id = jolt.create_sphere(0.5, x,y,z, 'Dynamic')
+  jolt.set_linear_velocity(id, vx, vy, vz)
+end
+
+for i=1, capsules do
+  local x = math.random(-pos, pos)
+  local y = math.random(2, 10)
+  local z = math.random(-pos, pos)
+  local vx = math.random(-vel, vel)
+  local vy = math.random(-vel, vel)
+  local vz = math.random(-vel, vel)
+  local id = jolt.create_capsule(0.5, 2, x, y, z, 'Dynamic')
+  jolt.set_linear_velocity(id, vx, vy, vz)
+end
+
+
+
+local sphere_id = jolt.create_sphere(0.5, -3.0, 2.0, 2.0, 'Dynamic')
+local sphere2_id = jolt.create_sphere(0.5, 3.0, 2.0, 2.0, 'Dynamic')
+
+local capsule_id = jolt.create_capsule(0.5, 2, 0.0, 9.0, 2.0, 'Dynamic')
+jolt.set_linear_velocity(sphere_id, 3, 0, 0)
+jolt.set_linear_velocity(sphere2_id, -3, 0, 0)
+local out = [[{ "worldStates": []]
+for i=1, 750 do
+  jolt.update_world(1, 0.01666666666)
+  out = out .. jolt.get_world_state() .. ","
+end
+out = out:sub(1, #out-1)
+out = out .. "]}"
+
+print(out)
 jolt.destroy_world()
-return "Jolted"
+return ""
   `), getEnv())
+
+
+  // output to a file dont escape the characters
+  fs.writeFileSync('jolt.json', result.response.Output.data)
   console.log(result.response)
     assert.ok(result.response.Output.data.length >= 1)
   })

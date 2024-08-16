@@ -13,22 +13,25 @@ private:
 
 public:
     bool is_initialized = false;
-    std::vector<BodyID> bodies;
 
     TempAllocatorImpl *temp_allocator;
     JobSystemThreadPool *job_system;
+
     BPLayerInterfaceImpl broad_phase_layer_interface;
     ObjectVsBroadPhaseLayerFilterImpl object_vs_broadphase_layer_filter;
     ObjectLayerPairFilterImpl object_vs_object_layer_filter;
+
     PhysicsSystem *physics_system;
+
     BodyInterface *body_interface;
+
     MyBodyActivationListener *body_activation_listener;
     MyContactListener *contact_listener;
 
     void Init()
     {
         if(is_initialized) return;
-        bodies = std::vector<BodyID>();
+        
 
         RegisterDefaultAllocator();
         Trace = TraceImpl;
@@ -47,10 +50,34 @@ public:
         contact_listener = new MyContactListener();
         physics_system->SetBodyActivationListener(body_activation_listener);
         physics_system->SetContactListener(contact_listener);
+        PhysicsSettings ps = physics_system->GetPhysicsSettings();
+        ps.mAllowSleeping = false;
+        physics_system->SetPhysicsSettings(ps);
 
         body_interface = &physics_system->GetBodyInterface();
 
+
         this->is_initialized = true;
+    }
+
+    void Destroy()
+    {
+        if(!is_initialized) return;
+
+        delete body_activation_listener;
+        delete contact_listener;
+        delete physics_system;
+        delete job_system;
+        delete temp_allocator;
+
+        is_initialized = false;
+    }
+
+
+    BodyIDVector GetBodies(){
+        BodyIDVector bodies;
+        physics_system->GetBodies(bodies);
+        return bodies;
     }
 };
 

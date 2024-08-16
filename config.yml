@@ -1,2 +1,3 @@
 keep_js: true
 target: 32
+preset: xxl
