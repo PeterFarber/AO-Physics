@@ -1,23 +1,27 @@
-#ifndef LUA_JOLT_HELPERS_H
-#define LUA_JOLT_HELPERS_H
+#ifndef AOP_HELPERS_H
+#define AOP_HELPERS_H
+
 #include "Core.h"
+#include "Layers.h"
 
 namespace Helpers
 {
-    static EMotionType GetMotionType(const char *motion)
+    static EMotionType GetMotionType(std::string motion)
     {
-        switch (motion[0])
+        if (motion == "Dynamic")
         {
-        case 'D':
             return EMotionType::Dynamic;
-            break;
-        case 'S':
+        }
+        else if (motion == "Static")
+        {
             return EMotionType::Static;
-            break;
-        case 'K':
+        }
+        else if (motion == "Kinematic")
+        {
             return EMotionType::Kinematic;
-            break;
-        default:
+        }
+        else
+        {
             return EMotionType::Dynamic;
         }
     }

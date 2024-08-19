@@ -2,6 +2,7 @@ const { describe, it } = require('node:test')
 const assert = require('assert')
 const fs = require('fs')
 const wasm = fs.readFileSync('./process.wasm')
+const lua = fs.readFileSync('./test.lua', 'utf8')
 const m = require(__dirname + '/process.js')
 
 
@@ -48,11 +49,50 @@ describe('Physics Tests', async () => {
 
 
   it('Jolt', async () => {
-    const result = await handle(getEval(`
-local jolt = require('jolt')
-local json = require('json')
-jolt.create_world()
-local floor_id = jolt.create_floor(100,1,100, 0.0, 0.0, 0.0)
+    const result = await handle(getEval(lua), getEnv())
+
+
+  // output to a file dont escape the characters
+  fs.writeFileSync('jolt.json', result.response.Output.data)
+  console.log(result.response.Output.data)
+    assert.ok(result.response.Output.data.length >= 1)
+  })
+
+
+});
+
+
+function getEval(expr) {
+  return {
+    Target: 'AOS',
+    From: 'FOOBAR',
+    Owner: 'FOOBAR',
+
+    Module: 'FOO',
+    Id: '1',
+
+    'Block-Height': '1000',
+    Timestamp: Date.now(),
+    Tags: [
+      { name: 'Action', value: 'Eval' }
+    ],
+    Data: expr
+  }
+}
+
+function getEnv() {
+  return {
+    Process: {
+      Id: 'AOS',
+      Owner: 'FOOBAR',
+
+      Tags: [
+        { name: 'Name', value: 'TEST_PROCESS_OWNER' }
+      ]
+    }
+  }
+}
+/*
 
 local vel = 4;
 local pos = 10;
@@ -112,51 +152,7 @@ out = out:sub(1, #out-1)
 out = out .. "]}"
 
 print(out)
-jolt.destroy_world()
-return ""
-  `), getEnv())
-
-
-  // output to a file dont escape the characters
-  fs.writeFileSync('jolt.json', result.response.Output.data)
-  console.log(result.response)
-    assert.ok(result.response.Output.data.length >= 1)
-  })
-
-
-});
-
-
-function getEval(expr) {
-  return {
-    Target: 'AOS',
-    From: 'FOOBAR',
-    Owner: 'FOOBAR',
-
-    Module: 'FOO',
-    Id: '1',
-
-    'Block-Height': '1000',
-    Timestamp: Date.now(),
-    Tags: [
-      { name: 'Action', value: 'Eval' }
-    ],
-    Data: expr
-  }
-}
-
-function getEnv() {
-  return {
-    Process: {
-      Id: 'AOS',
-      Owner: 'FOOBAR',
-
-      Tags: [
-        { name: 'Name', value: 'TEST_PROCESS_OWNER' }
-      ]
-    }
-  }
-}
+*/
 
 
 // import { test } from 'node:test'

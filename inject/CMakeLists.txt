@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.20 FATAL_ERROR)
 project(JoltPhysics CXX)
 
 # When turning this option on, the library will be compiled using assertions. By default asserts are enabled in Debug build.
-option(USE_ASSERTS "Enable asserts" OFF)
+option(USE_ASSERTS "Enable asserts" ON)
 
 # When turning this option on, the library will be compiled using doubles for positions. This allows for much bigger worlds.
 option(DOUBLE_PRECISION "Use double precision math" OFF)
@@ -15,7 +15,7 @@ option(GENERATE_DEBUG_SYMBOLS "Generate debug symbols" ON)
 option(OVERRIDE_CXX_FLAGS "Override CMAKE_CXX_FLAGS_DEBUG/RELEASE" ON)
 
 # When turning this option on, the library will be compiled in such a way to attempt to keep the simulation deterministic across platforms
-option(CROSS_PLATFORM_DETERMINISTIC "Cross platform deterministic" OFF)
+option(CROSS_PLATFORM_DETERMINISTIC "Cross platform deterministic" ON)
 
 # When turning this option on, the library will be compiled for ARM (aarch64-linux-gnu), requires compiling with clang
 option(CROSS_COMPILE_ARM "Cross compile to aarch64-linux-gnu" OFF)
@@ -89,10 +89,7 @@ option(DISABLE_CUSTOM_ALLOCATOR "Disable support for a custom memory allocator" 
 option(USE_STD_VECTOR "Use std::vector instead of own Array class" OFF)
 
 # Setting this option will compile the ObjectStream class and RTTI attribute information
-option(ENABLE_OBJECT_STREAM "Compile the ObjectStream class and RTTI attribute information" OFF)
-
-# Enable installation
-option(ENABLE_INSTALL "Generate installation target"  ON)
+option(ENABLE_OBJECT_STREAM "Compile the ObjectStream class and RTTI attribute information" ON)
 
 include(CMakeDependentOption)
 

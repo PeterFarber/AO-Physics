@@ -1,37 +1,12 @@
-#ifndef LUA_JOLT_STATE_H
-#define LUA_JOLT_STATE_H
+#include "WorldState.h"
 
-#include "Core.h"
-
-class JoltState
+namespace AOP
 {
-private:
-    const uint cMaxBodies = 1024;
-    const uint cNumBodyMutexes = 0;
-    const uint cMaxBodyPairs = 1024;
-    const uint cMaxContactConstraints = 1024;
 
-public:
-    bool is_initialized = false;
-
-    TempAllocatorImpl *temp_allocator;
-    JobSystemThreadPool *job_system;
-
-    BPLayerInterfaceImpl broad_phase_layer_interface;
-    ObjectVsBroadPhaseLayerFilterImpl object_vs_broadphase_layer_filter;
-    ObjectLayerPairFilterImpl object_vs_object_layer_filter;
-
-    PhysicsSystem *physics_system;
-
-    BodyInterface *body_interface;
-
-    MyBodyActivationListener *body_activation_listener;
-    MyContactListener *contact_listener;
-
-    void Init()
+    void WorldState::Init()
     {
-        if(is_initialized) return;
-        
+        if (is_initialized)
+            return;
 
         RegisterDefaultAllocator();
         Trace = TraceImpl;
@@ -41,7 +16,8 @@ public:
 
         this->temp_allocator = new TempAllocatorImpl(10 * 1024 * 1024);
 
-        job_system = new JobSystemThreadPool(cMaxPhysicsJobs, cMaxPhysicsBarriers, thread::hardware_concurrency() - 1);
+        // job_system = new JobSystemThreadPool(cMaxPhysicsJobs, cMaxPhysicsBarriers, thread::hardware_concurrency() - 1);
+        job_system = new JobSystemSingleThreaded();
 
         physics_system = new PhysicsSystem();
         physics_system->Init(cMaxBodies, cNumBodyMutexes, cMaxBodyPairs, cMaxContactConstraints, broad_phase_layer_interface, object_vs_broadphase_layer_filter, object_vs_object_layer_filter);
@@ -56,13 +32,30 @@ public:
 
         body_interface = &physics_system->GetBodyInterface();
 
-
         this->is_initialized = true;
     }
 
-    void Destroy()
+    void WorldState::Destroy()
     {
-        if(!is_initialized) return;
+        if (!is_initialized)
+            return;
+
+        BodyIDVector bodies;
+        physics_system->GetBodies(bodies);
+        // Create a duplicate bodies vector to avoid iterator invalidation
+        BodyIDVector bodies_copy = bodies;
+
+        for (BodyID body_id : bodies_copy)
+        {
+            printf("Removing body %d\n", body_id.GetIndexAndSequenceNumber());
+            // Remove the body from the physics system
+            body_interface->RemoveBody(body_id);
+            printf("Destroying body %d\n", body_id.GetIndexAndSequenceNumber());
+
+            // Destroy the body. After this the body ID is no longer valid.
+            body_interface->DestroyBody(body_id);
+        }
+        UnregisterTypes();
 
         delete body_activation_listener;
         delete contact_listener;
@@ -70,15 +63,11 @@ public:
         delete job_system;
         delete temp_allocator;
 
+        // Destroy the factory
+        delete Factory::sInstance;
+        Factory::sInstance = nullptr;
+
         is_initialized = false;
     }
 
-
-    BodyIDVector GetBodies(){
-        BodyIDVector bodies;
-        physics_system->GetBodies(bodies);
-        return bodies;
-    }
-};
-
-#endif // LUA_JOLT_STATE_H
+}
