@@ -3,7 +3,9 @@ const assert = require('assert')
 const fs = require('fs')
 const wasm = fs.readFileSync('./process.wasm')
 const lua = fs.readFileSync('./test.lua', 'utf8')
+const AOPWrapper = fs.readFileSync('./AOPWrapper.lua', 'utf8')
 const m = require(__dirname + '/process.js')
+
 
 
 describe('Physics Tests', async () => {
@@ -49,7 +51,10 @@ describe('Physics Tests', async () => {
 
 
   it('Jolt', async () => {
-    const result = await handle(getEval(lua), getEnv())
+    var formatted = lua.replace(/local json = require\('json'\)/g, '');
+    formatted = formatted.replace(/AOP = require\("AOPWrapper"\)/g, AOPWrapper);
+    formatted = formatted.replace(/return AOP/g, '');
+    const result = await handle(getEval(formatted), getEnv())
 
 
   // output to a file dont escape the characters

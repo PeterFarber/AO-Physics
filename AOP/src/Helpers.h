@@ -3,6 +3,7 @@
 
 #include "Core.h"
 #include "Layers.h"
+#include "WorldState.h"
 
 namespace Helpers
 {
@@ -91,6 +92,20 @@ namespace Helpers
             return "Unknown";
             break;
         }
+    }
+
+    static Body * GetBody(PhysicsSystem *physicsSystem, BodyID body_id)
+    {
+        Body *body = nullptr;
+        BodyLockWrite body_lock(physicsSystem->GetBodyLockInterface(), body_id);
+        if(body_lock.Succeeded())
+        {
+            body = &body_lock.GetBody();
+            body_lock.ReleaseLock();
+        }
+
+        delete &body_lock;
+        return body;
     }
 }
 

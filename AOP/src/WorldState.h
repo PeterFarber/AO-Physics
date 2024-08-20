@@ -5,6 +5,8 @@
 #include "BodyActivationListener.h"
 #include "ContactListener.h"
 #include "Layers.h"
+#include "Params.h"
+
 
 namespace AOP
 {
@@ -61,7 +63,7 @@ namespace AOP
         MyContactListener *contact_listener;
 
     public:
-        void Init();
+        void Init(WorldParams params);
         void Destroy();
     };
 }

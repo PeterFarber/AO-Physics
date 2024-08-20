@@ -22,13 +22,14 @@ extern "C"
 
   static int l_create_world(lua_State *L)
   {
-    AOP::world.CreateWorld();
+    WorldParams world_params(luaL_checkstring(L, 1));
+    AOP::world.CreateWorld(world_params);
     return 0;
   }
 
   static int l_update_world(lua_State *L)
   {
-    AOP::world.UpdateWorld(luaL_checknumber(L, 1), luaL_checknumber(L, 2));
+    AOP::world.UpdateWorld(luaL_checknumber(L, 1));
     return 0;
   }
 
@@ -47,9 +48,9 @@ extern "C"
 
   static int l_create_floor(lua_State *L)
   {
-    BoxParams box_params(luaL_checkstring(L, 1));
+    BodyParams body_params(luaL_checkstring(L, 1));
 
-    uint32 body_id = AOP::world.CreateFloor(box_params);
+    uint32 body_id = AOP::world.CreateFloor(body_params);
 
     lua_pushnumber(L, body_id);
     return 1;
@@ -57,9 +58,9 @@ extern "C"
 
   static int l_create_sphere(lua_State *L)
   {
-    SphereParams sphere_params(luaL_checkstring(L, 1));
+    BodyParams body_params(luaL_checkstring(L, 1));
 
-    uint32 body_id = AOP::world.CreateSphere(sphere_params);
+    uint32 body_id = AOP::world.CreateSphere(body_params);
 
     lua_pushnumber(L, body_id);
     return 1;
@@ -67,9 +68,9 @@ extern "C"
 
   static int l_create_box(lua_State *L)
   {
-    BoxParams box_params(luaL_checkstring(L, 1));
+    BodyParams body_params(luaL_checkstring(L, 1));
 
-    uint32 body_id = AOP::world.CreateBox(box_params);
+    uint32 body_id = AOP::world.CreateBox(body_params);
 
     lua_pushnumber(L, body_id);
     return 1;
@@ -77,9 +78,9 @@ extern "C"
 
   static int l_create_capsule(lua_State *L)
   {
-    CapsuleParams capsule_params(luaL_checkstring(L, 1));
+    BodyParams body_params(luaL_checkstring(L, 1));
 
-    uint32 body_id = AOP::world.CreateCapsule(capsule_params);
+    uint32 body_id = AOP::world.CreateCapsule(body_params);
 
     lua_pushnumber(L, body_id);
     return 1;
@@ -87,9 +88,9 @@ extern "C"
 
   static int l_create_cylinder(lua_State *L)
   {
-    CylinderParams cylinder_params(luaL_checkstring(L, 1));
+    BodyParams body_params(luaL_checkstring(L, 1));
 
-    uint32 body_id = AOP::world.CreateCylinder(cylinder_params);
+    uint32 body_id = AOP::world.CreateCylinder(body_params);
 
     lua_pushnumber(L, body_id);
     return 1;
@@ -104,24 +105,43 @@ extern "C"
     return 0;
   }
 
+  static int l_add_constraint(lua_State *L)
+  {
+
+    printf("Adding constraint\n");
+    printf("Data: %s\n", luaL_checkstring(L, 1));
+
+    ModParams mod_params(luaL_checkstring(L, 1));
+
+    printf("Body ID: %d\n", mod_params.GetBodyID().GetIndexAndSequenceNumber());
+    printf("Other Body ID: %d\n", mod_params.GetOtherID().GetIndexAndSequenceNumber());
+
+    AOP::world.AddContraint(mod_params);
+
+    return 0;
+  }
+
   // library to be registered
-  static const struct luaL_Reg jolt_funcs[] = {
+  static const struct luaL_Reg aop_funcs[] = {
       {"create_world", l_create_world},
-      {"update_world", l_create_world},
+      {"update_world", l_update_world},
       {"destroy_world", l_destroy_world},
       {"get_world_state", l_get_world_state},
+
       {"create_floor", l_create_floor},
       {"create_sphere", l_create_sphere},
       {"create_box", l_create_box},
       {"create_capsule", l_create_capsule},
       {"create_cylinder", l_create_cylinder},
+
       {"set_linear_velocity", l_set_linear_velocity},
+      {"add_constraint", l_add_constraint},
       {NULL, NULL} /* sentinel */
   };
 
-  int luaopen_jolt(lua_State *L)
+  int luaopen_AOP(lua_State *L)
   {
-    luaL_newlib(L, jolt_funcs);
+    luaL_newlib(L, aop_funcs);
     return 1;
   }
 
