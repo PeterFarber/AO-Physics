@@ -1,7 +1,7 @@
 #ifndef AOP_PARAMS_H
 #define AOP_PARAMS_H
 
-#include "Core.h"
+#include "./Core/Core.h"
 #include "Helpers.h"
 
 class WorldParams
@@ -87,7 +87,7 @@ public:
             mLinearVelocity = Vec3(j.at("linearVelocity").at(0).get<double>(), j.at("linearVelocity").at(1).get<double>(), j.at("linearVelocity").at(2).get<double>());
         if (j.contains("angularVelocity"))
             mAngularVelocity = Vec3(j.at("angularVelocity").at(0).get<double>(), j.at("angularVelocity").at(1).get<double>(), j.at("angularVelocity").at(2).get<double>());
-        
+
         if (j.contains("motionType"))
             mMotionType = Helpers::GetMotionType(j.at("motionType").get<std::string>());
         if (j.contains("layer"))
@@ -140,49 +140,188 @@ public:
     Vec3 GetSize() { return mSize; }
     float GetRadius() { return mRadius; }
     float GetHeight() { return mHeight; }
+};
 
+class ConstraintParams
+{
+protected:
+    BodyID mBody1ID;
+    BodyID mBody2ID;
+
+    EConstraintSubType mType = EConstraintSubType::Fixed;
+    EConstraintSpace mSpace = EConstraintSpace::WorldSpace;
+    bool mAutoDetectPoint = false;
+
+    Vec3 mPoint1 = Vec3::sZero();
+    Vec3 mAxisX1 = Vec3::sAxisX();
+    Vec3 mAxisY1 = Vec3::sAxisY();
+    Vec3 mTwistAxis1 = Vec3::sAxisX();
+
+    Vec3 mHingeAxis1 = Vec3::sAxisY();
+    Vec3 mNormalAxis1 = Vec3::sAxisX();
+
+    Vec3 mPoint2 = Vec3::sZero();
+    Vec3 mAxisX2 = Vec3::sAxisX();
+    Vec3 mAxisY2 = Vec3::sAxisY();
+    Vec3 mTwistAxis2 = Vec3::sAxisX();
+
+    Vec3 mHingeAxis2 = Vec3::sAxisY();
+    Vec3 mNormalAxis2 = Vec3::sAxisX();
+
+    Vec3 mBodyPoint1 = Vec3::sZero();
+    Vec3 mFixedPoint1 = Vec3::sZero();
+
+    Vec3 mBodyPoint2 = Vec3::sZero();
+    Vec3 mFixedPoint2 = Vec3::sZero();
+
+    float mRatio = 1.0f;
+    float mMinLength = 0.0f;
+    float mMaxLength = -1.0f;
+    float mMinDistance = -1.0f;
+    float mMaxDistance = -1.0f;
+    float mLimitsMin = -JPH_PI;
+    float mLimitsMax = JPH_PI;
+    float mMaxFrictionTorque = 0.0f;
+    float mHalfConeAngle = 0.0f;
+
+public:
+    ConstraintParams(const char *params)
+    {
+        json j = json::parse(params);
+
+        if (j.contains("body1ID"))
+            mBody1ID = BodyID(j.at("body1ID").get<uint32_t>());
+        if (j.contains("body2ID"))
+            mBody2ID = BodyID(j.at("body2ID").get<uint32_t>());
+
+        if (j.contains("type"))
+            mType = Helpers::GetConstraintSubType(j.at("type").get<std::string>());
+        if (j.contains("space"))
+            mSpace = Helpers::GetConstraintSpace(j.at("space").get<std::string>());
+        if (j.contains("autoDetectPoint"))
+            mAutoDetectPoint = j.at("autoDetectPoint").get<bool>();
+
+        if (j.contains("point1"))
+            mPoint1 = Vec3(j.at("point1").at(0).get<double>(), j.at("point1").at(1).get<double>(), j.at("point1").at(2).get<double>());
+        if (j.contains("axisX1"))
+            mAxisX1 = Vec3(j.at("axisX1").at(0).get<double>(), j.at("axisX1").at(1).get<double>(), j.at("axisX1").at(2).get<double>());
+        if (j.contains("axisY1"))
+            mAxisY1 = Vec3(j.at("axisY1").at(0).get<double>(), j.at("axisY1").at(1).get<double>(), j.at("axisY1").at(2).get<double>());
+        if (j.contains("twistAxis1"))
+            mTwistAxis1 = Vec3(j.at("twistAxis1").at(0).get<double>(), j.at("twistAxis1").at(1).get<double>(), j.at("twistAxis1").at(2).get<double>());
+
+        if (j.contains("hingeAxis1"))
+            mHingeAxis1 = Vec3(j.at("hingeAxis1").at(0).get<double>(), j.at("hingeAxis1").at(1).get<double>(), j.at("hingeAxis1").at(2).get<double>());
+        if (j.contains("normalAxis1"))
+            mNormalAxis1 = Vec3(j.at("normalAxis1").at(0).get<double>(), j.at("normalAxis1").at(1).get<double>(), j.at("normalAxis1").at(2).get<double>());
+
+        if (j.contains("point2"))
+            mPoint2 = Vec3(j.at("point2").at(0).get<double>(), j.at("point2").at(1).get<double>(), j.at("point2").at(2).get<double>());
+        if (j.contains("axisX2"))
+            mAxisX2 = Vec3(j.at("axisX2").at(0).get<double>(), j.at("axisX2").at(1).get<double>(), j.at("axisX2").at(2).get<double>());
+        if (j.contains("axisY2"))
+            mAxisY2 = Vec3(j.at("axisY2").at(0).get<double>(), j.at("axisY2").at(1).get<double>(), j.at("axisY2").at(2).get<double>());
+        if (j.contains("twistAxis2"))
+            mTwistAxis2 = Vec3(j.at("twistAxis2").at(0).get<double>(), j.at("twistAxis2").at(1).get<double>(), j.at("twistAxis2").at(2).get<double>());
+
+        if (j.contains("hingeAxis2"))
+            mHingeAxis2 = Vec3(j.at("hingeAxis2").at(0).get<double>(), j.at("hingeAxis2").at(1).get<double>(), j.at("hingeAxis2").at(2).get<double>());
+        if (j.contains("normalAxis2"))
+            mNormalAxis2 = Vec3(j.at("normalAxis2").at(0).get<double>(), j.at("normalAxis2").at(1).get<double>(), j.at("normalAxis2").at(2).get<double>());
+
+        if (j.contains("bodyPoint1"))
+            mBodyPoint1 = Vec3(j.at("bodyPoint1").at(0).get<double>(), j.at("bodyPoint1").at(1).get<double>(), j.at("bodyPoint1").at(2).get<double>());
+        if (j.contains("fixedPoint1"))
+            mFixedPoint1 = Vec3(j.at("fixedPoint1").at(0).get<double>(), j.at("fixedPoint1").at(1).get<double>(), j.at("fixedPoint1").at(2).get<double>());
+
+        if (j.contains("bodyPoint2"))
+            mBodyPoint2 = Vec3(j.at("bodyPoint2").at(0).get<double>(), j.at("bodyPoint2").at(1).get<double>(), j.at("bodyPoint2").at(2).get<double>());
+        if (j.contains("fixedPoint2"))
+            mFixedPoint2 = Vec3(j.at("fixedPoint2").at(0).get<double>(), j.at("fixedPoint2").at(1).get<double>(), j.at("fixedPoint2").at(2).get<double>());
+
+        if (j.contains("ratio"))
+            mRatio = j.at("ratio").get<float>();
+        if (j.contains("minLength"))
+            mMinLength = j.at("minLength").get<float>();
+        if (j.contains("maxLength"))
+            mMaxLength = j.at("maxLength").get<float>();
+        if (j.contains("minDistance"))
+            mMinDistance = j.at("minDistance").get<float>();
+        if (j.contains("maxDistance"))
+            mMaxDistance = j.at("maxDistance").get<float>();
+        if (j.contains("limitsMin"))
+            mLimitsMin = j.at("limitsMin").get<float>();
+        if (j.contains("limitsMax"))
+            mLimitsMax = j.at("limitsMax").get<float>();
+        if (j.contains("maxFrictionTorque"))
+            mMaxFrictionTorque = j.at("maxFrictionTorque").get<float>();
+        if (j.contains("halfConeAngle"))
+            mHalfConeAngle = j.at("halfConeAngle").get<float>();
+    }
+
+public:
+    BodyID GetBody1ID() { return mBody1ID; }
+    BodyID GetBody2ID() { return mBody2ID; }
+
+    EConstraintSubType GetType() { return mType; }
+    EConstraintSpace GetSpace() { return mSpace; }
+    bool GetAutoDetectPoint() { return mAutoDetectPoint; }
+
+    Vec3 GetPoint1() { return mPoint1; }
+    Vec3 GetAxisX1() { return mAxisX1; }
+    Vec3 GetAxisY1() { return mAxisY1; }
+    Vec3 GetTwistAxis1() { return mTwistAxis1; }
+
+    Vec3 GetHingeAxis1() { return mHingeAxis1; }
+    Vec3 GetNormalAxis1() { return mNormalAxis1; }
+
+    Vec3 GetPoint2() { return mPoint2; }
+    Vec3 GetAxisX2() { return mAxisX2; }
+    Vec3 GetAxisY2() { return mAxisY2; }
+    Vec3 GetTwistAxis2() { return mTwistAxis2; }
+
+    Vec3 GetHingeAxis2() { return mHingeAxis2; }
+    Vec3 GetNormalAxis2() { return mNormalAxis2; }
+
+    Vec3 GetBodyPoint1() { return mBodyPoint1; }
+    Vec3 GetFixedPoint1() { return mFixedPoint1; }
+
+    Vec3 GetBodyPoint2() { return mBodyPoint2; }
+    Vec3 GetFixedPoint2() { return mFixedPoint2; }
+
+    float GetRatio() { return mRatio; }
+    float GetMinLength() { return mMinLength; }
+    float GetMaxLength() { return mMaxLength; }
+    float GetMinDistance() { return mMinDistance; }
+    float GetMaxDistance() { return mMaxDistance; }
+    float GetLimitsMin() { return mLimitsMin; }
+    float GetLimitsMax() { return mLimitsMax; }
+    float GetMaxFrictionTorque() { return mMaxFrictionTorque; }
+    float GetHalfConeAngle() { return mHalfConeAngle; }
 };
 
 class ModParams
 {
-protected:
     BodyID mBodyID;
-    BodyID mOtherID;
     Vec3 mVelocity = Vec3(0, 0, 0);
     Quat mRotation = Quat::sIdentity();
 
 public:
     ModParams(const char *params)
     {
-        printf("ModParams: %s\n", params);
         json j = json::parse(params);
-        if (!j.contains("bodyID"))
-        {
-            JPH_ASSERT(false, "bodyID is required");
-        }
 
-        mBodyID = BodyID(j.at("bodyID").get<uint32_t>());
-
-        if (j.contains("otherID"))
-        {
-            mOtherID = BodyID(j.at("otherID").get<uint32_t>());
-        }
+        if (j.contains("bodyID"))
+            mBodyID = BodyID(j.at("bodyID").get<uint32_t>());
 
         if (j.contains("velocity"))
-        {
             mVelocity = Vec3(j.at("velocity").at(0).get<double>(), j.at("velocity").at(1).get<double>(), j.at("velocity").at(2).get<double>());
-        }
-
         if (j.contains("rotation"))
-        {
             mRotation = Quat(j.at("rotation").at(0).get<double>(), j.at("rotation").at(1).get<double>(), j.at("rotation").at(2).get<double>(), j.at("rotation").at(3).get<double>());
-        }
     }
-    BodyID GetBodyID() { return mBodyID; }
-    BodyID GetOtherID() { return mOtherID; }
 
+    BodyID GetBodyID() { return mBodyID; }
     Vec3 GetVelocity() { return mVelocity; }
     Quat GetRotation() { return mRotation; }
 };
-
 #endif

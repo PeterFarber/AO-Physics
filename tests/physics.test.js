@@ -59,7 +59,7 @@ describe('Physics Tests', async () => {
 
   // output to a file dont escape the characters
   fs.writeFileSync('jolt.json', result.response.Output.data)
-  console.log(result.response.Output.data)
+  // console.log(result.response.Output.data)
     assert.ok(result.response.Output.data.length >= 1)
   })
 

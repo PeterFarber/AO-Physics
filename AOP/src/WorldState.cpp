@@ -3,8 +3,27 @@
 namespace AOP
 {
 
+    WorldState *WorldState::sInstance = nullptr;
+    
+    /**
+     * Static methods should be defined outside the class.
+     */
+    WorldState *WorldState::GetInstance()
+    {
+        /**
+         * This is a safer way to create an instance. instance = new Singleton is
+         * dangeruous in case two instance threads wants to access at the same time
+         */
+        if (sInstance == nullptr)
+        {
+            sInstance = new WorldState();
+        }
+        return sInstance;
+    }
+
     void WorldState::Init(WorldParams params)
     {
+
         if (is_initialized)
             return;
 
@@ -27,14 +46,12 @@ namespace AOP
         physics_system->SetBodyActivationListener(body_activation_listener);
         physics_system->SetContactListener(contact_listener);
 
-
         physics_system->SetGravity(params.GetGravity());
 
         PhysicsSettings ps = physics_system->GetPhysicsSettings();
         ps.mAllowSleeping = params.GetAllowSleeping();
         ps.mTimeBeforeSleep = params.GetTimeBeforeSleep();
         physics_system->SetPhysicsSettings(ps);
-
 
         body_interface = &physics_system->GetBodyInterface();
 

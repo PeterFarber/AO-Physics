@@ -1,12 +1,11 @@
 #ifndef AOP_WORLD_STATE_H
 #define AOP_WORLD_STATE_H
 
-#include "Core.h"
-#include "BodyActivationListener.h"
-#include "ContactListener.h"
-#include "Layers.h"
+#include "./Core/Core.h"
+#include "./Core/BodyActivationListener.h"
+#include "./Core/ContactListener.h"
+#include "./Core/Layers.h"
 #include "Params.h"
-
 
 namespace AOP
 {
@@ -38,6 +37,29 @@ namespace AOP
 
     class WorldState
     {
+    protected:
+        WorldState(){}; // Constructor is protected to prevent instantiation
+        // Singleton instance
+        static WorldState *sInstance;
+
+    public:
+        /**
+         * Singletons should not be cloneable.
+         */
+        WorldState(WorldState &other) = delete;
+        /**
+         * Singletons should not be assignable.
+         */
+        void operator=(const WorldState &) = delete;
+
+        /**
+         * This is the static method that controls the access to the singleton
+         * instance. On the first run, it creates a singleton object and places it
+         * into the static field. On subsequent runs, it returns the client existing
+         * object stored in the static field.
+         */
+        static WorldState *GetInstance();
+
     private:
         bool is_initialized = false;
 
@@ -68,4 +90,4 @@ namespace AOP
     };
 }
 
-#endif 
+#endif

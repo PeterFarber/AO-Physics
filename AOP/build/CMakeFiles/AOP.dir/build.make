@@ -97,35 +97,19 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AOP.dir/src/WorldState.cpp.s"
 	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /AOP/src/WorldState.cpp -o CMakeFiles/AOP.dir/src/WorldState.cpp.s
 
-CMakeFiles/AOP.dir/src/World.cpp.o: CMakeFiles/AOP.dir/flags.make
-CMakeFiles/AOP.dir/src/World.cpp.o: ../src/World.cpp
-CMakeFiles/AOP.dir/src/World.cpp.o: CMakeFiles/AOP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/AOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AOP.dir/src/World.cpp.o"
-	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AOP.dir/src/World.cpp.o -MF CMakeFiles/AOP.dir/src/World.cpp.o.d -o CMakeFiles/AOP.dir/src/World.cpp.o -c /AOP/src/World.cpp
-
-CMakeFiles/AOP.dir/src/World.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AOP.dir/src/World.cpp.i"
-	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /AOP/src/World.cpp > CMakeFiles/AOP.dir/src/World.cpp.i
-
-CMakeFiles/AOP.dir/src/World.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AOP.dir/src/World.cpp.s"
-	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /AOP/src/World.cpp -o CMakeFiles/AOP.dir/src/World.cpp.s
-
 # Object files for target AOP
 AOP_OBJECTS = \
 "CMakeFiles/AOP.dir/aop.cpp.o" \
-"CMakeFiles/AOP.dir/src/WorldState.cpp.o" \
-"CMakeFiles/AOP.dir/src/World.cpp.o"
+"CMakeFiles/AOP.dir/src/WorldState.cpp.o"
 
 # External object files for target AOP
 AOP_EXTERNAL_OBJECTS =
 
 libAOP.a: CMakeFiles/AOP.dir/aop.cpp.o
 libAOP.a: CMakeFiles/AOP.dir/src/WorldState.cpp.o
-libAOP.a: CMakeFiles/AOP.dir/src/World.cpp.o
 libAOP.a: CMakeFiles/AOP.dir/build.make
 libAOP.a: CMakeFiles/AOP.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/AOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libAOP.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/AOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libAOP.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/AOP.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AOP.dir/link.txt --verbose=$(VERBOSE)
 

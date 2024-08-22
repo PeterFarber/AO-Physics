@@ -18,13 +18,25 @@
 #include "Jolt/Physics/Collision/Shape/CapsuleShape.h"
 #include "Jolt/Physics/Collision/Shape/CylinderShape.h"
 
+// Include all constraints
+#include "Jolt/Physics/Constraints/ConeConstraint.h"
+#include "Jolt/Physics/Constraints/DistanceConstraint.h"
 #include "Jolt/Physics/Constraints/FixedConstraint.h"
+#include "Jolt/Physics/Constraints/GearConstraint.h"
+#include "Jolt/Physics/Constraints/HingeConstraint.h"
+#include "Jolt/Physics/Constraints/PathConstraint.h"
+#include "Jolt/Physics/Constraints/PointConstraint.h"   
+#include "Jolt/Physics/Constraints/PulleyConstraint.h"
+#include "Jolt/Physics/Constraints/RackAndPinionConstraint.h"
+#include "Jolt/Physics/Constraints/SliderConstraint.h"
+#include "Jolt/Physics/Constraints/SwingTwistConstraint.h"
+
 
 #include "Jolt/Physics/Body/BodyCreationSettings.h"
 #include "Jolt/Physics/Body/BodyActivationListener.h"
 #include <iostream>
 
-#include "../vendors/json.hpp"
+#include "../../vendors/json.hpp"
 
 using json = nlohmann::json;
 

@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/AOP.dir/aop.cpp.o"
   "CMakeFiles/AOP.dir/aop.cpp.o.d"
-  "CMakeFiles/AOP.dir/src/World.cpp.o"
-  "CMakeFiles/AOP.dir/src/World.cpp.o.d"
   "CMakeFiles/AOP.dir/src/WorldState.cpp.o"
   "CMakeFiles/AOP.dir/src/WorldState.cpp.o.d"
   "libAOP.a"

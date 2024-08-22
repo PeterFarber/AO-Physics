@@ -8,7 +8,9 @@
 #include "lauxlib.h"
 #endif
 
-#include "src/World.h"
+#include "src/Creators/WorldCreator.h"
+#include "src/Creators/BodyCreator.h"
+#include "src/Creators/ConstraintCreator.h"
 #include "src/Helpers.h"
 #include "src/Params.h"
 
@@ -23,25 +25,25 @@ extern "C"
   static int l_create_world(lua_State *L)
   {
     WorldParams world_params(luaL_checkstring(L, 1));
-    AOP::world.CreateWorld(world_params);
+    AOP::WorldCreator::CreateWorld(world_params);
     return 0;
   }
 
   static int l_update_world(lua_State *L)
   {
-    AOP::world.UpdateWorld(luaL_checknumber(L, 1));
+     AOP::WorldCreator::UpdateWorld(luaL_checknumber(L, 1));
     return 0;
   }
 
   static int l_destroy_world(lua_State *L)
   {
-    AOP::world.DestroyWorld();
+     AOP::WorldCreator::DestroyWorld();
     return 0;
   }
 
   static int l_get_world_state(lua_State *L)
   {
-    json world_state_json = AOP::world.GetWorldState();
+    json world_state_json = AOP::WorldCreator::GetWorldState();
     lua_pushstring(L, world_state_json.dump().c_str());
     return 1;
   }
@@ -50,7 +52,7 @@ extern "C"
   {
     BodyParams body_params(luaL_checkstring(L, 1));
 
-    uint32 body_id = AOP::world.CreateFloor(body_params);
+    uint32 body_id =  AOP::BodyCreator::CreateFloor(body_params);
 
     lua_pushnumber(L, body_id);
     return 1;
@@ -60,7 +62,7 @@ extern "C"
   {
     BodyParams body_params(luaL_checkstring(L, 1));
 
-    uint32 body_id = AOP::world.CreateSphere(body_params);
+    uint32 body_id =AOP::BodyCreator::CreateSphere(body_params);
 
     lua_pushnumber(L, body_id);
     return 1;
@@ -70,7 +72,7 @@ extern "C"
   {
     BodyParams body_params(luaL_checkstring(L, 1));
 
-    uint32 body_id = AOP::world.CreateBox(body_params);
+    uint32 body_id = AOP::BodyCreator::CreateBox(body_params);
 
     lua_pushnumber(L, body_id);
     return 1;
@@ -80,7 +82,7 @@ extern "C"
   {
     BodyParams body_params(luaL_checkstring(L, 1));
 
-    uint32 body_id = AOP::world.CreateCapsule(body_params);
+    uint32 body_id = AOP::BodyCreator::CreateCapsule(body_params);
 
     lua_pushnumber(L, body_id);
     return 1;
@@ -90,7 +92,7 @@ extern "C"
   {
     BodyParams body_params(luaL_checkstring(L, 1));
 
-    uint32 body_id = AOP::world.CreateCylinder(body_params);
+    uint32 body_id = AOP::BodyCreator::CreateCylinder(body_params);
 
     lua_pushnumber(L, body_id);
     return 1;
@@ -100,7 +102,7 @@ extern "C"
   {
     ModParams mod_params(luaL_checkstring(L, 1));
 
-    AOP::world.SetLinearVelocity(mod_params);
+    AOP::WorldCreator::SetLinearVelocity(mod_params);
 
     return 0;
   }
@@ -108,15 +110,10 @@ extern "C"
   static int l_add_constraint(lua_State *L)
   {
 
-    printf("Adding constraint\n");
-    printf("Data: %s\n", luaL_checkstring(L, 1));
+    ConstraintParams constraint_params(luaL_checkstring(L, 1));
 
-    ModParams mod_params(luaL_checkstring(L, 1));
 
-    printf("Body ID: %d\n", mod_params.GetBodyID().GetIndexAndSequenceNumber());
-    printf("Other Body ID: %d\n", mod_params.GetOtherID().GetIndexAndSequenceNumber());
-
-    AOP::world.AddContraint(mod_params);
+    AOP::ConstraintCreator::AddContraint(constraint_params);
 
     return 0;
   }

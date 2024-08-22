@@ -6,7 +6,6 @@ project(AOP CXX)
 set(AOP_SRC_FILES
 	aop.cpp
 	src/WorldState.cpp
-	src/World.cpp
 )
 
 

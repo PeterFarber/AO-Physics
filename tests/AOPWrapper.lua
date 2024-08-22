@@ -46,6 +46,47 @@ function BodyParams:new(o)
   return o
 end
 
+
+ConstraintParams = {
+  body1ID = nil,
+  body2ID = nil,
+  type = "Distance",
+  space = "WorldSpace",
+  autoDetectPoint = false,
+  point1 = { 0, 0, 0 },
+  axisX1 = { 1, 0, 0 },
+  axisY1 = { 0, 1, 0 },
+  twistAxis1 = { 1, 0, 0 },
+  hingeAxis1 = { 0, 1, 0 },
+  normalAxis1 = { 1, 0, 0 },
+  point2 = { 0, 0, 0 },
+  axisX2 = { 1, 0, 0 },
+  axisY2 = { 0, 1, 0 },
+  twistAxis2 = { 1, 0, 0 },
+  hingeAxis2 = { 0, 1, 0 },
+  normalAxis2 = { 1, 0, 0 },
+  bodyPoint1 = { 0, 0, 0 },
+  fixedPoint1 = { 0, 0, 0 },
+  bodyPoint2 = { 0, 0, 0 },
+  fixedPoint2 = { 0, 0, 0 },
+  ratio = 1.0,
+  minLength = 0.0,
+  maxLength = -1.0,
+  minDistance = -1.0,
+  maxDistance = -1.0,
+  limitsMin = -3.14159265359,
+  limitsMax = 3.14159265359,
+  maxFrictionTorque = 0.0,
+  halfConeAngle = 0.0,
+}
+
+function ConstraintParams:new(o)
+  o = o or {}
+  setmetatable(o, self)
+  self.__index = self
+  return o
+end
+
 ModParams = {
   bodyID = nil,
   otherID = nil,
@@ -63,6 +104,7 @@ end
 AOP = {
   BodyParams = BodyParams,
   WorldParams = WorldParams,
+  ConstraintParams = ConstraintParams,
   ModParams = ModParams,
   WorldStates = {}
 }
@@ -126,6 +168,11 @@ end
 function AOP:SetLinearVelocity(modParams)
   _AOP.set_linear_velocity(json.encode(modParams))
 end
+
+function AOP:AddContraint(constraintParams)
+  _AOP.add_constraint(json.encode(constraintParams))
+end
+
 
 
 return AOP

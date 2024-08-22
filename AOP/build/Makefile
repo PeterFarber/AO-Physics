@@ -153,30 +153,6 @@ aop.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/aop.cpp.s
 .PHONY : aop.cpp.s
 
-src/World.o: src/World.cpp.o
-.PHONY : src/World.o
-
-# target to build an object file
-src/World.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/World.cpp.o
-.PHONY : src/World.cpp.o
-
-src/World.i: src/World.cpp.i
-.PHONY : src/World.i
-
-# target to preprocess a source file
-src/World.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/World.cpp.i
-.PHONY : src/World.cpp.i
-
-src/World.s: src/World.cpp.s
-.PHONY : src/World.s
-
-# target to generate assembly for a file
-src/World.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/World.cpp.s
-.PHONY : src/World.cpp.s
-
 src/WorldState.o: src/WorldState.cpp.o
 .PHONY : src/WorldState.o
 
@@ -213,9 +189,6 @@ help:
 	@echo "... aop.o"
 	@echo "... aop.i"
 	@echo "... aop.s"
-	@echo "... src/World.o"
-	@echo "... src/World.i"
-	@echo "... src/World.s"
 	@echo "... src/WorldState.o"
 	@echo "... src/WorldState.i"
 	@echo "... src/WorldState.s"

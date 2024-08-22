@@ -1,5 +1,5 @@
 CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
-  /AOP/src/WorldState.h /AOP/src/Core.h /jolt/Jolt/Jolt.h \
+  /AOP/src/WorldState.h /AOP/src/./Core/Core.h /jolt/Jolt/Jolt.h \
   /jolt/Jolt/Core/Core.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/float.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config \
@@ -990,14 +990,33 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /jolt/Jolt/Physics/Collision/Shape/SphereShape.h \
   /jolt/Jolt/Physics/Collision/Shape/CapsuleShape.h \
   /jolt/Jolt/Physics/Collision/Shape/CylinderShape.h \
-  /jolt/Jolt/Physics/Constraints/FixedConstraint.h \
+  /jolt/Jolt/Physics/Constraints/ConeConstraint.h \
   /jolt/Jolt/Physics/Constraints/TwoBodyConstraint.h \
-  /jolt/Jolt/Physics/Constraints/ConstraintPart/RotationEulerConstraintPart.h \
   /jolt/Jolt/Physics/Constraints/ConstraintPart/PointConstraintPart.h \
+  /jolt/Jolt/Physics/Constraints/ConstraintPart/AngleConstraintPart.h \
+  /jolt/Jolt/Physics/Constraints/DistanceConstraint.h \
+  /jolt/Jolt/Physics/Constraints/FixedConstraint.h \
+  /jolt/Jolt/Physics/Constraints/ConstraintPart/RotationEulerConstraintPart.h \
+  /jolt/Jolt/Physics/Constraints/GearConstraint.h \
+  /jolt/Jolt/Physics/Constraints/ConstraintPart/GearConstraintPart.h \
+  /jolt/Jolt/Physics/Constraints/HingeConstraint.h \
+  /jolt/Jolt/Physics/Constraints/MotorSettings.h \
+  /jolt/Jolt/Physics/Constraints/ConstraintPart/HingeRotationConstraintPart.h \
+  /jolt/Jolt/Physics/Constraints/PathConstraint.h \
+  /jolt/Jolt/Physics/Constraints/PathConstraintPath.h \
+  /jolt/Jolt/Physics/Constraints/PointConstraint.h \
+  /jolt/Jolt/Physics/Constraints/PulleyConstraint.h \
+  /jolt/Jolt/Physics/Constraints/ConstraintPart/IndependentAxisConstraintPart.h \
+  /jolt/Jolt/Physics/Constraints/RackAndPinionConstraint.h \
+  /jolt/Jolt/Physics/Constraints/ConstraintPart/RackAndPinionConstraintPart.h \
+  /jolt/Jolt/Physics/Constraints/SliderConstraint.h \
+  /jolt/Jolt/Physics/Constraints/SwingTwistConstraint.h \
+  /jolt/Jolt/Physics/Constraints/ConstraintPart/SwingTwistConstraintPart.h \
+  /jolt/Jolt/Geometry/Ellipse.h /jolt/Jolt/Math/Float2.h \
   /jolt/Jolt/Physics/Body/BodyCreationSettings.h \
   /jolt/Jolt/Physics/Body/BodyActivationListener.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/iostream \
-  /AOP/src/../vendors/json.hpp \
+  /AOP/src/./Core/../../vendors/json.hpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/map \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tree \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/valarray \
@@ -1022,5 +1041,6 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/u8path.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/any \
-  /AOP/src/BodyActivationListener.h /AOP/src/ContactListener.h \
-  /AOP/src/Layers.h /AOP/src/Params.h /AOP/src/Helpers.h
+  /AOP/src/./Core/BodyActivationListener.h \
+  /AOP/src/./Core/ContactListener.h /AOP/src/./Core/Layers.h \
+  /AOP/src/Params.h /AOP/src/Helpers.h
