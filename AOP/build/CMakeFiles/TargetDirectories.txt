@@ -1,3 +1,0 @@
-/AOP/build/CMakeFiles/AOP.dir
-/AOP/build/CMakeFiles/edit_cache.dir
-/AOP/build/CMakeFiles/rebuild_cache.dir

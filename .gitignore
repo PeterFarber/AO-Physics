@@ -3,7 +3,7 @@ node_modules
 .cache/
 
 jolt
-lua_jolt/build
+AOP/build
 
 aos/process/libs
 
