@@ -1,7 +1,11 @@
 #ifndef AO_LAYERS_H
 #define AO_LAYERS_H
 
-#include "Core.h"
+
+#include "../Core/Core.h"
+
+#include "Jolt/Physics/Collision/ObjectLayer.h"
+#include "Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h"
 
 // Layer that objects can be in, determines which other objects it can collide with
 // Typically you at least want to have 1 layer for moving bodies and 1 layer for static bodies, but you can have more

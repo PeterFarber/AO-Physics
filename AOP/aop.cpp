@@ -8,11 +8,9 @@
 #include "lauxlib.h"
 #endif
 
-#include "src/Creators/WorldCreator.h"
-#include "src/Creators/BodyCreator.h"
-#include "src/Creators/ConstraintCreator.h"
-#include "src/Helpers.h"
-#include "src/Params.h"
+#include "src/AWorld.h"
+// #include "src/Helpers.h"
+// #include "src/Params.h"
 
 // so that name mangling doesn't mess up function names
 #ifdef __cplusplus
@@ -20,79 +18,49 @@ extern "C"
 {
 #endif
 
+  static int l_create_character(lua_State *L)
+  {
+    uint32 body_id = AOP::AWorld::GetInstance()->mCharacterManager->CreateCharacter(luaL_checkstring(L, 1));
+    lua_pushnumber(L, body_id);
+    return 1;
+  }
 
+  static int l_move_character(lua_State *L)
+  {
+    AOP::AWorld::GetInstance()->mCharacterManager->MoveCharacter(luaL_checkstring(L, 1));
+    return 0;
+  }
 
   static int l_create_world(lua_State *L)
   {
     WorldParams world_params(luaL_checkstring(L, 1));
-    AOP::WorldCreator::CreateWorld(world_params);
+    AOP::AWorld::GetInstance()->Create(world_params);
     return 0;
   }
 
   static int l_update_world(lua_State *L)
   {
-     AOP::WorldCreator::UpdateWorld(luaL_checknumber(L, 1));
+    AOP::AWorld::GetInstance()->Update();
     return 0;
   }
 
   static int l_destroy_world(lua_State *L)
   {
-     AOP::WorldCreator::DestroyWorld();
+    AOP::AWorld::GetInstance()->Destroy();
     return 0;
   }
 
   static int l_get_world_state(lua_State *L)
   {
-    json world_state_json = AOP::WorldCreator::GetWorldState();
+    json world_state_json = AOP::AWorld::GetInstance()->GetWorldState();
     lua_pushstring(L, world_state_json.dump().c_str());
     return 1;
   }
 
-  static int l_create_floor(lua_State *L)
+  static int l_create_body(lua_State *L)
   {
-    BodyParams body_params(luaL_checkstring(L, 1));
 
-    uint32 body_id =  AOP::BodyCreator::CreateFloor(body_params);
-
-    lua_pushnumber(L, body_id);
-    return 1;
-  }
-
-  static int l_create_sphere(lua_State *L)
-  {
-    BodyParams body_params(luaL_checkstring(L, 1));
-
-    uint32 body_id =AOP::BodyCreator::CreateSphere(body_params);
-
-    lua_pushnumber(L, body_id);
-    return 1;
-  }
-
-  static int l_create_box(lua_State *L)
-  {
-    BodyParams body_params(luaL_checkstring(L, 1));
-
-    uint32 body_id = AOP::BodyCreator::CreateBox(body_params);
-
-    lua_pushnumber(L, body_id);
-    return 1;
-  }
-
-  static int l_create_capsule(lua_State *L)
-  {
-    BodyParams body_params(luaL_checkstring(L, 1));
-
-    uint32 body_id = AOP::BodyCreator::CreateCapsule(body_params);
-
-    lua_pushnumber(L, body_id);
-    return 1;
-  }
-
-  static int l_create_cylinder(lua_State *L)
-  {
-    BodyParams body_params(luaL_checkstring(L, 1));
-
-    uint32 body_id = AOP::BodyCreator::CreateCylinder(body_params);
+    uint32 body_id = AOP::AWorld::GetInstance()->mBodyManager->CreateBody(luaL_checkstring(L, 1));
 
     lua_pushnumber(L, body_id);
     return 1;
@@ -102,7 +70,7 @@ extern "C"
   {
     ModParams mod_params(luaL_checkstring(L, 1));
 
-    AOP::WorldCreator::SetLinearVelocity(mod_params);
+    AOP::AWorld::GetInstance()->SetLinearVelocity(mod_params);
 
     return 0;
   }
@@ -110,28 +78,25 @@ extern "C"
   static int l_add_constraint(lua_State *L)
   {
 
-    ConstraintParams constraint_params(luaL_checkstring(L, 1));
-
-
-    AOP::ConstraintCreator::AddContraint(constraint_params);
+    AOP::AWorld::GetInstance()->mConstraintManager->AddConstraint(luaL_checkstring(L, 1));
 
     return 0;
   }
 
   // library to be registered
   static const struct luaL_Reg aop_funcs[] = {
-      {"create_world", l_create_world},
-      {"update_world", l_update_world},
-      {"destroy_world", l_destroy_world},
+      {"add_character", l_create_character},
+      {"move_character", l_move_character},
+
+      {"world_create", l_create_world},
+      {"world_update", l_update_world},
+      {"world_destroy", l_destroy_world},
       {"get_world_state", l_get_world_state},
-
-      {"create_floor", l_create_floor},
-      {"create_sphere", l_create_sphere},
-      {"create_box", l_create_box},
-      {"create_capsule", l_create_capsule},
-      {"create_cylinder", l_create_cylinder},
-
       {"set_linear_velocity", l_set_linear_velocity},
+
+
+      {"add_body", l_create_body},
+
       {"add_constraint", l_add_constraint},
       {NULL, NULL} /* sentinel */
   };

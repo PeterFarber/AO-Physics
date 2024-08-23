@@ -83,33 +83,129 @@ CMakeFiles/AOP.dir/aop.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AOP.dir/aop.cpp.s"
 	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /AOP/aop.cpp -o CMakeFiles/AOP.dir/aop.cpp.s
 
-CMakeFiles/AOP.dir/src/WorldState.cpp.o: CMakeFiles/AOP.dir/flags.make
-CMakeFiles/AOP.dir/src/WorldState.cpp.o: ../src/WorldState.cpp
-CMakeFiles/AOP.dir/src/WorldState.cpp.o: CMakeFiles/AOP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/AOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AOP.dir/src/WorldState.cpp.o"
-	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AOP.dir/src/WorldState.cpp.o -MF CMakeFiles/AOP.dir/src/WorldState.cpp.o.d -o CMakeFiles/AOP.dir/src/WorldState.cpp.o -c /AOP/src/WorldState.cpp
+CMakeFiles/AOP.dir/src/AWorld.cpp.o: CMakeFiles/AOP.dir/flags.make
+CMakeFiles/AOP.dir/src/AWorld.cpp.o: ../src/AWorld.cpp
+CMakeFiles/AOP.dir/src/AWorld.cpp.o: CMakeFiles/AOP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/AOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AOP.dir/src/AWorld.cpp.o"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AOP.dir/src/AWorld.cpp.o -MF CMakeFiles/AOP.dir/src/AWorld.cpp.o.d -o CMakeFiles/AOP.dir/src/AWorld.cpp.o -c /AOP/src/AWorld.cpp
 
-CMakeFiles/AOP.dir/src/WorldState.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AOP.dir/src/WorldState.cpp.i"
-	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /AOP/src/WorldState.cpp > CMakeFiles/AOP.dir/src/WorldState.cpp.i
+CMakeFiles/AOP.dir/src/AWorld.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AOP.dir/src/AWorld.cpp.i"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /AOP/src/AWorld.cpp > CMakeFiles/AOP.dir/src/AWorld.cpp.i
 
-CMakeFiles/AOP.dir/src/WorldState.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AOP.dir/src/WorldState.cpp.s"
-	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /AOP/src/WorldState.cpp -o CMakeFiles/AOP.dir/src/WorldState.cpp.s
+CMakeFiles/AOP.dir/src/AWorld.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AOP.dir/src/AWorld.cpp.s"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /AOP/src/AWorld.cpp -o CMakeFiles/AOP.dir/src/AWorld.cpp.s
+
+CMakeFiles/AOP.dir/src/Types/ABody.cpp.o: CMakeFiles/AOP.dir/flags.make
+CMakeFiles/AOP.dir/src/Types/ABody.cpp.o: ../src/Types/ABody.cpp
+CMakeFiles/AOP.dir/src/Types/ABody.cpp.o: CMakeFiles/AOP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/AOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AOP.dir/src/Types/ABody.cpp.o"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AOP.dir/src/Types/ABody.cpp.o -MF CMakeFiles/AOP.dir/src/Types/ABody.cpp.o.d -o CMakeFiles/AOP.dir/src/Types/ABody.cpp.o -c /AOP/src/Types/ABody.cpp
+
+CMakeFiles/AOP.dir/src/Types/ABody.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AOP.dir/src/Types/ABody.cpp.i"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /AOP/src/Types/ABody.cpp > CMakeFiles/AOP.dir/src/Types/ABody.cpp.i
+
+CMakeFiles/AOP.dir/src/Types/ABody.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AOP.dir/src/Types/ABody.cpp.s"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /AOP/src/Types/ABody.cpp -o CMakeFiles/AOP.dir/src/Types/ABody.cpp.s
+
+CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.o: CMakeFiles/AOP.dir/flags.make
+CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.o: ../src/Managers/ABodyManager.cpp
+CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.o: CMakeFiles/AOP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/AOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.o"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.o -MF CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.o.d -o CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.o -c /AOP/src/Managers/ABodyManager.cpp
+
+CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.i"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /AOP/src/Managers/ABodyManager.cpp > CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.i
+
+CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.s"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /AOP/src/Managers/ABodyManager.cpp -o CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.s
+
+CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.o: CMakeFiles/AOP.dir/flags.make
+CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.o: ../src/Types/ACharacter.cpp
+CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.o: CMakeFiles/AOP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/AOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.o"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.o -MF CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.o.d -o CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.o -c /AOP/src/Types/ACharacter.cpp
+
+CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.i"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /AOP/src/Types/ACharacter.cpp > CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.i
+
+CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.s"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /AOP/src/Types/ACharacter.cpp -o CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.s
+
+CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.o: CMakeFiles/AOP.dir/flags.make
+CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.o: ../src/Managers/ACharacterManager.cpp
+CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.o: CMakeFiles/AOP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/AOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.o"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.o -MF CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.o.d -o CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.o -c /AOP/src/Managers/ACharacterManager.cpp
+
+CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.i"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /AOP/src/Managers/ACharacterManager.cpp > CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.i
+
+CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.s"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /AOP/src/Managers/ACharacterManager.cpp -o CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.s
+
+CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.o: CMakeFiles/AOP.dir/flags.make
+CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.o: ../src/Types/AConstraint.cpp
+CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.o: CMakeFiles/AOP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/AOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.o"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.o -MF CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.o.d -o CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.o -c /AOP/src/Types/AConstraint.cpp
+
+CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.i"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /AOP/src/Types/AConstraint.cpp > CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.i
+
+CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.s"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /AOP/src/Types/AConstraint.cpp -o CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.s
+
+CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.o: CMakeFiles/AOP.dir/flags.make
+CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.o: ../src/Managers/AConstraintManager.cpp
+CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.o: CMakeFiles/AOP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/AOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.o"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.o -MF CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.o.d -o CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.o -c /AOP/src/Managers/AConstraintManager.cpp
+
+CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.i"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /AOP/src/Managers/AConstraintManager.cpp > CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.i
+
+CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.s"
+	/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /AOP/src/Managers/AConstraintManager.cpp -o CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.s
 
 # Object files for target AOP
 AOP_OBJECTS = \
 "CMakeFiles/AOP.dir/aop.cpp.o" \
-"CMakeFiles/AOP.dir/src/WorldState.cpp.o"
+"CMakeFiles/AOP.dir/src/AWorld.cpp.o" \
+"CMakeFiles/AOP.dir/src/Types/ABody.cpp.o" \
+"CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.o" \
+"CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.o" \
+"CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.o" \
+"CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.o" \
+"CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.o"
 
 # External object files for target AOP
 AOP_EXTERNAL_OBJECTS =
 
 libAOP.a: CMakeFiles/AOP.dir/aop.cpp.o
-libAOP.a: CMakeFiles/AOP.dir/src/WorldState.cpp.o
+libAOP.a: CMakeFiles/AOP.dir/src/AWorld.cpp.o
+libAOP.a: CMakeFiles/AOP.dir/src/Types/ABody.cpp.o
+libAOP.a: CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.o
+libAOP.a: CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.o
+libAOP.a: CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.o
+libAOP.a: CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.o
+libAOP.a: CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.o
 libAOP.a: CMakeFiles/AOP.dir/build.make
 libAOP.a: CMakeFiles/AOP.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/AOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libAOP.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/AOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libAOP.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/AOP.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AOP.dir/link.txt --verbose=$(VERBOSE)
 

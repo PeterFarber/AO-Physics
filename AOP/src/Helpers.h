@@ -1,9 +1,13 @@
 #ifndef AOP_HELPERS_H
 #define AOP_HELPERS_H
 
-#include "./Core/Core.h"
-#include "./Core/Layers.h"
-#include "WorldState.h"
+#include "Core/Core.h"
+#include "Core/Layers.h"
+
+#include "Jolt/Physics/Collision/Shape/Shape.h"
+#include "Jolt/Physics/PhysicsSystem.h"
+#include "Jolt/Physics/Body/BodyCreationSettings.h"
+
 
 namespace Helpers
 {
@@ -96,6 +100,8 @@ namespace Helpers
 
     static Body * GetBody(PhysicsSystem *physicsSystem, BodyID body_id)
     {
+        printf("GetBody\n");
+        printf("BodyID: %d\n", body_id.GetIndexAndSequenceNumber());
         Body *body = nullptr;
         BodyLockWrite body_lock(physicsSystem->GetBodyLockInterface(), body_id);
         if(body_lock.Succeeded())
@@ -177,6 +183,54 @@ namespace Helpers
         else
         {
             return EConstraintSpace::LocalToBodyCOM;
+        }
+    }
+
+    static EActivation GetActivation(bool activate)
+    {
+        if(activate)
+        {
+            return EActivation::Activate;
+        }
+        else
+        {
+            return EActivation::DontActivate;
+        }
+    }
+
+    static EShapeSubType GetShapeSubType(std::string type)
+    {
+        if(type == "Sphere")
+        {
+            return EShapeSubType::Sphere;
+        }
+        else if(type == "Box")
+        {
+            return EShapeSubType::Box;
+        }
+        else if(type == "Triangle")
+        {
+            return EShapeSubType::Triangle;
+        }
+        else if(type == "Capsule")
+        {
+            return EShapeSubType::Capsule;
+        }
+        else if(type == "TaperedCapsule")
+        {
+            return EShapeSubType::TaperedCapsule;
+        }
+        else if(type == "Cylinder")
+        {
+            return EShapeSubType::Cylinder;
+        }
+        else if(type == "ConvexHull")
+        {
+            return EShapeSubType::ConvexHull;
+        }
+        else
+        {
+            return EShapeSubType::Box;
         }
     }
 }

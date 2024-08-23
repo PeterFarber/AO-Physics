@@ -81,12 +81,12 @@ clean: CMakeFiles/AOP.dir/clean
 CMakeFiles/AOP.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/AOP/build/CMakeFiles --progress-num=1,2,3 "Built target AOP"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/AOP/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target AOP"
 .PHONY : CMakeFiles/AOP.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/AOP.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /AOP/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /AOP/build/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/AOP.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /AOP/build/CMakeFiles 0
 .PHONY : CMakeFiles/AOP.dir/rule

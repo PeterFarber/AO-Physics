@@ -1,40 +1,12 @@
-CMakeFiles/AOP.dir/aop.cpp.o: /AOP/aop.cpp /lua-5.3.4/src/lua.hpp \
-  /lua-5.3.4/src/lua.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/compat/stdarg.h \
-  /emsdk/upstream/lib/clang/19/include/stdarg.h \
-  /emsdk/upstream/lib/clang/19/include/__stdarg___gnuc_va_list.h \
-  /emsdk/upstream/lib/clang/19/include/__stdarg_va_list.h \
-  /emsdk/upstream/lib/clang/19/include/__stdarg_va_arg.h \
-  /emsdk/upstream/lib/clang/19/include/__stdarg___va_copy.h \
-  /emsdk/upstream/lib/clang/19/include/__stdarg_va_copy.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stddef.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config_site \
-  /emsdk/upstream/lib/clang/19/include/stddef.h \
-  /emsdk/upstream/lib/clang/19/include/__stddef_ptrdiff_t.h \
-  /emsdk/upstream/lib/clang/19/include/__stddef_size_t.h \
-  /emsdk/upstream/lib/clang/19/include/__stddef_wchar_t.h \
-  /emsdk/upstream/lib/clang/19/include/__stddef_null.h \
-  /emsdk/upstream/lib/clang/19/include/__stddef_nullptr_t.h \
-  /emsdk/upstream/lib/clang/19/include/__stddef_max_align_t.h \
-  /emsdk/upstream/lib/clang/19/include/__stddef_offsetof.h \
-  /lua-5.3.4/src/luaconf.h /emsdk/upstream/lib/clang/19/include/limits.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/limits.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/features.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/bits/limits.h \
-  /lua-5.3.4/src/lualib.h /lua-5.3.4/src/lauxlib.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdio.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/stdio.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/wasi/api.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdint.h \
-  /emsdk/upstream/lib/clang/19/include/stdint.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/stdint.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/bits/stdint.h \
-  /AOP/src/AWorld.h /AOP/src/Core/Core.h \
+CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.o: \
+  /AOP/src/Managers/AConstraintManager.cpp \
+  /AOP/src/Managers/AConstraintManager.h \
+  /AOP/src/Managers/../Core/Core.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/iostream \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__assert \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__assertion_handler \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config_site \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__verbose_abort \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__availability \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/version \
@@ -57,6 +29,15 @@ CMakeFiles/AOP.dir/aop.cpp.o: /AOP/aop.cpp /lua-5.3.4/src/lua.hpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_cv.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_const.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_volatile.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stddef.h \
+  /emsdk/upstream/lib/clang/19/include/stddef.h \
+  /emsdk/upstream/lib/clang/19/include/__stddef_ptrdiff_t.h \
+  /emsdk/upstream/lib/clang/19/include/__stddef_size_t.h \
+  /emsdk/upstream/lib/clang/19/include/__stddef_wchar_t.h \
+  /emsdk/upstream/lib/clang/19/include/__stddef_null.h \
+  /emsdk/upstream/lib/clang/19/include/__stddef_nullptr_t.h \
+  /emsdk/upstream/lib/clang/19/include/__stddef_max_align_t.h \
+  /emsdk/upstream/lib/clang/19/include/__stddef_offsetof.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/common_reference_with.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/convertible_to.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_convertible.h \
@@ -124,6 +105,8 @@ CMakeFiles/AOP.dir/aop.cpp.o: /AOP/aop.cpp /lua-5.3.4/src/lua.hpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/compat/stdlib.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdlib.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/stdlib.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/features.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/alloca.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/type_traits \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/hash.h \
@@ -192,6 +175,10 @@ CMakeFiles/AOP.dir/aop.cpp.o: /AOP/aop.cpp /lua-5.3.4/src/lua.hpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_trivially_copy_constructible.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_trivially_copyable.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstdint \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdint.h \
+  /emsdk/upstream/lib/clang/19/include/stdint.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/stdint.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/bits/stdint.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_trivially_default_constructible.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_trivially_destructible.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_trivially_move_assignable.h \
@@ -408,10 +395,16 @@ CMakeFiles/AOP.dir/aop.cpp.o: /AOP/aop.cpp /lua-5.3.4/src/lua.hpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/search.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/find_first_of.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstdio \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdio.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/stdio.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/wasi/api.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__string/extern_template_lists.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_allocator.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/noexcept_move_assign_container.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/climits \
+  /emsdk/upstream/lib/clang/19/include/limits.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/limits.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/bits/limits.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdexcept \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/string_view \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/string_view.h \
@@ -754,6 +747,13 @@ CMakeFiles/AOP.dir/aop.cpp.o: /AOP/aop.cpp /lua-5.3.4/src/lua.hpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/streambuf \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__locale_dir/locale_base_api/bsd_locale_fallbacks.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__locale_dir/locale_base_api/locale_guard.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/compat/stdarg.h \
+  /emsdk/upstream/lib/clang/19/include/stdarg.h \
+  /emsdk/upstream/lib/clang/19/include/__stdarg___gnuc_va_list.h \
+  /emsdk/upstream/lib/clang/19/include/__stdarg_va_list.h \
+  /emsdk/upstream/lib/clang/19/include/__stdarg_va_arg.h \
+  /emsdk/upstream/lib/clang/19/include/__stdarg___va_copy.h \
+  /emsdk/upstream/lib/clang/19/include/__stdarg_va_copy.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstdarg \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/formatter_output.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/parser_std_format_spec.h \
@@ -884,7 +884,8 @@ CMakeFiles/AOP.dir/aop.cpp.o: /AOP/aop.cpp /lua-5.3.4/src/lua.hpp \
   /jolt/Jolt/Math/Quat.h /jolt/Jolt/Math/Quat.inl /jolt/Jolt/Math/Real.h \
   /jolt/Jolt/Math/DVec3.h /jolt/Jolt/Math/Double3.h \
   /jolt/Jolt/Math/DVec3.inl /jolt/Jolt/Math/DMat44.h \
-  /jolt/Jolt/Math/DMat44.inl /AOP/src/Core/../../vendors/json.hpp \
+  /jolt/Jolt/Math/DMat44.inl \
+  /AOP/src/Managers/../Core/../../vendors/json.hpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/forward_list \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/valarray \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cassert \
@@ -924,35 +925,26 @@ CMakeFiles/AOP.dir/aop.cpp.o: /AOP/aop.cpp /lua-5.3.4/src/lua.hpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/year_month_day.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/year_month_weekday.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/literals.h \
-  /AOP/src/Core/Layers.h /AOP/src/Core/../Core/Core.h \
+  /AOP/src/Managers/../Types/AConstraint.h \
+  /AOP/src/Managers/../Types/../Core/Core.h \
+  /AOP/src/Managers/../Types/../Core/Layers.h \
+  /AOP/src/Managers/../Types/../Core/../Core/Core.h \
   /jolt/Jolt/Physics/Collision/ObjectLayer.h \
   /jolt/Jolt/Core/NonCopyable.h \
   /jolt/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h \
-  /AOP/src/Core/BodyActivationListener.h \
-  /jolt/Jolt/Physics/Body/BodyActivationListener.h \
-  /AOP/src/Core/ContactListener.h /jolt/Jolt/Physics/PhysicsSettings.h \
-  /jolt/Jolt/Physics/PhysicsSystem.h \
-  /jolt/Jolt/Physics/Body/BodyInterface.h \
-  /jolt/Jolt/Physics/Body/BodyID.h /jolt/Jolt/Physics/EActivation.h \
-  /jolt/Jolt/Physics/Body/MotionType.h \
-  /jolt/Jolt/Physics/Body/MotionQuality.h \
-  /jolt/Jolt/Physics/Body/BodyType.h /jolt/Jolt/Core/Reference.h \
-  /jolt/Jolt/Core/Atomics.h \
-  /jolt/Jolt/Physics/Collision/NarrowPhaseQuery.h \
-  /jolt/Jolt/Physics/Body/BodyFilter.h \
-  /jolt/Jolt/Physics/Body/BodyLock.h \
-  /jolt/Jolt/Physics/Body/BodyLockInterface.h \
   /jolt/Jolt/Physics/Body/Body.h /jolt/Jolt/Geometry/AABox.h \
   /jolt/Jolt/Geometry/Triangle.h /jolt/Jolt/Geometry/IndexedTriangle.h \
   /jolt/Jolt/Geometry/Plane.h /jolt/Jolt/Physics/Collision/Shape/Shape.h \
   /jolt/Jolt/Physics/Body/MassProperties.h \
   /jolt/Jolt/ObjectStream/SerializableObject.h \
-  /jolt/Jolt/ObjectStream/ObjectStream.h /jolt/Jolt/Core/RTTI.h \
+  /jolt/Jolt/ObjectStream/ObjectStream.h /jolt/Jolt/Core/Reference.h \
+  /jolt/Jolt/Core/Atomics.h /jolt/Jolt/Core/RTTI.h \
   /jolt/Jolt/ObjectStream/SerializableAttribute.h \
   /jolt/Jolt/ObjectStream/ObjectStreamTypes.h \
   /jolt/Jolt/Physics/Collision/BackFaceMode.h \
   /jolt/Jolt/Physics/Collision/CollisionCollector.h \
-  /jolt/Jolt/Physics/Collision/ShapeFilter.h /jolt/Jolt/Core/Color.h \
+  /jolt/Jolt/Physics/Collision/ShapeFilter.h \
+  /jolt/Jolt/Physics/Body/BodyID.h /jolt/Jolt/Core/Color.h \
   /jolt/Jolt/Core/Result.h /jolt/Jolt/Core/UnorderedMap.h \
   /jolt/Jolt/Core/UnorderedSet.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/unordered_set \
@@ -964,63 +956,10 @@ CMakeFiles/AOP.dir/aop.cpp.o: /AOP/aop.cpp /lua-5.3.4/src/lua.hpp \
   /jolt/Jolt/Physics/Collision/Shape/SubShapeID.h \
   /jolt/Jolt/Physics/Body/MotionProperties.h \
   /jolt/Jolt/Geometry/Sphere.h /jolt/Jolt/Physics/Body/AllowedDOFs.h \
+  /jolt/Jolt/Physics/Body/MotionQuality.h \
   /jolt/Jolt/Physics/Body/BodyAccess.h \
-  /jolt/Jolt/Physics/DeterminismLog.h \
+  /jolt/Jolt/Physics/Body/MotionType.h \
+  /jolt/Jolt/Physics/Body/BodyType.h /jolt/Jolt/Physics/DeterminismLog.h \
   /jolt/Jolt/Physics/Body/MotionProperties.inl \
   /jolt/Jolt/Core/StringTools.h /jolt/Jolt/Physics/Body/Body.inl \
-  /jolt/Jolt/Physics/Body/BodyManager.h /jolt/Jolt/Core/Mutex.h \
-  /jolt/Jolt/Core/Profiler.h /jolt/Jolt/Core/TickCounter.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/shared_mutex \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/thread \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/formatter.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/jthread.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/stop_source.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/intrusive_shared_ptr.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/stop_state.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/atomic_unique_lock.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/intrusive_list_view.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/stop_token.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/thread.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/this_thread.h \
-  /jolt/Jolt/Core/MutexArray.h /jolt/Jolt/Physics/PhysicsLock.h \
-  /jolt/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuery.h \
-  /jolt/Jolt/Physics/Collision/ContactListener.h \
-  /jolt/Jolt/Physics/Collision/Shape/SubShapeIDPair.h \
-  /jolt/Jolt/Physics/Constraints/ContactConstraintManager.h \
-  /jolt/Jolt/Core/LockFreeHashMap.h /jolt/Jolt/Core/LockFreeHashMap.inl \
-  /jolt/Jolt/Physics/EPhysicsUpdateError.h \
-  /jolt/Jolt/Physics/Body/BodyPair.h \
-  /jolt/Jolt/Physics/Collision/ManifoldBetweenTwoFaces.h \
-  /jolt/Jolt/Physics/Collision/Shape/ConvexShape.h \
-  /jolt/Jolt/Physics/Collision/PhysicsMaterial.h \
-  /jolt/Jolt/Physics/Constraints/ConstraintPart/AxisConstraintPart.h \
-  /jolt/Jolt/Physics/Constraints/ConstraintPart/SpringPart.h \
-  /jolt/Jolt/Physics/Constraints/SpringSettings.h \
-  /jolt/Jolt/Physics/StateRecorder.h \
-  /jolt/Jolt/Physics/Constraints/ConstraintPart/DualAxisConstraintPart.h \
-  /jolt/Jolt/Math/Vector.h /jolt/Jolt/Math/Matrix.h \
-  /jolt/Jolt/Math/GaussianElimination.h \
-  /jolt/Jolt/Physics/Constraints/ConstraintManager.h \
-  /jolt/Jolt/Physics/Constraints/Constraint.h \
-  /jolt/Jolt/Physics/IslandBuilder.h \
-  /jolt/Jolt/Physics/LargeIslandSplitter.h \
-  /jolt/Jolt/Physics/PhysicsUpdateContext.h \
-  /jolt/Jolt/Physics/Collision/BroadPhase/BroadPhase.h \
-  /jolt/Jolt/Core/JobSystem.h /jolt/Jolt/Core/JobSystem.inl \
-  /jolt/Jolt/Core/STLTempAllocator.h /jolt/Jolt/Core/TempAllocator.h \
-  /AOP/src/Managers/ABodyManager.h /AOP/src/Managers/../Core/Core.h \
-  /AOP/src/Managers/../Types/ABody.h \
-  /AOP/src/Managers/../Types/../Core/Core.h \
-  /AOP/src/Managers/../Types/../Helpers.h \
-  /AOP/src/Managers/../Types/../Core/Layers.h \
-  /jolt/Jolt/Physics/Body/BodyCreationSettings.h \
-  /AOP/src/Managers/ACharacterManager.h \
-  /AOP/src/Managers/../Types/ACharacter.h \
-  /jolt/Jolt/Physics/Character/Character.h \
-  /jolt/Jolt/Physics/Character/CharacterBase.h \
-  /AOP/src/Managers/AConstraintManager.h \
-  /AOP/src/Managers/../Types/AConstraint.h /AOP/src/Params.h \
-  /AOP/src/./Core/Core.h /AOP/src/Helpers.h /AOP/src/../vendors/json.hpp \
-  /jolt/Jolt/Core/JobSystemSingleThreaded.h \
-  /jolt/Jolt/Core/FixedSizeFreeList.h \
-  /jolt/Jolt/Core/FixedSizeFreeList.inl
+  /jolt/Jolt/Physics/Constraints/Constraint.h

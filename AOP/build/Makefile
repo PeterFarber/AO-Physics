@@ -153,29 +153,173 @@ aop.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/aop.cpp.s
 .PHONY : aop.cpp.s
 
-src/WorldState.o: src/WorldState.cpp.o
-.PHONY : src/WorldState.o
+src/AWorld.o: src/AWorld.cpp.o
+.PHONY : src/AWorld.o
 
 # target to build an object file
-src/WorldState.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/WorldState.cpp.o
-.PHONY : src/WorldState.cpp.o
+src/AWorld.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/AWorld.cpp.o
+.PHONY : src/AWorld.cpp.o
 
-src/WorldState.i: src/WorldState.cpp.i
-.PHONY : src/WorldState.i
+src/AWorld.i: src/AWorld.cpp.i
+.PHONY : src/AWorld.i
 
 # target to preprocess a source file
-src/WorldState.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/WorldState.cpp.i
-.PHONY : src/WorldState.cpp.i
+src/AWorld.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/AWorld.cpp.i
+.PHONY : src/AWorld.cpp.i
 
-src/WorldState.s: src/WorldState.cpp.s
-.PHONY : src/WorldState.s
+src/AWorld.s: src/AWorld.cpp.s
+.PHONY : src/AWorld.s
 
 # target to generate assembly for a file
-src/WorldState.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/WorldState.cpp.s
-.PHONY : src/WorldState.cpp.s
+src/AWorld.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/AWorld.cpp.s
+.PHONY : src/AWorld.cpp.s
+
+src/Managers/ABodyManager.o: src/Managers/ABodyManager.cpp.o
+.PHONY : src/Managers/ABodyManager.o
+
+# target to build an object file
+src/Managers/ABodyManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.o
+.PHONY : src/Managers/ABodyManager.cpp.o
+
+src/Managers/ABodyManager.i: src/Managers/ABodyManager.cpp.i
+.PHONY : src/Managers/ABodyManager.i
+
+# target to preprocess a source file
+src/Managers/ABodyManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.i
+.PHONY : src/Managers/ABodyManager.cpp.i
+
+src/Managers/ABodyManager.s: src/Managers/ABodyManager.cpp.s
+.PHONY : src/Managers/ABodyManager.s
+
+# target to generate assembly for a file
+src/Managers/ABodyManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Managers/ABodyManager.cpp.s
+.PHONY : src/Managers/ABodyManager.cpp.s
+
+src/Managers/ACharacterManager.o: src/Managers/ACharacterManager.cpp.o
+.PHONY : src/Managers/ACharacterManager.o
+
+# target to build an object file
+src/Managers/ACharacterManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.o
+.PHONY : src/Managers/ACharacterManager.cpp.o
+
+src/Managers/ACharacterManager.i: src/Managers/ACharacterManager.cpp.i
+.PHONY : src/Managers/ACharacterManager.i
+
+# target to preprocess a source file
+src/Managers/ACharacterManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.i
+.PHONY : src/Managers/ACharacterManager.cpp.i
+
+src/Managers/ACharacterManager.s: src/Managers/ACharacterManager.cpp.s
+.PHONY : src/Managers/ACharacterManager.s
+
+# target to generate assembly for a file
+src/Managers/ACharacterManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Managers/ACharacterManager.cpp.s
+.PHONY : src/Managers/ACharacterManager.cpp.s
+
+src/Managers/AConstraintManager.o: src/Managers/AConstraintManager.cpp.o
+.PHONY : src/Managers/AConstraintManager.o
+
+# target to build an object file
+src/Managers/AConstraintManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.o
+.PHONY : src/Managers/AConstraintManager.cpp.o
+
+src/Managers/AConstraintManager.i: src/Managers/AConstraintManager.cpp.i
+.PHONY : src/Managers/AConstraintManager.i
+
+# target to preprocess a source file
+src/Managers/AConstraintManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.i
+.PHONY : src/Managers/AConstraintManager.cpp.i
+
+src/Managers/AConstraintManager.s: src/Managers/AConstraintManager.cpp.s
+.PHONY : src/Managers/AConstraintManager.s
+
+# target to generate assembly for a file
+src/Managers/AConstraintManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Managers/AConstraintManager.cpp.s
+.PHONY : src/Managers/AConstraintManager.cpp.s
+
+src/Types/ABody.o: src/Types/ABody.cpp.o
+.PHONY : src/Types/ABody.o
+
+# target to build an object file
+src/Types/ABody.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Types/ABody.cpp.o
+.PHONY : src/Types/ABody.cpp.o
+
+src/Types/ABody.i: src/Types/ABody.cpp.i
+.PHONY : src/Types/ABody.i
+
+# target to preprocess a source file
+src/Types/ABody.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Types/ABody.cpp.i
+.PHONY : src/Types/ABody.cpp.i
+
+src/Types/ABody.s: src/Types/ABody.cpp.s
+.PHONY : src/Types/ABody.s
+
+# target to generate assembly for a file
+src/Types/ABody.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Types/ABody.cpp.s
+.PHONY : src/Types/ABody.cpp.s
+
+src/Types/ACharacter.o: src/Types/ACharacter.cpp.o
+.PHONY : src/Types/ACharacter.o
+
+# target to build an object file
+src/Types/ACharacter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.o
+.PHONY : src/Types/ACharacter.cpp.o
+
+src/Types/ACharacter.i: src/Types/ACharacter.cpp.i
+.PHONY : src/Types/ACharacter.i
+
+# target to preprocess a source file
+src/Types/ACharacter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.i
+.PHONY : src/Types/ACharacter.cpp.i
+
+src/Types/ACharacter.s: src/Types/ACharacter.cpp.s
+.PHONY : src/Types/ACharacter.s
+
+# target to generate assembly for a file
+src/Types/ACharacter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.s
+.PHONY : src/Types/ACharacter.cpp.s
+
+src/Types/AConstraint.o: src/Types/AConstraint.cpp.o
+.PHONY : src/Types/AConstraint.o
+
+# target to build an object file
+src/Types/AConstraint.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.o
+.PHONY : src/Types/AConstraint.cpp.o
+
+src/Types/AConstraint.i: src/Types/AConstraint.cpp.i
+.PHONY : src/Types/AConstraint.i
+
+# target to preprocess a source file
+src/Types/AConstraint.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.i
+.PHONY : src/Types/AConstraint.cpp.i
+
+src/Types/AConstraint.s: src/Types/AConstraint.cpp.s
+.PHONY : src/Types/AConstraint.s
+
+# target to generate assembly for a file
+src/Types/AConstraint.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AOP.dir/build.make CMakeFiles/AOP.dir/src/Types/AConstraint.cpp.s
+.PHONY : src/Types/AConstraint.cpp.s
 
 # Help Target
 help:
@@ -189,9 +333,27 @@ help:
 	@echo "... aop.o"
 	@echo "... aop.i"
 	@echo "... aop.s"
-	@echo "... src/WorldState.o"
-	@echo "... src/WorldState.i"
-	@echo "... src/WorldState.s"
+	@echo "... src/AWorld.o"
+	@echo "... src/AWorld.i"
+	@echo "... src/AWorld.s"
+	@echo "... src/Managers/ABodyManager.o"
+	@echo "... src/Managers/ABodyManager.i"
+	@echo "... src/Managers/ABodyManager.s"
+	@echo "... src/Managers/ACharacterManager.o"
+	@echo "... src/Managers/ACharacterManager.i"
+	@echo "... src/Managers/ACharacterManager.s"
+	@echo "... src/Managers/AConstraintManager.o"
+	@echo "... src/Managers/AConstraintManager.i"
+	@echo "... src/Managers/AConstraintManager.s"
+	@echo "... src/Types/ABody.o"
+	@echo "... src/Types/ABody.i"
+	@echo "... src/Types/ABody.s"
+	@echo "... src/Types/ACharacter.o"
+	@echo "... src/Types/ACharacter.i"
+	@echo "... src/Types/ACharacter.s"
+	@echo "... src/Types/AConstraint.o"
+	@echo "... src/Types/AConstraint.i"
+	@echo "... src/Types/AConstraint.s"
 .PHONY : help
 
 

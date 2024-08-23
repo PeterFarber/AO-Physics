@@ -4,8 +4,23 @@ project(AOP CXX)
 
 # Source files
 set(AOP_SRC_FILES
+
 	aop.cpp
-	src/WorldState.cpp
+
+	src/AWorld.cpp
+	
+	src/Types/ABody.cpp
+	src/Managers/ABodyManager.cpp
+
+	src/Types/ACharacter.cpp
+	src/Managers/ACharacterManager.cpp
+
+
+	src/Types/AConstraint.cpp
+	src/Managers/AConstraintManager.cpp
+
+	# src/Managers/ABodyManager.cpp
+	# src/Managers/AConstraintManager.cpp
 )
 
 

@@ -1,38 +1,33 @@
-CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
-  /AOP/src/WorldState.h /AOP/src/./Core/Core.h /jolt/Jolt/Jolt.h \
-  /jolt/Jolt/Core/Core.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/float.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config_site \
-  /emsdk/upstream/lib/clang/19/include/float.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/float.h \
-  /emsdk/upstream/lib/clang/19/include/limits.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/limits.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/features.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/bits/limits.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/compat/string.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/string.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/string.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/strings.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/utility \
+CMakeFiles/AOP.dir/src/Types/ACharacter.cpp.o: \
+  /AOP/src/Types/ACharacter.cpp /AOP/src/Types/ACharacter.h \
+  /AOP/src/Types/../Core/Core.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/iostream \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__assert \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__assertion_handler \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config_site \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__verbose_abort \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__availability \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/as_const.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/add_const.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/forward.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_reference.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/integral_constant.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_reference.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstddef \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/version \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/ios \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/ios.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/string.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/memory_resource.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ios/fpos.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__locale \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/shared_ptr.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/compare_three_way.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/three_way_comparable.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/common_comparison_category.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/ordering.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/enable_if.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_same.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/integral_constant.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstddef \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_integral.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_cv.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_const.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_volatile.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/version \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stddef.h \
   /emsdk/upstream/lib/clang/19/include/stddef.h \
   /emsdk/upstream/lib/clang/19/include/__stddef_ptrdiff_t.h \
@@ -42,59 +37,85 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/lib/clang/19/include/__stddef_nullptr_t.h \
   /emsdk/upstream/lib/clang/19/include/__stddef_max_align_t.h \
   /emsdk/upstream/lib/clang/19/include/__stddef_offsetof.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/move.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/conditional.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_copy_constructible.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/add_lvalue_reference.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_referenceable.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_same.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_nothrow_move_constructible.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/add_rvalue_reference.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_nothrow_constructible.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_constructible.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/declval.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__undef_macros \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/as_lvalue.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/auto_cast.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/decay.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/add_pointer.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_void.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/common_reference_with.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/convertible_to.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_convertible.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_array.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_function.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_const.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_reference.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_void.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_reference.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/declval.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/same_as.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/common_reference.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/common_type.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/conditional.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/decay.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/add_pointer.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_referenceable.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_extent.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/cmp.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/arithmetic.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_floating_point.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_signed.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_arithmetic.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_signed_integer.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_unsigned_integer.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/make_unsigned.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/apply_cv.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_volatile.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_enum.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_unsigned.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/nat.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/type_list.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/limits \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/type_traits \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/hash.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_cvref.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/void_t.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/copy_cv.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/add_const.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/add_cv.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/add_volatile.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/copy_cvref.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/add_lvalue_reference.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/add_rvalue_reference.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/equality_comparable.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/boolean_testable.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/forward.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/make_const_lvalue_ref.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/totally_ordered.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/exception.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/binary_function.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/operations.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/unary_function.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/operation_traits.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/reference_wrapper.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/invoke.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/invoke.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/apply_cv.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_volatile.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_base_of.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_core_convertible.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_member_function_pointer.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_member_object_pointer.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_reference_wrapper.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/nat.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/weak_result_type.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/addressof.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/ostream.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/access.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/allocation_guard.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/allocator_traits.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/construct_at.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/voidify.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/move.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_copy_constructible.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_nothrow_move_constructible.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_nothrow_constructible.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_constructible.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__undef_macros \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/new \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstdlib \
+  /emsdk/upstream/emscripten/cache/sysroot/include/compat/stdlib.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdlib.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/stdlib.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/features.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/alloca.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/type_traits \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/hash.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/aligned_storage.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/type_list.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/aligned_union.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/alignment_of.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/can_extract_key.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/pair.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_const_ref.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/common_reference.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/common_type.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_cvref.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/void_t.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/copy_cv.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/copy_cvref.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_convertible.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/conjunction.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/dependent_type.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/disjunction.h \
@@ -102,14 +123,10 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/has_unique_object_representation.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_all_extents.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/has_virtual_destructor.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/invoke.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_base_of.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_core_convertible.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_member_function_pointer.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_member_object_pointer.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_reference_wrapper.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_abstract.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_aggregate.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_arithmetic.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_floating_point.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_assignable.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_bounded_array.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_callable.h \
@@ -125,6 +142,7 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_default_constructible.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_destructible.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_empty.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_enum.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_final.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_implicitly_default_constructible.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_literal_type.h \
@@ -147,6 +165,7 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_polymorphic.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_scoped_enum.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/underlying_type.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_signed.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_specialization.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_swappable.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_trivially_assignable.h \
@@ -164,34 +183,23 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_trivially_move_assignable.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_trivially_move_constructible.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_unbounded_array.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/make_const_lvalue_ref.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_unsigned.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/make_signed.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/make_unsigned.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/maybe_const.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/negation.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/rank.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/remove_pointer.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/result_of.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/invoke.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/type_identity.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/unwrap_ref.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/exception_guard.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/exchange.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/forward_like.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/in_place.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/integer_sequence.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/pair.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/common_comparison_category.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/ordering.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/synth_three_way.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/three_way_comparable.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/common_reference_with.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/convertible_to.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/same_as.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/equality_comparable.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/boolean_testable.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/totally_ordered.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/different_from.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/array.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/pointer_traits.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/limits \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/allocator.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/allocate_at_least.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/allocator_destructor.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/auto_ptr.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/compressed_pair.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/get.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/copyable.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/assignable.h \
@@ -200,30 +208,106 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/movable.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/swappable.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/class_or_enum.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/exchange.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/swap.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/array.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/subrange.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/tuple.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tuple/tuple_element.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tuple/tuple_indices.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/integer_sequence.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tuple/tuple_types.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/piecewise_construct.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/uninitialized_algorithms.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/copy.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/copy_move_common.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/iterator_operations.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/iter_swap.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/ranges_iterator_concept.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/concepts.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/arithmetic.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_signed_integer.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_unsigned_integer.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/derived_from.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/invocable.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/predicate.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/regular.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/semiregular.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/relation.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/incrementable_traits.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_primary_template.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_valid_expansion.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/iter_move.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/iterator_traits.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/readable_traits.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/advance.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/convert_to_integral.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/unreachable.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/distance.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/access.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/enable_borrowed_range.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/auto_cast.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/concepts.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/data.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/enable_view.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/size.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/initializer_list \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/iter_swap.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/next.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/prev.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/unwrap_iter.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/unwrap_range.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/pair.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/synth_three_way.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/different_from.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tuple/pair_like.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tuple/tuple_like.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tuple/tuple_size.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tuple/sfinae_helpers.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tuple/make_tuple_types.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tuple/tuple_like_ext.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/piecewise_construct.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/priority_tag.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/rel_ops.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/to_underlying.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/unreachable.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__string/constexpr_c_functions.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/datasizeof.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_always_bitcastable.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_equality_comparable.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_trivially_lexicographically_comparable.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/is_pointer_in_range.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/comp.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/for_each_segment.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/segmented_iterator.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/min.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/comp_ref_type.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/min_element.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/identity.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/move.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/reverse_iterator.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/compare_three_way_result.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/iterator.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/subrange.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/dangling.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/view_interface.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/empty.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/exception_guard.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/unique_ptr.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/hash.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstring \
+  /emsdk/upstream/emscripten/cache/sysroot/include/compat/string.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/string.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/string.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/strings.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/typeinfo \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__atomic/memory_order.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__mutex/once_flag.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/tuple \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/allocator_arg_t.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/uses_allocator.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/compare \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/compare_partial_order_fallback.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/partial_order.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/compare_three_way.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/weak_order.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/strong_order.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__bit/bit_cast.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/priority_tag.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cmath \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/promote.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/compat/math.h \
@@ -248,120 +332,36 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/rounding_functions.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/traits.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/trigonometric_functions.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/compat/stdlib.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdlib.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/stdlib.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/alloca.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/compare_strong_order_fallback.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/compare_three_way_result.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/compare_weak_order_fallback.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__compare/is_eq.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/initializer_list \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstdlib \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/exception \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/exception_ptr.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/operations.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/nested_exception.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/terminate.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/iosfwd \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/fstream.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/string.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/memory_resource.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/ios.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/istream.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/ostream.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/sstream.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/streambuf.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__std_mbstate_t.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__mbstate_t.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/sstream \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/istream \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/istreambuf_iterator.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/default_sentinel.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/iterator.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/iterator_traits.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/incrementable_traits.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_primary_template.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_valid_expansion.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/readable_traits.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/ostream \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/operations.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/shared_ptr.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/exception.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/binary_function.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/operations.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/unary_function.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/operation_traits.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/reference_wrapper.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/weak_result_type.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/addressof.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/access.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/allocation_guard.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/allocator_traits.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/construct_at.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/voidify.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/new \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/pointer_traits.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/allocator.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/allocate_at_least.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/allocator_destructor.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/auto_ptr.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/compressed_pair.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/uninitialized_algorithms.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/copy.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/copy_move_common.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/iterator_operations.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/iter_swap.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/ranges_iterator_concept.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/concepts.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/derived_from.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/invocable.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/predicate.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/regular.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/semiregular.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__concepts/relation.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/iter_move.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/advance.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/convert_to_integral.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/distance.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/access.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/enable_borrowed_range.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/concepts.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/data.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/enable_view.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/size.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/iter_swap.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/next.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/prev.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/unwrap_iter.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/unwrap_range.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__string/constexpr_c_functions.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/datasizeof.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_always_bitcastable.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_equality_comparable.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_trivially_lexicographically_comparable.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/is_pointer_in_range.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/comp.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/for_each_segment.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/segmented_iterator.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/min.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/comp_ref_type.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/min_element.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/identity.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/move.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/reverse_iterator.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/subrange.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/dangling.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/view_interface.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/empty.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/unique_ptr.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/hash.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstring \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/typeinfo \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__atomic/memory_order.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__system_error/error_code.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__system_error/errc.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cerrno \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/errno.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/errno.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/bits/errno.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/wasi/api.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__system_error/error_category.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/utility \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/as_const.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/as_lvalue.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/cmp.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/forward_like.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/in_place.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/rel_ops.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/to_underlying.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/no_destroy.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cctype \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/ctype.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/ctype.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/clocale \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/locale.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/locale.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/string \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/max.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/max_element.h \
@@ -374,9 +374,6 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/bit_reference.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cwchar \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cwctype \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cctype \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/ctype.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/ctype.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/wctype.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/wctype.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/wchar.h \
@@ -384,18 +381,10 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/find_if.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__algorithm/remove_if.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/enable_insertable.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ios/fpos.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/wrap_iter.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/swap_allocator.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory_resource/polymorphic_allocator.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory_resource/memory_resource.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/tuple \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/allocator_arg_t.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__memory/uses_allocator.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/exception \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/exception_ptr.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/nested_exception.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/terminate.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/container_compatible_range.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__ranges/from_range.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__string/char_traits.h \
@@ -407,10 +396,14 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstdio \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdio.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/stdio.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/wasi/api.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__string/extern_template_lists.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_allocator.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/noexcept_move_assign_container.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/climits \
+  /emsdk/upstream/lib/clang/19/include/limits.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/limits.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/bits/limits.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdexcept \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/string_view \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/string_view.h \
@@ -461,6 +454,9 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/time.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__threading_support \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/convert_to_timespec.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/errno.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/errno.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/bits/errno.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/pthread.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/sched.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__atomic/check_memory_order.h \
@@ -477,12 +473,14 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/variant \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__variant/monostate.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/counted_iterator.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/default_sentinel.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/erase_if_container.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/front_insert_iterator.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/indirectly_comparable.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/projected.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/insert_iterator.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/istream_iterator.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/istreambuf_iterator.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/mergeable.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/ranges_operations.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/move_iterator.h \
@@ -709,7 +707,23 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__bit/byteswap.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__bit/endian.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__bit/has_single_bit.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__support/musl/xlocale.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__system_error/error_category.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__system_error/error_code.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__system_error/errc.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cerrno \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__system_error/error_condition.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__system_error/system_error.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/mutex \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__condition_variable/condition_variable.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__mutex/mutex.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__mutex/unique_lock.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__mutex/tag_types.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__mutex/lock_guard.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/id.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/system_error \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/istream \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/ostream \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/bitset \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__bit_reference \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/format \
@@ -729,23 +743,6 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/format_arg_store.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/format_args.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/locale \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__locale \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__mutex/once_flag.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__utility/no_destroy.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/clocale \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/locale.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/locale.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__support/musl/xlocale.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/ios \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__system_error/system_error.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/mutex \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__condition_variable/condition_variable.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__mutex/mutex.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__mutex/unique_lock.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__mutex/tag_types.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__mutex/lock_guard.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/id.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/system_error \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/streambuf \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__locale_dir/locale_base_api/bsd_locale_fallbacks.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__locale_dir/locale_base_api/locale_guard.h \
@@ -817,6 +814,13 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/formatter_tuple.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/print \
   /emsdk/upstream/emscripten/cache/sysroot/include/unistd.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/map \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tree \
+  /jolt/Jolt/Jolt.h /jolt/Jolt/Core/Core.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/float.h \
+  /emsdk/upstream/lib/clang/19/include/float.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/float.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/sstream \
   /jolt/Jolt/Core/ARMNeon.h /jolt/Jolt/Core/Memory.h \
   /jolt/Jolt/Core/IssueReporting.h /jolt/Jolt/Core/Array.h \
   /jolt/Jolt/Core/STLAllocator.h /jolt/Jolt/Core/HashCombine.h \
@@ -879,22 +883,38 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /jolt/Jolt/Math/Quat.h /jolt/Jolt/Math/Quat.inl /jolt/Jolt/Math/Real.h \
   /jolt/Jolt/Math/DVec3.h /jolt/Jolt/Math/Double3.h \
   /jolt/Jolt/Math/DVec3.inl /jolt/Jolt/Math/DMat44.h \
-  /jolt/Jolt/Math/DMat44.inl /jolt/Jolt/RegisterTypes.h \
-  /jolt/Jolt/Core/Factory.h /jolt/Jolt/Core/RTTI.h \
-  /jolt/Jolt/Core/Reference.h /jolt/Jolt/Core/Atomics.h \
-  /jolt/Jolt/ObjectStream/SerializableAttribute.h \
-  /jolt/Jolt/ObjectStream/ObjectStreamTypes.h \
-  /jolt/Jolt/Core/UnorderedMap.h /jolt/Jolt/Core/TempAllocator.h \
-  /jolt/Jolt/Core/NonCopyable.h /jolt/Jolt/Core/JobSystemThreadPool.h \
-  /jolt/Jolt/Core/JobSystemWithBarrier.h /jolt/Jolt/Core/JobSystem.h \
-  /jolt/Jolt/Core/Color.h /jolt/Jolt/Core/Profiler.h \
+  /jolt/Jolt/Math/DMat44.inl \
+  /AOP/src/Types/../Core/../../vendors/json.hpp \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/forward_list \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/valarray \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cassert \
+  /emsdk/upstream/emscripten/cache/sysroot/include/assert.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/filesystem \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/copy_options.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/directory_entry.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/file_status.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/file_type.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/perms.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/file_time_type.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/file_clock.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/filesystem_error.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/path.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/iomanip \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/operations.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/perm_options.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/space_info.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/directory_iterator.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/directory_options.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/path_iterator.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/recursive_directory_iterator.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/u8path.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/any \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/chrono \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/calendar.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/convert_to_tm.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/concepts.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/hh_mm_ss.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/day.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/file_clock.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/month.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/month_weekday.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/weekday.h \
@@ -904,31 +924,36 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/year_month_day.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/year_month_weekday.h \
   /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/literals.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/forward_list \
-  /jolt/Jolt/Core/TickCounter.h /jolt/Jolt/Core/JobSystem.inl \
-  /jolt/Jolt/Core/Semaphore.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/condition_variable \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/stop_callback.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/intrusive_shared_ptr.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/stop_state.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/atomic_unique_lock.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/intrusive_list_view.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/stop_token.h \
-  /jolt/Jolt/Core/FixedSizeFreeList.h /jolt/Jolt/Core/Mutex.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/shared_mutex \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/thread \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/formatter.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/jthread.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/stop_source.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/thread.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/this_thread.h \
-  /jolt/Jolt/Core/FixedSizeFreeList.inl \
-  /jolt/Jolt/Core/JobSystemSingleThreaded.h \
-  /jolt/Jolt/Physics/PhysicsSettings.h \
+  /AOP/src/Types/../Core/Layers.h /AOP/src/Types/../Core/../Core/Core.h \
+  /jolt/Jolt/Physics/Collision/ObjectLayer.h \
+  /jolt/Jolt/Core/NonCopyable.h \
+  /jolt/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h \
+  /jolt/Jolt/Physics/Character/Character.h \
+  /jolt/Jolt/Physics/Character/CharacterBase.h \
+  /jolt/Jolt/Core/Reference.h /jolt/Jolt/Core/Atomics.h \
+  /jolt/Jolt/Physics/Body/BodyID.h \
+  /jolt/Jolt/Physics/Collision/Shape/Shape.h \
+  /jolt/Jolt/Physics/Body/MassProperties.h \
+  /jolt/Jolt/ObjectStream/SerializableObject.h \
+  /jolt/Jolt/ObjectStream/ObjectStream.h /jolt/Jolt/Core/RTTI.h \
+  /jolt/Jolt/ObjectStream/SerializableAttribute.h \
+  /jolt/Jolt/ObjectStream/ObjectStreamTypes.h \
+  /jolt/Jolt/Physics/Collision/BackFaceMode.h \
+  /jolt/Jolt/Physics/Collision/CollisionCollector.h \
+  /jolt/Jolt/Physics/Collision/ShapeFilter.h /jolt/Jolt/Geometry/AABox.h \
+  /jolt/Jolt/Geometry/Triangle.h /jolt/Jolt/Geometry/IndexedTriangle.h \
+  /jolt/Jolt/Geometry/Plane.h /jolt/Jolt/Core/Color.h \
+  /jolt/Jolt/Core/Result.h /jolt/Jolt/Core/UnorderedMap.h \
+  /jolt/Jolt/Core/UnorderedSet.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/unordered_set \
+  /jolt/Jolt/Core/StreamUtils.h /jolt/Jolt/Core/StreamIn.h \
+  /jolt/Jolt/Core/StreamOut.h /jolt/Jolt/Core/Factory.h \
+  /jolt/Jolt/Physics/Collision/Shape/SubShapeID.h \
+  /jolt/Jolt/Physics/Collision/PhysicsMaterial.h \
+  /jolt/Jolt/Physics/Collision/TransformedShape.h \
+  /jolt/Jolt/Physics/EActivation.h /AOP/src/Types/../Helpers.h \
   /jolt/Jolt/Physics/PhysicsSystem.h \
   /jolt/Jolt/Physics/Body/BodyInterface.h \
-  /jolt/Jolt/Physics/Body/BodyID.h /jolt/Jolt/Physics/EActivation.h \
-  /jolt/Jolt/Physics/Collision/ObjectLayer.h \
   /jolt/Jolt/Physics/Body/MotionType.h \
   /jolt/Jolt/Physics/Body/MotionQuality.h \
   /jolt/Jolt/Physics/Body/BodyType.h \
@@ -936,32 +961,30 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /jolt/Jolt/Physics/Body/BodyFilter.h \
   /jolt/Jolt/Physics/Body/BodyLock.h \
   /jolt/Jolt/Physics/Body/BodyLockInterface.h \
-  /jolt/Jolt/Physics/Body/Body.h /jolt/Jolt/Geometry/AABox.h \
-  /jolt/Jolt/Geometry/Triangle.h /jolt/Jolt/Geometry/IndexedTriangle.h \
-  /jolt/Jolt/Geometry/Plane.h /jolt/Jolt/Physics/Collision/Shape/Shape.h \
-  /jolt/Jolt/Physics/Body/MassProperties.h \
-  /jolt/Jolt/ObjectStream/SerializableObject.h \
-  /jolt/Jolt/ObjectStream/ObjectStream.h \
-  /jolt/Jolt/Physics/Collision/BackFaceMode.h \
-  /jolt/Jolt/Physics/Collision/CollisionCollector.h \
-  /jolt/Jolt/Physics/Collision/ShapeFilter.h /jolt/Jolt/Core/Result.h \
-  /jolt/Jolt/Core/UnorderedSet.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/unordered_set \
-  /jolt/Jolt/Core/StreamUtils.h /jolt/Jolt/Core/StreamIn.h \
-  /jolt/Jolt/Core/StreamOut.h \
-  /jolt/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h \
+  /jolt/Jolt/Physics/Body/Body.h \
   /jolt/Jolt/Physics/Collision/CollisionGroup.h \
   /jolt/Jolt/Physics/Collision/GroupFilter.h \
-  /jolt/Jolt/Physics/Collision/TransformedShape.h \
-  /jolt/Jolt/Physics/Collision/Shape/SubShapeID.h \
   /jolt/Jolt/Physics/Body/MotionProperties.h \
   /jolt/Jolt/Geometry/Sphere.h /jolt/Jolt/Physics/Body/AllowedDOFs.h \
   /jolt/Jolt/Physics/Body/BodyAccess.h \
   /jolt/Jolt/Physics/DeterminismLog.h \
   /jolt/Jolt/Physics/Body/MotionProperties.inl \
   /jolt/Jolt/Core/StringTools.h /jolt/Jolt/Physics/Body/Body.inl \
-  /jolt/Jolt/Physics/Body/BodyManager.h /jolt/Jolt/Core/MutexArray.h \
-  /jolt/Jolt/Physics/PhysicsLock.h \
+  /jolt/Jolt/Physics/Body/BodyManager.h /jolt/Jolt/Core/Mutex.h \
+  /jolt/Jolt/Core/Profiler.h /jolt/Jolt/Core/TickCounter.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/shared_mutex \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/thread \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/formatter.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/jthread.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/stop_source.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/intrusive_shared_ptr.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/stop_state.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/atomic_unique_lock.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/intrusive_list_view.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__stop_token/stop_token.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/thread.h \
+  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__thread/this_thread.h \
+  /jolt/Jolt/Core/MutexArray.h /jolt/Jolt/Physics/PhysicsLock.h \
   /jolt/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuery.h \
   /jolt/Jolt/Physics/Collision/ContactListener.h \
   /jolt/Jolt/Physics/Collision/Shape/SubShapeIDPair.h \
@@ -971,7 +994,6 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /jolt/Jolt/Physics/Body/BodyPair.h \
   /jolt/Jolt/Physics/Collision/ManifoldBetweenTwoFaces.h \
   /jolt/Jolt/Physics/Collision/Shape/ConvexShape.h \
-  /jolt/Jolt/Physics/Collision/PhysicsMaterial.h \
   /jolt/Jolt/Physics/Constraints/ConstraintPart/AxisConstraintPart.h \
   /jolt/Jolt/Physics/Constraints/ConstraintPart/SpringPart.h \
   /jolt/Jolt/Physics/Constraints/SpringSettings.h \
@@ -985,62 +1007,31 @@ CMakeFiles/AOP.dir/src/WorldState.cpp.o: /AOP/src/WorldState.cpp \
   /jolt/Jolt/Physics/LargeIslandSplitter.h \
   /jolt/Jolt/Physics/PhysicsUpdateContext.h \
   /jolt/Jolt/Physics/Collision/BroadPhase/BroadPhase.h \
-  /jolt/Jolt/Core/STLTempAllocator.h \
-  /jolt/Jolt/Physics/Collision/Shape/BoxShape.h \
-  /jolt/Jolt/Physics/Collision/Shape/SphereShape.h \
-  /jolt/Jolt/Physics/Collision/Shape/CapsuleShape.h \
-  /jolt/Jolt/Physics/Collision/Shape/CylinderShape.h \
-  /jolt/Jolt/Physics/Constraints/ConeConstraint.h \
-  /jolt/Jolt/Physics/Constraints/TwoBodyConstraint.h \
-  /jolt/Jolt/Physics/Constraints/ConstraintPart/PointConstraintPart.h \
-  /jolt/Jolt/Physics/Constraints/ConstraintPart/AngleConstraintPart.h \
-  /jolt/Jolt/Physics/Constraints/DistanceConstraint.h \
-  /jolt/Jolt/Physics/Constraints/FixedConstraint.h \
-  /jolt/Jolt/Physics/Constraints/ConstraintPart/RotationEulerConstraintPart.h \
-  /jolt/Jolt/Physics/Constraints/GearConstraint.h \
-  /jolt/Jolt/Physics/Constraints/ConstraintPart/GearConstraintPart.h \
-  /jolt/Jolt/Physics/Constraints/HingeConstraint.h \
-  /jolt/Jolt/Physics/Constraints/MotorSettings.h \
-  /jolt/Jolt/Physics/Constraints/ConstraintPart/HingeRotationConstraintPart.h \
-  /jolt/Jolt/Physics/Constraints/PathConstraint.h \
-  /jolt/Jolt/Physics/Constraints/PathConstraintPath.h \
-  /jolt/Jolt/Physics/Constraints/PointConstraint.h \
-  /jolt/Jolt/Physics/Constraints/PulleyConstraint.h \
-  /jolt/Jolt/Physics/Constraints/ConstraintPart/IndependentAxisConstraintPart.h \
-  /jolt/Jolt/Physics/Constraints/RackAndPinionConstraint.h \
-  /jolt/Jolt/Physics/Constraints/ConstraintPart/RackAndPinionConstraintPart.h \
-  /jolt/Jolt/Physics/Constraints/SliderConstraint.h \
-  /jolt/Jolt/Physics/Constraints/SwingTwistConstraint.h \
-  /jolt/Jolt/Physics/Constraints/ConstraintPart/SwingTwistConstraintPart.h \
-  /jolt/Jolt/Geometry/Ellipse.h /jolt/Jolt/Math/Float2.h \
+  /jolt/Jolt/Core/JobSystem.h /jolt/Jolt/Core/JobSystem.inl \
+  /jolt/Jolt/Core/STLTempAllocator.h /jolt/Jolt/Core/TempAllocator.h \
+  /jolt/Jolt/Physics/PhysicsSettings.h \
   /jolt/Jolt/Physics/Body/BodyCreationSettings.h \
+  /AOP/src/Types/../AWorld.h \
+  /AOP/src/Types/../Core/BodyActivationListener.h \
   /jolt/Jolt/Physics/Body/BodyActivationListener.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/iostream \
-  /AOP/src/./Core/../../vendors/json.hpp \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/map \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tree \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/valarray \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cassert \
-  /emsdk/upstream/emscripten/cache/sysroot/include/assert.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/filesystem \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/copy_options.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/directory_entry.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/file_status.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/file_type.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/perms.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/file_time_type.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/filesystem_error.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/path.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/iomanip \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/operations.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/perm_options.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/space_info.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/directory_iterator.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/directory_options.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/path_iterator.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/recursive_directory_iterator.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__filesystem/u8path.h \
-  /emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/any \
-  /AOP/src/./Core/BodyActivationListener.h \
-  /AOP/src/./Core/ContactListener.h /AOP/src/./Core/Layers.h \
-  /AOP/src/Params.h /AOP/src/Helpers.h
+  /AOP/src/Types/../Core/ContactListener.h \
+  /AOP/src/Types/../Managers/ABodyManager.h \
+  /AOP/src/Types/../Managers/../Core/Core.h \
+  /AOP/src/Types/../Managers/../Types/ABody.h \
+  /AOP/src/Types/../Managers/../Types/../Core/Core.h \
+  /AOP/src/Types/../Managers/../Types/../Helpers.h \
+  /AOP/src/Types/../Managers/ACharacterManager.h \
+  /AOP/src/Types/../Managers/../Types/ACharacter.h \
+  /AOP/src/Types/../Managers/AConstraintManager.h \
+  /AOP/src/Types/../Managers/../Types/AConstraint.h \
+  /AOP/src/Types/../Managers/../Types/../Core/Layers.h \
+  /AOP/src/Types/../Params.h /AOP/src/Types/.././Core/Core.h \
+  /AOP/src/Types/../../vendors/json.hpp \
+  /jolt/Jolt/Core/JobSystemSingleThreaded.h \
+  /jolt/Jolt/Core/FixedSizeFreeList.h \
+  /jolt/Jolt/Core/FixedSizeFreeList.inl \
+  /jolt/Jolt/Physics/Collision/Shape/CapsuleShape.h \
+  /jolt/Jolt/Physics/Collision/Shape/DecoratedShape.h \
+  /jolt/Jolt/Physics/Collision/Shape/RotatedTranslatedShape.h \
+  /jolt/Jolt/Physics/Collision/Shape/ScaleHelpers.h \
+  /jolt/Jolt/Physics/Character/CharacterVirtual.h
