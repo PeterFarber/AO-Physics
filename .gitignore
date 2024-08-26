@@ -6,7 +6,7 @@ jolt
 AOP/build
 
 aos/process/libs
-
+tests/jolt.json
 
 **/*.a
 process.js
