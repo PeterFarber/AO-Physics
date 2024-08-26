@@ -36,7 +36,7 @@ namespace AOP
     ACharacter::ACharacter(const char *params)
     {
         json j = json::parse(params);
-
+        delete &params;
         if (j.contains("position"))
             mPosition = Vec3(j.at("position").at(0).get<double>(), j.at("position").at(1).get<double>(), j.at("position").at(2).get<double>());
         if (j.contains("rotation"))

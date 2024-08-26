@@ -7,7 +7,7 @@
 #include "Jolt/Physics/Collision/Shape/Shape.h"
 #include "Jolt/Physics/PhysicsSystem.h"
 #include "Jolt/Physics/Body/BodyCreationSettings.h"
-
+#include "Jolt/Physics/Constraints/MotorSettings.h"
 
 namespace Helpers
 {
@@ -45,7 +45,6 @@ namespace Helpers
         {
             return Layers::NUM_LAYERS;
         }
-
     }
 
     static const char *GetShapeType(EShapeSubType type)
@@ -98,73 +97,70 @@ namespace Helpers
         }
     }
 
-    static Body * GetBody(PhysicsSystem *physicsSystem, BodyID body_id)
+    static Body *GetBody(PhysicsSystem *physicsSystem, BodyID body_id)
     {
-        printf("GetBody\n");
-        printf("BodyID: %d\n", body_id.GetIndexAndSequenceNumber());
+
         Body *body = nullptr;
         BodyLockWrite body_lock(physicsSystem->GetBodyLockInterface(), body_id);
-        if(body_lock.Succeeded())
+        if (body_lock.Succeeded())
         {
             body = &body_lock.GetBody();
             body_lock.ReleaseLock();
         }
-
-        delete &body_lock;
         return body;
     }
 
     static EConstraintSubType GetConstraintSubType(std::string type)
     {
-        if(type == "Fixed")
+        if (type == "Fixed")
         {
             return EConstraintSubType::Fixed;
         }
-        else if(type == "Point")
+        else if (type == "Point")
         {
             return EConstraintSubType::Point;
         }
-        else if(type == "Hinge")
+        else if (type == "Hinge")
         {
             return EConstraintSubType::Hinge;
         }
-        else if(type == "Slider")
+        else if (type == "Slider")
         {
             return EConstraintSubType::Slider;
         }
-        else if(type == "Distance")
+        else if (type == "Distance")
         {
             return EConstraintSubType::Distance;
         }
-        else if(type == "Cone")
+        else if (type == "Cone")
         {
             return EConstraintSubType::Cone;
         }
-        else if(type == "SwingTwist")
+        else if (type == "SwingTwist")
         {
             return EConstraintSubType::SwingTwist;
         }
-        else if(type == "SixDOF")
+        else if (type == "SixDOF")
         {
             return EConstraintSubType::SixDOF;
         }
-        else if(type == "Path")
+        else if (type == "Path")
         {
             return EConstraintSubType::Path;
         }
-        else if(type == "Vehicle")
+        else if (type == "Vehicle")
         {
             return EConstraintSubType::Vehicle;
         }
-        else if(type == "RackAndPinion")
+        else if (type == "RackAndPinion")
         {
             return EConstraintSubType::RackAndPinion;
         }
-        else if(type == "Gear")
+        else if (type == "Gear")
         {
             return EConstraintSubType::Gear;
         }
-        else if(type == "Pulley")
+        else if (type == "Pulley")
         {
             return EConstraintSubType::Pulley;
         }
@@ -176,7 +172,7 @@ namespace Helpers
 
     static EConstraintSpace GetConstraintSpace(std::string space)
     {
-        if(space == "WorldSpace")
+        if (space == "WorldSpace")
         {
             return EConstraintSpace::WorldSpace;
         }
@@ -188,7 +184,7 @@ namespace Helpers
 
     static EActivation GetActivation(bool activate)
     {
-        if(activate)
+        if (activate)
         {
             return EActivation::Activate;
         }
@@ -200,31 +196,31 @@ namespace Helpers
 
     static EShapeSubType GetShapeSubType(std::string type)
     {
-        if(type == "Sphere")
+        if (type == "Sphere")
         {
             return EShapeSubType::Sphere;
         }
-        else if(type == "Box")
+        else if (type == "Box")
         {
             return EShapeSubType::Box;
         }
-        else if(type == "Triangle")
+        else if (type == "Triangle")
         {
             return EShapeSubType::Triangle;
         }
-        else if(type == "Capsule")
+        else if (type == "Capsule")
         {
             return EShapeSubType::Capsule;
         }
-        else if(type == "TaperedCapsule")
+        else if (type == "TaperedCapsule")
         {
             return EShapeSubType::TaperedCapsule;
         }
-        else if(type == "Cylinder")
+        else if (type == "Cylinder")
         {
             return EShapeSubType::Cylinder;
         }
-        else if(type == "ConvexHull")
+        else if (type == "ConvexHull")
         {
             return EShapeSubType::ConvexHull;
         }
@@ -233,6 +229,92 @@ namespace Helpers
             return EShapeSubType::Box;
         }
     }
+
+    static EMotionQuality GetMotionQuality(std::string quality)
+    {
+        if (quality == "Discrete")
+        {
+            return EMotionQuality::Discrete;
+        }
+        else if (quality == "LinearCast")
+        {
+            return EMotionQuality::LinearCast;
+        }
+        else
+        {
+            return EMotionQuality::Discrete;
+        }
+    }
+
+    static EMotorState GetMotorState(std::string state)
+    {
+        if (state == "Off")
+        {
+            return EMotorState::Off;
+        }
+        else if (state == "Velocity")
+        {
+            return EMotorState::Velocity;
+        }
+        else if (state == "Position")
+        {
+            return EMotorState::Position;
+        }
+        else
+        {
+            return EMotorState::Off;
+        }
+    }
+
+    static const char * GetConstraintSubTypeAsString(EConstraintSubType type)
+    {
+        switch (type)
+        {
+        case EConstraintSubType::Fixed:
+            return "Fixed";
+            break;
+        case EConstraintSubType::Point:
+            return "Point";
+            break;
+        case EConstraintSubType::Hinge:
+            return "Hinge";
+            break;
+        case EConstraintSubType::Slider:
+            return "Slider";
+            break;
+        case EConstraintSubType::Distance:
+            return "Distance";
+            break;
+        case EConstraintSubType::Cone:
+            return "Cone";
+            break;
+        case EConstraintSubType::SwingTwist:
+            return "SwingTwist";
+            break;
+        case EConstraintSubType::SixDOF:
+            return "SixDOF";
+            break;
+        case EConstraintSubType::Path:
+            return "Path";
+            break;
+        case EConstraintSubType::Vehicle:
+            return "Vehicle";
+            break;
+        case EConstraintSubType::RackAndPinion:
+            return "RackAndPinion";
+            break;
+        case EConstraintSubType::Gear:
+            return "Gear";
+            break;
+        case EConstraintSubType::Pulley:
+            return "Pulley";
+            break;
+        default:
+            return "Unknown";
+            break;
+        }
+    }
+
 }
 
 #endif

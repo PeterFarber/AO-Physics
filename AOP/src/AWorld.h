@@ -10,7 +10,6 @@
 #include "Managers/ACharacterManager.h"
 #include "Managers/AConstraintManager.h"
 
-#include "Params.h"
 
 #include "Jolt/Core/JobSystemSingleThreaded.h"
 
@@ -47,9 +46,18 @@ namespace AOP
         static AWorld *GetInstance();
 
 
+    private:        
+        Vec3 mGravity = Vec3(0, -9.81f, 0);
+        float mTimeBeforeSleep = 0.5f;
+        bool mAllowSleeping = true;
+        uint mMaxBodies = 1024;
+        uint mNumBodyMutexes = 0;
+        uint mMaxBodyPairs = 1024;
+        uint mMaxContactConstraints = 1024;
+        float mUpdateFrequency = 60.0f;
 
     public:
-        float mUpdateFrequency = 60.0f;
+
 
         ABodyManager *mBodyManager;
         ACharacterManager *mCharacterManager;
@@ -71,10 +79,10 @@ namespace AOP
         MyContactListener *mContactListener;
 
     public:
-        void Create(WorldParams params);
+        void ParseParams(const char *params);
+        void Create(const char * params);
         void Update();
         json GetWorldState();
-        void SetLinearVelocity(ModParams params);
         void Destroy();
     };
 }

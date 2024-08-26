@@ -2,10 +2,18 @@
 #include "Jolt/RegisterTypes.h"
 #include "Jolt/Physics/Constraints/DistanceConstraint.h"
 #include "Jolt/Physics/Constraints/FixedConstraint.h"
-#include "Jolt/Physics/Constraints/PointConstraint.h"   
+#include "Jolt/Physics/Constraints/PointConstraint.h"
 #include "Jolt/Physics/Constraints/PulleyConstraint.h"
 #include "Jolt/Physics/Collision/Shape/DecoratedShape.h"
 
+#include "Types/Constraints/AConeConstraint.h"
+#include "Types/Constraints/ADistanceConstraint.h"
+#include "Types/Constraints/AFixedConstraint.h"
+#include "Types/Constraints/AGearConstraint.h"
+#include "Types/Constraints/AHingeConstraint.h"
+#include "Types/Constraints/APointConstraint.h"
+#include "Types/Constraints/APulleyConstraint.h"
+#include "Types/Constraints/ASliderConstraint.h"
 
 namespace AOP
 {
@@ -54,11 +62,34 @@ namespace AOP
         return sInstance;
     }
 
-    void AWorld::Create(WorldParams params)
+    void AWorld::ParseParams(const char *params)
+    {
+        json j = json::parse(params);
+        delete &params;
+
+        if (j.contains("gravity"))
+            mGravity = Vec3(j.at("gravity").at(0).get<double>(), j.at("gravity").at(1).get<double>(), j.at("gravity").at(2).get<double>());
+        if (j.contains("timeBeforeSleep"))
+            mTimeBeforeSleep = j.at("timeBeforeSleep").get<float>();
+        if (j.contains("allowSleeping"))
+            mAllowSleeping = j.at("allowSleeping").get<bool>();
+        if (j.contains("maxBodies"))
+            mMaxBodies = j.at("maxBodies").get<uint>();
+        if (j.contains("numBodyMutexes"))
+            mNumBodyMutexes = j.at("numBodyMutexes").get<uint>();
+        if (j.contains("maxBodyPairs"))
+            mMaxBodyPairs = j.at("maxBodyPairs").get<uint>();
+        if (j.contains("maxContactConstraints"))
+            mMaxContactConstraints = j.at("maxContactConstraints").get<uint>();
+    }
+
+    void AWorld::Create(const char *params)
     {
 
         if (is_initialized)
             return;
+
+        ParseParams(params);
 
         mBodyManager = new ABodyManager();
         mCharacterManager = new ACharacterManager();
@@ -76,18 +107,18 @@ namespace AOP
         mJobSystem = new JobSystemSingleThreaded(cMaxPhysicsJobs);
 
         mPhysicsSystem = new PhysicsSystem();
-        mPhysicsSystem->Init(params.GetMaxBodies(), params.GetNumBodyMutexes(), params.GetMaxBodyPairs(), params.GetMaxContactConstraints(), mBroadPhaseLayerInterface, mObjectVsBroadPhaseLayerFilter, mObjectVsObjectLayerFilter);
+        mPhysicsSystem->Init(mMaxBodies, mNumBodyMutexes, mMaxBodyPairs, mMaxContactConstraints, mBroadPhaseLayerInterface, mObjectVsBroadPhaseLayerFilter, mObjectVsObjectLayerFilter);
 
         mBodyActivationListener = new MyBodyActivationListener();
         mContactListener = new MyContactListener();
         mPhysicsSystem->SetBodyActivationListener(mBodyActivationListener);
         mPhysicsSystem->SetContactListener(mContactListener);
 
-        mPhysicsSystem->SetGravity(params.GetGravity());
+        mPhysicsSystem->SetGravity(mGravity);
 
         PhysicsSettings ps = mPhysicsSystem->GetPhysicsSettings();
-        ps.mAllowSleeping = params.GetAllowSleeping();
-        ps.mTimeBeforeSleep = params.GetTimeBeforeSleep();
+        ps.mAllowSleeping = mAllowSleeping;
+        ps.mTimeBeforeSleep = mTimeBeforeSleep;
         mPhysicsSystem->SetPhysicsSettings(ps);
 
         mBodyInterface = &mPhysicsSystem->GetBodyInterface();
@@ -117,7 +148,6 @@ namespace AOP
     json AWorld::GetWorldState()
     {
         json world_state_json;
-
         world_state_json["bodies"] = json::array();
         BodyIDVector bodies;
         mPhysicsSystem->GetBodies(bodies);
@@ -153,58 +183,17 @@ namespace AOP
         world_state_json["constraints"] = json::array();
 
         Constraints constraints = mPhysicsSystem->GetConstraints();
-
         for (Constraint *constraint : constraints)
         {
 
             // Get Contrain Settings
             ConstraintSettings *constraint_settings = constraint->GetConstraintSettings();
-
-            switch (constraint->GetSubType())
-            {
-            case EConstraintSubType::Pulley:
-            {
-                PulleyConstraint *pulley_constraint = static_cast<PulleyConstraint *>(constraint);
-                Body *body1 = pulley_constraint->GetBody1();
-                Body *body2 = pulley_constraint->GetBody2();
-                world_state_json["constraints"].push_back({{"type", "pulley"},
-                                                           {"body1", body1->GetID().GetIndexAndSequenceNumber()},
-                                                           {"body2", body2->GetID().GetIndexAndSequenceNumber()}});
-                break;
-            }
-            case EConstraintSubType::Fixed:
-            {
-                FixedConstraint *fixed_constraint = static_cast<FixedConstraint *>(constraint);
-                Body *body1 = fixed_constraint->GetBody1();
-                Body *body2 = fixed_constraint->GetBody2();
-                world_state_json["constraints"].push_back({{"type", "fixed"},
-                                                           {"body1", body1->GetID().GetIndexAndSequenceNumber()},
-                                                           {"body2", body2->GetID().GetIndexAndSequenceNumber()}});
-                break;
-            }
-            case EConstraintSubType::Distance:
-            {
-                DistanceConstraint *distance_constraint = static_cast<DistanceConstraint *>(constraint);
-                Body *body1 = distance_constraint->GetBody1();
-                Body *body2 = distance_constraint->GetBody2();
-                world_state_json["constraints"].push_back({{"type", "distance"},
-                                                           {"body1", body1->GetID().GetIndexAndSequenceNumber()},
-                                                           {"body2", body2->GetID().GetIndexAndSequenceNumber()}});
-                break;
-            }
-
-            default:
-                break;
-            }
+            const uint id = reinterpret_cast<uint32>(constraint);
+            AConstraint *aConstraint = mConstraintManager->GetConstraint(id);
+            world_state_json["constraints"].push_back(aConstraint->GetData());
         }
 
         return world_state_json;
-    }
-
-    void AWorld::SetLinearVelocity(ModParams params)
-    {
-        BodyID body_id_obj(params.GetBodyID());
-        mBodyInterface->SetLinearVelocity(body_id_obj, params.GetVelocity());
     }
 
     void AWorld::Destroy()

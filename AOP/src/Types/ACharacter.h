@@ -10,7 +10,6 @@
 
 namespace AOP
 {
-    class AWorld;
 
     class InputParams
     {

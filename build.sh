@@ -11,23 +11,23 @@ AO_IMAGE="aomerge:latest"
 # EMXX_CFLAGS=" -s EXPORT_ALL=1 -s EXPORT_ES6=1 -Wno-unused-command-line-argument -Wno-experimental /lua-5.3.4/src/liblua.a -I/lua-5.3.4/src"
 EMXX_CFLAGS="/lua-5.3.4/src/liblua.a -I/lua-5.3.4/src -I/jolt/ -I/jolt/Jolt -s SUPPORT_LONGJMP=1"
 
-# # Clone jolt if it doesn't exist
-# rm -rf ${JOLT_DIR}
-# if [ ! -d "${JOLT_DIR}" ]; then \
-# 	git clone https://github.com/jrouwe/JoltPhysics.git ${JOLT_DIR}; \
-# 	cp ${SCRIPT_DIR}/inject/CMakeLists.txt ${JOLT_DIR}/CMakeLists.txt; \
-# fi
-# cd ..
+# Clone jolt if it doesn't exist
+rm -rf ${JOLT_DIR}
+if [ ! -d "${JOLT_DIR}" ]; then \
+	git clone https://github.com/jrouwe/JoltPhysics.git ${JOLT_DIR}; \
+	cp ${SCRIPT_DIR}/inject/CMakeLists.txt ${JOLT_DIR}/CMakeLists.txt; \
+fi
+cd ..
 
-# # Build jolt into a static library with emscripten
-# docker run -v ${JOLT_DIR}:/jolt --platform linux/amd64 ${AO_IMAGE}  sh -c \
-# 		"cd /jolt && emcmake cmake -S . -B ."
+# Build jolt into a static library with emscripten
+docker run -v ${JOLT_DIR}:/jolt --platform linux/amd64 ${AO_IMAGE}  sh -c \
+		"cd /jolt && emcmake cmake -S . -B ."
 
-# docker run -v ${JOLT_DIR}:/jolt --platform linux/amd64  ${AO_IMAGE} sh -c \
-# 		"cd /jolt && cmake --build ." 
+docker run -v ${JOLT_DIR}:/jolt --platform linux/amd64  ${AO_IMAGE} sh -c \
+		"cd /jolt && cmake --build ." 
 
-# # Fix permissions
-# sudo chmod -R 777 ${JOLT_DIR}
+# Fix permissions
+sudo chmod -R 777 ${JOLT_DIR}
 
 
 # Build lua jolt into a static library with emscripten
@@ -57,7 +57,7 @@ sudo chmod -R 777 ${AOP_DIR}
 rm -rf ${LIBS_DIR}
 mkdir -p $LIBS_DIR
 cp ${JOLT_DIR}/libJolt.a $LIBS_DIR/libJolt.a
-cp ${AOP_DIR}/build/libAOP.a $LIBS_DIR/libAOP.a
+cp ${AOP_DIR}/build/libaop.a $LIBS_DIR/libaop.a
 
 
 # Copy config.yml to the process directory
@@ -70,3 +70,7 @@ docker run -e DEBUG=1 --platform linux/amd64 -v ./:/src ${AO_IMAGE} ao-build-mod
 # # Copy the process module to the tests directory
 cp ${PROCESS_DIR}/process.wasm ${SCRIPT_DIR}/tests/process.wasm
 cp ${PROCESS_DIR}/process.js ${SCRIPT_DIR}/tests/process.js
+
+# rm -rf ${SCRIPT_DIR}/tests/Lua
+# cp -r ${AOP_DIR}/Lua/ ${SCRIPT_DIR}/tests/Lua/
+# cp -r ${AOP_DIR}/Lua/ ${PROCESS_DIR}

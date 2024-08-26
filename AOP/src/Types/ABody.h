@@ -21,6 +21,7 @@ namespace AOP
         Vec3 mAngularVelocity = Vec3::sZero();
 
         EMotionType mMotionType = EMotionType::Dynamic;
+        EMotionQuality mMotionQuality = EMotionQuality::Discrete;
         ObjectLayer mLayer = Helpers::GetLayer("MOVING");
         EActivation mActivation = EActivation::Activate;
 
@@ -45,7 +46,14 @@ namespace AOP
     public:
         ABody(const char *params);
         void Initialize();
+        void SetLinearVelocity(Vec3 velocity);
+        void SetAngularVelocity(Vec3 velocity);
+        void AddForce(Vec3 force);
+        void AddTorque(Vec3 torque);
+        void AddImpulse(Vec3 impulse);
+        void AddLinearVelocity(Vec3 velocity);
+        void AddAngularVelocity(Vec3 velocity);
+        json CastRay(Vec3 direction);
     };
-
 }
 #endif

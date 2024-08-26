@@ -4,7 +4,7 @@
 #define AOP_CONSTRAINT_MANAGER_H
 
 #include "../Core/Core.h"
-#include "../Types/AConstraint.h"
+#include "../Types/Constraints/AConstraint.h"
 
 namespace AOP
 {
@@ -12,13 +12,16 @@ namespace AOP
     class AConstraintManager
     {
     private:
-        std::map<uint, AConstraint *> mConstraints;
+        std::map<uint32, AConstraint *> mConstraints;
 
     public:
         AConstraintManager();
         ~AConstraintManager();
 
         uint32 AddConstraint(const char *params);
+
+        std::map<uint32, AConstraint *> GetConstraints() { return mConstraints; }
+        AConstraint *GetConstraint(uint32 id) { return mConstraints[id]; }
 
     };
 
