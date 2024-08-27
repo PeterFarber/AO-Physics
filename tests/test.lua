@@ -1,8 +1,8 @@
 AOP = require("AOP")
 
-local framesToSimulate = 5000
+local framesToSimulate = 1000
 local deltaTime = 1.0 / 60.0
-local scenario = "HingeConstraint" -- "BodyForces", "HingeConstraint", "SliderConstraint", "PointConstraint", "ConeConstraint"
+local scenario = "SliderConstraint"                  -- "BodyForces", "HingeConstraint", "SliderConstraint", "PointConstraint", "ConeConstraint"
 
 --- Create a World ---
 local world = AOP:World()
@@ -129,7 +129,7 @@ if scenario == "HingeConstraint" then
 
     local constraint2 = AOP:ConstraintHinge()
     constraint2.point1 = { 0, 3.5, -0.3 }
-    constraint2.point2 = { 0, 3.5,  -0.3  }
+    constraint2.point2 = { 0, 3.5, -0.3 }
     constraint2.hingeAxis1 = { 0, 0, 1 }
     constraint2.hingeAxis2 = { 0, 0, 1 }
     constraint2.normalAxis1 = { 0, 1, 0 }
@@ -179,7 +179,7 @@ if scenario == "PointConstraint" then
     sphere2.shape = "Box"
     sphere2.motionType = "Dynamic"
     sphere2.radius = 0.5
-    sphere2.rotation = {0.3535534, -0.1464466, 0.3535534, 0.8535534 }
+    sphere2.rotation = { 0.3535534, -0.1464466, 0.3535534, 0.8535534 }
     sphere2.size = { 1.0, 1.0, 1.0 }
     sphere2.position = { 1.5, 5, 0.0 }
     sphere2.layer = "MOVING"
@@ -192,7 +192,7 @@ if scenario == "PointConstraint" then
     constraint.point2 = { -1.5, 5, 0 }
     constraint:Add(sphere, sphere2)
 
-    
+
     -- constraint:Add(sphere, sphere2)
 
     --- Update the World ---
@@ -205,52 +205,95 @@ if scenario == "PointConstraint" then
     end
 end
 
-if scenario == "PointConstraint" then
+if scenario == "SliderConstraint" then
     --- Create a Floor ---
     local body = AOP:Body()
     body.shape = "Box"
     body.size = { 100.0, 1.0, 100.0 }
+    body.position = { 0, -0.5, 0 }
     body.motionType = "Static"
     body.layer = "NON_MOVING"
     body.activate = false
     body:Add()
 
-    local sphere = AOP:Body()
-    sphere.shape = "Box"
-    sphere.motionType = "Static"
-    sphere.radius = 0.5
-    sphere.size = { 1.0, 1.0, 1.0 }
-    sphere.position = { -1.5, 5, 0.0 }
-    sphere.layer = "NON_MOVING"
-    sphere.activate = false
-    sphere:Add()
+    --- Spinner ---
+    local spinner = AOP:Body()
+    spinner.shape = "Box"
+    spinner.motionType = "Dynamic"
+    spinner.size = { 3.0, 0.3, 3.0 }
+    spinner.position = { 0, 0.15, -2.5 }
+    spinner.layer = "MOVING"
+    spinner.friction = 0
+    spinner.activate = true
+    spinner:Add()
 
-    local sphere2 = AOP:Body()
-    sphere2.shape = "Box"
-    sphere2.motionType = "Dynamic"
-    sphere2.radius = 0.5
-    sphere2.rotation = {0.3535534, -0.1464466, 0.3535534, 0.8535534 }
-    sphere2.size = { 1.0, 1.0, 1.0 }
-    sphere2.position = { 1.5, 5, 0.0 }
-    sphere2.layer = "MOVING"
-    sphere2.activate = true
-    sphere2:Add()
+    --- Slider ---
+    local slider = AOP:Body()
+    slider.shape = "Box"
+    slider.motionType = "Dynamic"
+    slider.size = { 1.0, 0.3, 1.5 }
+    slider.position = { 0, 0.15, 1.75 }
+    slider.layer = "MOVING"
+    slider.friction = 0
+    slider.activate = true
+    slider:Add()
 
-    -- Preserves the initial Rotation of the object
-    local constraint = AOP:ConstraintPoint()
-    constraint.point1 = { -1.5, 5, 0 }
-    constraint.point2 = { -1.5, 5, 0 }
-    constraint:Add(sphere, sphere2)
+    --- Slider Walls ---
+    local wall1 = AOP:Body()
+    wall1.shape = "Box"
+    wall1.motionType = "Static"
+    wall1.size = { 1.0, 0.2, 4 }
+    wall1.position = { -1, 0.1, 3 }
+    wall1.layer = "NON_MOVING"
+    wall1.activate = false
+    wall1:Add()
 
-    
-    -- constraint:Add(sphere, sphere2)
+    local wall2 = AOP:Body()
+    wall2.shape = "Box"
+    wall2.motionType = "Static"
+    wall2.size = { 1.0, 0.2, 4 }
+    wall2.position = { 1, 0.1, 3 }
+    wall2.layer = "NON_MOVING"
+    wall2.activate = false
+    wall2:Add()
+
+    --- Slider Constraint ---
+    local constraint = AOP:ConstraintSlider()
+    -- constraint.autoDetectPoint = true
+    constraint.point1 =  { 0, 0.15, 1.75 }
+    constraint.point2 = { 0, 0.15, -2.5 }
+
+    constraint.sliderAxis1 = { 0, 0, 1 }
+    constraint.sliderAxis2 = { 0, 0, 1 }
+    constraint.limitsMin = -1
+    constraint.limitsMax = 1
+    -- constraint.limitsSpringSettings.frequency = 1.0;
+    -- constraint.limitsSpringSettings.damping = 0.5;
+    -- constraint.limitsMin = 
+    -- constraint:Add(slider, body)
+
+
+    --- Point Constraint ---
+    local constraint2 = AOP:ConstraintPoint()
+    constraint2.space = "LocalToBodyCOM"
+    constraint2.point1 =  { 0, 0, 0 }
+    constraint2.point2 =  { 0, 0, 0 }
+    constraint2:Add(slider, spinner)
+
+
+    local constraint3 = AOP:ConstraintPoint()
+    constraint3.space = "WorldSpace"
+    constraint3.point1 ={ 0, 0.15, -2.5 }
+    constraint3.point2 = { 0, 0.15, -2.5 }
+    constraint3:Add(spinner, body)
+    -- --- Add Angular Velocity ---
 
     --- Update the World ---
     for i = 1, framesToSimulate do
         world:Update(1, deltaTime)
         world:GetState()
-        if (i == 150) then
-            sphere2:SetLinearVelocity({ 50.0, 0.0, 0.0 })
+        if i == 50 then
+            slider:SetLinearVelocity({ 0.0, 0.0, 200.0 })
         end
     end
 end

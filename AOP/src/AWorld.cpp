@@ -190,7 +190,9 @@ namespace AOP
             ConstraintSettings *constraint_settings = constraint->GetConstraintSettings();
             const uint id = reinterpret_cast<uint32>(constraint);
             AConstraint *aConstraint = mConstraintManager->GetConstraint(id);
-            world_state_json["constraints"].push_back(aConstraint->GetData());
+            json data = aConstraint->GetData();
+            data['space'] = aConstraint->mSpace;
+            world_state_json["constraints"].push_back(data);
         }
 
         return world_state_json;

@@ -13,6 +13,7 @@ namespace AOP
     {
         json j = json::parse(params);
 
+        printf("Slider Constraint\n");
         
         if (j.contains("point1"))
             mPoint1 = Vec3(j.at("point1").at(0).get<double>(), j.at("point1").at(1).get<double>(), j.at("point1").at(2).get<double>());
@@ -69,10 +70,13 @@ namespace AOP
 
         SliderConstraintSettings constraint_settings;
         constraint_settings.mSpace = mSpace;
-        constraint_settings.mPoint1 = mPoint1;
+        constraint_settings.mAutoDetectPoint = mAutoDetectPoint;
+        if(!constraint_settings.mAutoDetectPoint){
+            constraint_settings.mPoint1 = mPoint1;
+            constraint_settings.mPoint2 = mPoint2;
+        }
         constraint_settings.mSliderAxis1 = mSliderAxis1;
         constraint_settings.mNormalAxis1 = mNormalAxis1;
-        constraint_settings.mPoint2 = mPoint2;
         constraint_settings.mSliderAxis2 = mSliderAxis2;
         constraint_settings.mNormalAxis2 = mNormalAxis2;
         constraint_settings.mLimitsMin = mLimitsMin;

@@ -76,6 +76,7 @@ namespace AOP
             }
             case EConstraintSubType::Slider:
             {
+                printf("Slider Constraint\n");
                 ASliderConstraint *constraint = new ASliderConstraint(params);
                 mConstraints[constraint->mID] = constraint;
                 return constraint->mID;
