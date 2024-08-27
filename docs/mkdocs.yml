@@ -5,7 +5,7 @@ nav:
     - World: 'world.md'
     - Body: 'body.md'
     - Constraint: 'constraint.md'
-  - Examples:
+  - Examples1:
     - 'examples/basic.md'
 
 
