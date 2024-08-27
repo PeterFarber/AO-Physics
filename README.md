@@ -1,95 +1,27 @@
-# AO-Physics
+# AO Physics
 
-## Example Lua Program
+AO Physics is a powerful and flexible physics simulation system designed for creating realistic physical interactions within a virtual environment. It provides components for defining worlds, bodies, and constraints, allowing for detailed and accurate simulations.
 
-```lua
-local jolt = require('jolt')
-jolt.create_world()
-local box_id = jolt.create_box(10,1,10, 0.0, 0.0, 0.0, 'Static')
-local sphere_id = jolt.create_sphere(0.5, 0.0, 2.0, 0.0, 'Dynamic')
-jolt.set_linear_velocity(sphere_id, 0, 0, 0)
-jolt.update_world(100, 0.01666666666)
-jolt.destroy_world()
-return "Jolted"
-```
+## Features
 
-## Create World
-Create/Initialize a physics simulation. 
-```lua
-jolt.create_world()
-```
+- **World Management**: Configure and manage the overall simulation environment, including gravity, time settings, and more.
+- **Body Dynamics**: Define physical objects with attributes like position, velocity, and mass, and manage their interactions.
+- **Constraints**: Implement various constraints to simulate joints, connections, and interactions between bodies.
 
-## Destroy World
-Shutdown the physics simulation. 
-```lua
-jolt.destroy_world()
-```
+## Documentation
 
-## Update World
-Create/Initialize a physics simulation. 
-```lua
-jolt.update_world(100, 0.01666666666)
-```
+For detailed documentation on how to use AO Physics, including configuration, methods, and examples, please visit the [AO Physics Documentation](https://peterfarber.github.io/AO-Physics/).
 
-### Arguments
+The documentation covers:
 
-| Name    	| Type   	| Description                                   	|
-|---------	|--------	|-----------------------------------------------	|
-| steps 	| number 	| The number of steps to run in the update. 	    |
-| deltaTime | number 	| The delta time.                               	|
+- **[World](https://peterfarber.github.io/AO-Physics/world)**: Overview and configuration of the simulation environment.
+- **[Body](https://peterfarber.github.io/AO-Physics/body)**: Properties and methods for defining and managing physical bodies.
+- **[Constraints](https://peterfarber.github.io/AO-Physics/constraint)**: Types of constraints and their usage for simulating physical connections.
 
+## Getting Started
 
-## Create Box
-Create a box body and place it in the world.
-```lua
-local box_id = jolt.create_box(10, 1, 10, 0.0, 0.0, 0.0, 'Static')
-```
+To get started with AO Physics, follow these steps:
 
-### Arguments
-
-| Name    	    | Type   	| Description                                   	| Options |
-|---------	    |--------	|-----------------------------------------------	| ------- |
-| x_size 	    | number 	| The width of the box.	                            |
-| y_size        | number 	| The height of the box.                            |
-| z_size        | number 	| The depth of the box.                             |
-| x_pos 	    | number 	| The x position of the box.	                    |
-| y_pos         | number 	| The y position of the box.                        |
-| z_pos         | number 	| The z position of the box.                        |
-| motion_type   | string 	| The type of motion the body has.                  | "Static", "Dynamic", "KiniKinematic      |
-
-Returns a body_id (string).
-
-
-## Create Sphere
-Create a sphere body and place it in the world.
-```lua
-local sphere_id = jolt.create_sphere(0.5, 0.0, 2.0, 0.0, 'Dynamic')
-```
-
-### Arguments
-
-| Name    	    | Type   	| Description                                   	| Options |
-|---------	    |--------	|-----------------------------------------------	| ------- |
-| radius 	    | number 	| The radius of the sphere.                         |
-| x_pos 	    | number 	| The x position of the sphere.	                    |
-| y_pos         | number 	| The y position of the sphere.                        |
-| z_pos         | number 	| The z position of the sphere.                        |
-| motion_type   | string 	| The type of motion the body has.                  | "Static", "Dynamic", "KiniKinematic      |
-
-Returns a body_id (string).
-
-
-## Set Linear Velocity
-Sets the linear velocity of a specified body.
-```lua
-jolt.set_linear_velocity([body_id], 0, 1, 0)
-```
-
-### Arguments
-
-| Name    	| Type   	| Description                                   	|
-|---------	|--------	|-----------------------------------------------	|
-| body_id 	| string 	| The body id of the body you want to update. 	    |
-| x_vel   	| number 	| The x velocity.                               	|
-| y_vel   	| number 	| The y velocity.                               	|
-| z_vel   	| number 	| The z velocity.                               	|
+1. **Installation**: Coming soon
+2. **Basic Setup**: Coming Soon
+3. **Examples**: Coming soon
