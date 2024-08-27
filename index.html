@@ -150,7 +150,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#example-usage" class="nav-link">Example Usage</a>
+            <li class="nav-item" data-bs-level="2"><a href="#examples" class="nav-link">Examples</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -179,36 +179,22 @@
 <h2 id="constraints">Constraints</h2>
 <p>Constraints define relationships and restrictions between bodies, simulating various physical joints and connections. They determine how bodies move relative to each other and the types of interactions that can occur.</p>
 <p>For detailed information on the different types of constraints and their configurations, refer to the <a href="constraint/">Constraints documentation</a>.</p>
-<h2 id="example-usage">Example Usage</h2>
-<p>Here is a brief example showing how to create a world, add bodies, and apply constraints:</p>
-<pre><code class="language-lua">-- Create a new world
-local world = AOP:World()
-world.gravity = {0.0, -9.81, 0.0}
-world:Create()
-
--- Create two bodies
-local body1 = AOP:Body()
-local body2 = AOP:Body()
-body1:Create()
-body2:Create()
-
--- Create a hinge constraint between the two bodies
-local hinge = AOP:ConstraintHinge()
-hinge.point1 = {1, 2, 3}
-hinge.hingeAxis1 = {0, 1, 0}
-local hingeID = hinge:Add(body1, body2)
-
--- Update the world simulation
-world:Update(1, 0.016)  -- 1 step, 16 ms per step
-
--- Retrieve and print the world state
-local state = world:GetState()
-print(&quot;World State:&quot;, state)
-
--- Cleanup
-world:Destroy()
-</code></pre>
-<p>This example demonstrates how to initialize the simulation environment, create and configure bodies, apply constraints, and update and retrieve simulation states. For more detailed usage, please consult the respective documentation for each component.</p></div>
+<h2 id="examples">Examples</h2>
+<p>To help you get started with the physics simulation system, here are some examples showcasing different aspects of its usage:</p>
+<ol>
+<li><a href="examples/basic/">Basic</a>: This example demonstrates how to initialize the simulation environment, create and configure bodies, apply physical motions, and update and retrieve simulation states. It covers the fundamental concepts and operations of the physics simulation system. </li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note: This example does not include using <strong>Constraints</strong></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">More Coming Soon...</p>
+</div>
+<p>Feel free to explore these examples to gain a better understanding of how to use the physics simulation system in your projects.</p>
+<p>For more detailed usage and information on each component, please consult the respective documentation linked in the table of contents.</p>
+<div class="admonition warning">
+<p class="admonition-title">WARNING: AO Physics is still in its early stage of development...</p>
+</div></div>
             </div>
         </div>
 
@@ -290,5 +276,5 @@ world:Destroy()
 
 <!--
 MkDocs version : 1.6.0
-Build Date UTC : 2024-08-27 17:38:46.481642+00:00
+Build Date UTC : 2024-08-27 17:47:32.106545+00:00
 -->
