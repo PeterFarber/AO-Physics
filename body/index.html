@@ -43,6 +43,11 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
                 </li>
               </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup/">Setup</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Classes</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../world/">World</a>
@@ -61,11 +66,29 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#remove">Remove</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example-usage_1">Example Usage</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setdata">SetData</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example-usage_2">Example Usage</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getdata">GetData</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example-usage_3">Example Usage</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#setlinearvelocity">SetLinearVelocity</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_1">Example Usage</a>
+    <li class="toctree-l4"><a class="reference internal" href="#example-usage_4">Example Usage</a>
     </li>
         </ul>
     </li>
@@ -73,7 +96,7 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#parameters_1">Parameters</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_2">Example Usage</a>
+    <li class="toctree-l4"><a class="reference internal" href="#example-usage_5">Example Usage</a>
     </li>
         </ul>
     </li>
@@ -81,7 +104,7 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#parameters_2">Parameters</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_3">Example Usage</a>
+    <li class="toctree-l4"><a class="reference internal" href="#example-usage_6">Example Usage</a>
     </li>
         </ul>
     </li>
@@ -89,7 +112,7 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#parameters_3">Parameters</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_4">Example Usage</a>
+    <li class="toctree-l4"><a class="reference internal" href="#example-usage_7">Example Usage</a>
     </li>
         </ul>
     </li>
@@ -97,7 +120,7 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#parameters_4">Parameters</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_5">Example Usage</a>
+    <li class="toctree-l4"><a class="reference internal" href="#example-usage_8">Example Usage</a>
     </li>
         </ul>
     </li>
@@ -105,7 +128,7 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#parameters_5">Parameters</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_6">Example Usage</a>
+    <li class="toctree-l4"><a class="reference internal" href="#example-usage_9">Example Usage</a>
     </li>
         </ul>
     </li>
@@ -113,7 +136,7 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#parameters_6">Parameters</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_7">Example Usage</a>
+    <li class="toctree-l4"><a class="reference internal" href="#example-usage_10">Example Usage</a>
     </li>
         </ul>
     </li>
@@ -123,7 +146,7 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#returns">Returns</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_8">Example Usage</a>
+    <li class="toctree-l4"><a class="reference internal" href="#example-usage_11">Example Usage</a>
     </li>
         </ul>
     </li>
@@ -140,6 +163,8 @@
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../constraint/">Constraint</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../character/">Character</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Examples</span></p>
@@ -184,6 +209,9 @@
 <li><a href="#settings">Settings</a></li>
 <li><a href="#functions">Functions</a><ul>
 <li><a href="#add"><code>Add</code></a> - Add's the <strong>Body</strong> to the <strong>World</strong> </li>
+<li><a href="#remove"><code>Remove</code></a> - Remove the <strong>Body</strong> from the <strong>World</strong></li>
+<li><a href="#setdata"><code>SetData</code></a> - Set custom <strong>Data</strong> on the <strong>Body</strong></li>
+<li><a href="#getdata"><code>GetData</code></a> - Get the custom set <strong>Data</strong> from the <strong>Body</strong></li>
 <li><a href="#setlinearvelocity"><code>SetLinearVelocity</code></a> - Sets the <strong>Linear Velocity</strong> of the <strong>Body</strong></li>
 <li><a href="#setangularvelocity"><code>SetAngularVelocity</code></a> - Adds to the <strong>Linear Velocity</strong> of the <strong>Body</strong></li>
 <li><a href="#addlinearvelocity"><code>AddLinearVelocity</code></a> - Sets the <strong>Angular Velocity</strong> of the <strong>Body</strong></li>
@@ -208,6 +236,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>table</code></td>
+<td>Custom JSON data associated with the body.</td>
+<td><code>{}</code></td>
+</tr>
 <tr>
 <td><code>position</code></td>
 <td><code>table</code></td>
@@ -345,13 +379,34 @@
 </code></pre>
 <p>This function serializes the body's properties and adds it to the simulation, generating and assigning a unique identifier (id) for the body. This id is used in subsequent operations to reference this specific body within the physics system.</p>
 <hr />
+<h3 id="remove">Remove</h3>
+<p>Removes the body from the physics simulation using its unique <code>id</code>.</p>
+<h4 id="example-usage_1">Example Usage</h4>
+<pre><code class="language-lua">body:Remove()
+</code></pre>
+<p>This function removes the body associated with the given <code>id</code> from the simulation. Once removed, the body's id will no longer be valid for operations within the physics system.</p>
+<hr />
+<h3 id="setdata">SetData</h3>
+<p>Allows setting custom JSON data to be associated with a body within the physics simulation without affecting its actual properties.</p>
+<h4 id="example-usage_2">Example Usage</h4>
+<pre><code class="language-lua">body:SetData({&quot;customKey&quot;: &quot;customValue&quot;})
+</code></pre>
+<p>This function stores the provided JSON data with the body in the physics simulation but does not modify the body's physical properties or behavior. It can be used to attach metadata or other non-physical information to the body for tracking or reference purposes.</p>
+<hr />
+<h3 id="getdata">GetData</h3>
+<p>Retrieves the custom JSON data associated with a body within the physics simulation.</p>
+<h4 id="example-usage_3">Example Usage</h4>
+<pre><code class="language-lua">local data = body:GetData()
+</code></pre>
+<p>This function returns the JSON data that was previously set using <code>SetData</code>. The retrieved data does not affect the body's physical properties or behavior and is typically used for accessing metadata or other non-physical information associated with the body.</p>
+<hr />
 <h3 id="setlinearvelocity">SetLinearVelocity</h3>
 <p>Sets the linear velocity of the body.</p>
 <h4 id="parameters">Parameters</h4>
 <ul>
 <li><code>velocity</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the linear velocity.</li>
 </ul>
-<h4 id="example-usage_1">Example Usage</h4>
+<h4 id="example-usage_4">Example Usage</h4>
 <pre><code class="language-lua">local velocity = {1.0, 2.0, 0.0}
 body:SetLinearVelocity(velocity)
 </code></pre>
@@ -363,7 +418,7 @@ body:SetLinearVelocity(velocity)
 <ul>
 <li><code>velocity</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the angular velocity.</li>
 </ul>
-<h4 id="example-usage_2">Example Usage</h4>
+<h4 id="example-usage_5">Example Usage</h4>
 <pre><code class="language-lua">local angularVelocity = {0.1, 0.2, 0.3}
 body:SetAngularVelocity(angularVelocity)
 </code></pre>
@@ -375,7 +430,7 @@ body:SetAngularVelocity(angularVelocity)
 <ul>
 <li><code>velocity</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the velocity to add. </li>
 </ul>
-<h4 id="example-usage_3">Example Usage</h4>
+<h4 id="example-usage_6">Example Usage</h4>
 <pre><code class="language-lua">local velocity = {1.0, 0.5, 0.0}
 body:AddLinearVelocity(velocity)
 </code></pre>
@@ -387,7 +442,7 @@ body:AddLinearVelocity(velocity)
 <ul>
 <li><code>velocity</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the angular velocity to add.</li>
 </ul>
-<h4 id="example-usage_4">Example Usage</h4>
+<h4 id="example-usage_7">Example Usage</h4>
 <pre><code class="language-lua">local angularVelocity = {0.1, 0.2, 0.3}
 body:AddAngularVelocity(angularVelocity)
 </code></pre>
@@ -399,7 +454,7 @@ body:AddAngularVelocity(angularVelocity)
 <ul>
 <li><code>force</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the force to apply.</li>
 </ul>
-<h4 id="example-usage_5">Example Usage</h4>
+<h4 id="example-usage_8">Example Usage</h4>
 <pre><code class="language-lua">local force = {10.0, 0.0, 0.0}
 body:AddForce(force)
 </code></pre>
@@ -411,7 +466,7 @@ body:AddForce(force)
 <ul>
 <li><code>torque</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the torque to apply.</li>
 </ul>
-<h4 id="example-usage_6">Example Usage</h4>
+<h4 id="example-usage_9">Example Usage</h4>
 <pre><code class="language-lua">local torque = {0.0, 5.0, 0.0}
 body:AddTorque(torque)
 </code></pre>
@@ -423,7 +478,7 @@ body:AddTorque(torque)
 <ul>
 <li><code>impulse</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the impulse to apply.</li>
 </ul>
-<h4 id="example-usage_7">Example Usage</h4>
+<h4 id="example-usage_10">Example Usage</h4>
 <pre><code class="language-lua">local impulse = {0.0, 10.0, 0.0}
 body:AddImpulse(impulse)
 </code></pre>
@@ -442,7 +497,7 @@ body:AddImpulse(impulse)
 <li><code>hitPoint</code> (<code>table {number, number, number}</code>): The point of collision.</li>
 <li><code>hitBodyID</code> (<code>number</code>): The ID of the body that was hit.</li>
 </ul>
-<h4 id="example-usage_8">Example Usage</h4>
+<h4 id="example-usage_11">Example Usage</h4>
 <pre><code class="language-lua">local direction = {0.0, 0.0, -1.0}
 local result = body:CastRay(direction)
 if result.hit then
