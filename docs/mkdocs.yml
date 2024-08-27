@@ -1,9 +1,12 @@
 site_name: AO Physics (AOP)
 nav:
-  - AOP: 'index.md'
-  - World: 'world.md'
-  - Body: 'body.md'
-  - Constraint: 'constraint.md'
+  - Overview: 'index.md'
+  - Classes: 
+    - World: 'world.md'
+    - Body: 'body.md'
+    - Constraint: 'constraint.md'
+  - Examples:
+    - 'examples/basic.md'
 
 
 theme: 
