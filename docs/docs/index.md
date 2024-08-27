@@ -27,37 +27,17 @@ Constraints define relationships and restrictions between bodies, simulating var
 
 For detailed information on the different types of constraints and their configurations, refer to the [Constraints documentation](constraint.md).
 
-## Example Usage
+## Examples
+To help you get started with the physics simulation system, here are some examples showcasing different aspects of its usage:
 
-Here is a brief example showing how to create a world, add bodies, and apply constraints:
+1. [Basic](examples/basic.md): This example demonstrates how to initialize the simulation environment, create and configure bodies, apply physical motions, and update and retrieve simulation states. It covers the fundamental concepts and operations of the physics simulation system. 
+!!! Note "Note: This example does not include using **Constraints**"
 
-```lua
--- Create a new world
-local world = AOP:World()
-world.gravity = {0.0, -9.81, 0.0}
-world:Create()
+!!! Info "More Coming Soon..."
 
--- Create two bodies
-local body1 = AOP:Body()
-local body2 = AOP:Body()
-body1:Create()
-body2:Create()
+Feel free to explore these examples to gain a better understanding of how to use the physics simulation system in your projects.
 
--- Create a hinge constraint between the two bodies
-local hinge = AOP:ConstraintHinge()
-hinge.point1 = {1, 2, 3}
-hinge.hingeAxis1 = {0, 1, 0}
-local hingeID = hinge:Add(body1, body2)
+For more detailed usage and information on each component, please consult the respective documentation linked in the table of contents.
 
--- Update the world simulation
-world:Update(1, 0.016)  -- 1 step, 16 ms per step
 
--- Retrieve and print the world state
-local state = world:GetState()
-print("World State:", state)
-
--- Cleanup
-world:Destroy()
-```
-
-This example demonstrates how to initialize the simulation environment, create and configure bodies, apply constraints, and update and retrieve simulation states. For more detailed usage, please consult the respective documentation for each component.
+!!! Warning "WARNING: AO Physics is still in its early stage of development..."
