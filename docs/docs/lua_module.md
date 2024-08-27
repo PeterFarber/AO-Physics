@@ -8,7 +8,7 @@
     Overall, the Lua module provides a high-level interface for working with the AO Physics library, making it easier to integrate physics simulations into Lua-based applications.
 
 ```lua
-_AOP = require("aop") -- C++ Library
+_AOP = require("aop")
 local json = require('json')
 local class = require('class')
 
@@ -19,11 +19,12 @@ AOP = AOPModule()
 function AOP:Body()
   local body = {}
   body.id = -1
+  body.data = {} -- Used to store custom data
   body.position = { 0, 0, 0 }
   body.rotation = { 0, 0, 0, 1 }
   body.linearVelocity = { 0, 0, 0 }
   body.angularVelocity = { 0, 0, 0 }
-  body.motionType = "Dynamic"    -- "Dynamic" | "Static" | "Kinematic"
+  body.motionType = "Dynamic"     -- "Dynamic" | "Static" | "Kinematic"
   body.motionQuality = "Discrete" -- "Discrete" | "LinearCast"
   body.layer = "MOVING"           -- "MOVING" | "NON_MOVING"
   body.shape = "Box"              -- "Box" | "Sphere" | "Capsule" | "Cylinder"
@@ -42,7 +43,17 @@ function AOP:Body()
   body.height = 2.0
 
   function body:Add()
+    self.data = json.encode(self.data);
     self.id = math.floor(_AOP.add_body(json.encode(self)))
+    self.data = json.decode(self.data);
+  end
+
+  function body:SetData(data)
+    _AOP.set_data_body(self.id, json.encode(data))
+  end
+
+  function body:GetData()
+    return json.decode(_AOP.get_data_body(self.id))
   end
 
   function body:SetLinearVelocity(velocity --[[{x, y, z}]])
@@ -83,21 +94,25 @@ function AOP:Body()
     return result
   end
 
+  function body:Remove()
+    _AOP.remove_body(self.id)
+  end
+
   return body;
 end
 
 function AOP:ConstraintHinge()
   local hingeConstraint = {};
   hingeConstraint.type = "Hinge"
-  hingeConstraint.space = "WorldSpace" -- "WorldSpace" | "LocalToBodyCOM"
-  hingeConstraint.point1 = { 0, 0, 0 } -- [float] x, y, z
-  hingeConstraint.hingeAxis1 = { 0, 1, 0 } -- [float] x, y, z
+  hingeConstraint.space = "WorldSpace"      -- "WorldSpace" | "LocalToBodyCOM"
+  hingeConstraint.point1 = { 0, 0, 0 }      -- [float] x, y, z
+  hingeConstraint.hingeAxis1 = { 0, 1, 0 }  -- [float] x, y, z
   hingeConstraint.normalAxis1 = { 1, 0, 0 } -- [float] x, y, z
-  hingeConstraint.point2 = { 0, 0, 0 } -- [float] x, y, z
-  hingeConstraint.hingeAxis2 = { 0, 1, 0 } -- [float] x, y, z
+  hingeConstraint.point2 = { 0, 0, 0 }      -- [float] x, y, z
+  hingeConstraint.hingeAxis2 = { 0, 1, 0 }  -- [float] x, y, z
   hingeConstraint.normalAxis2 = { 1, 0, 0 } -- [float] x, y, z
-  hingeConstraint.limitsMin = -180.0 -- [Degrees]
-  hingeConstraint.limitsMax = 180 -- [float] Degrees
+  hingeConstraint.limitsMin = -180.0        -- [Degrees]
+  hingeConstraint.limitsMax = 180           -- [float] Degrees
   hingeConstraint.maxFrictionTorque = 0.0
   hingeConstraint.limitsSpringSettings = {
     mode = "FrequencyAndDamping", -- [string] "FrequencyAndDamping" | "StiffnessAndDamping"
@@ -120,18 +135,22 @@ function AOP:ConstraintHinge()
     return self.id
   end
 
+  function hingeConstraint:Remove()
+    _AOP.remove_constraint(self.id)
+  end
+
   return hingeConstraint;
 end
 
 function AOP:ConstraintSlider()
   local sliderConstraint = {};
   sliderConstraint.type = "Slider"
-  sliderConstraint.space = "WorldSpace" -- "WorldSpace" | "LocalToBodyCOM"
+  sliderConstraint.space = "WorldSpace"      -- "WorldSpace" | "LocalToBodyCOM"
   sliderConstraint.autoDetectPoint = false
-  sliderConstraint.point1 = { 0, 0, 0 } -- [float] x, y, z
+  sliderConstraint.point1 = { 0, 0, 0 }      -- [float] x, y, z
   sliderConstraint.sliderAxis1 = { 1, 0, 0 } -- [float] x, y, z
   sliderConstraint.normalAxis1 = { 0, 1, 0 } -- [float] x, y, z
-  sliderConstraint.point2 = { 0, 0, 0 } -- [float] x, y, z
+  sliderConstraint.point2 = { 0, 0, 0 }      -- [float] x, y, z
   sliderConstraint.sliderAxis2 = { 1, 0, 0 } -- [float] x, y, z
   sliderConstraint.normalAxis2 = { 0, 1, 0 } -- [float] x, y, z
   sliderConstraint.limitsMin = -3.40282347e+38
@@ -155,16 +174,20 @@ function AOP:ConstraintSlider()
     return self.id
   end
 
+  function sliderConstraint:Remove()
+    _AOP.remove_constraint(self.id)
+  end
+
   return sliderConstraint;
 end
 
 function AOP:ConstraintPulley()
   local pulleyConstraint = {};
   pulleyConstraint.type = "Pulley"
-  pulleyConstraint.space = "WorldSpace" -- "WorldSpace" | "LocalToBodyCOM"
-  pulleyConstraint.bodyPoint1 = { 0, 0, 0 } -- [float] x, y, z
+  pulleyConstraint.space = "WorldSpace"      -- "WorldSpace" | "LocalToBodyCOM"
+  pulleyConstraint.bodyPoint1 = { 0, 0, 0 }  -- [float] x, y, z
   pulleyConstraint.fixedPoint1 = { 0, 0, 0 } -- [float] x, y, z
-  pulleyConstraint.bodyPoint2 = { 0, 0, 0 } -- [float] x, y, z
+  pulleyConstraint.bodyPoint2 = { 0, 0, 0 }  -- [float] x, y, z
   pulleyConstraint.fixedPoint2 = { 0, 0, 0 } -- [float] x, y, z
   pulleyConstraint.ratio = 1.0
   pulleyConstraint.minLength = 0.0
@@ -175,6 +198,10 @@ function AOP:ConstraintPulley()
     self.body2ID = body2.id
     self.id = _AOP.add_constraint(json.encode(self))
     return self.id
+  end
+
+  function pulleyConstraint:Remove()
+    _AOP.remove_constraint(self.id)
   end
 
   return pulleyConstraint;
@@ -192,6 +219,10 @@ function AOP:ConstraintPoint()
     self.body2ID = body2.id
     self.id = _AOP.add_constraint(json.encode(self))
     return self.id
+  end
+
+  function pointConstraint:Remove()
+    _AOP.remove_constraint(self.id)
   end
 
   return pointConstraint;
@@ -214,6 +245,10 @@ function AOP:ConstraintGear()
     return self.id
   end
 
+  function gearConstraint:Remove()
+    _AOP.remove_constraint(self.id)
+  end
+
   return gearConstraint;
 end
 
@@ -233,6 +268,10 @@ function AOP:ConstraintFixed()
     self.body2ID = body2.id
     self.id = _AOP.add_constraint(json.encode(self))
     return self.id
+  end
+
+  function fixedConstraint:Remove()
+    _AOP.remove_constraint(self.id)
   end
 
   return fixedConstraint;
@@ -260,16 +299,20 @@ function AOP:ConstraintDistance()
     return self.id
   end
 
+  function distanceConstraint:Remove()
+    _AOP.remove_constraint(self.id)
+  end
+
   return distanceConstraint;
 end
 
 function AOP:ConstraintCone()
   local coneConstraint = {};
   coneConstraint.type = "Cone"
-  coneConstraint.space = "WorldSpace" -- "WorldSpace" | "LocalToBodyCOM"
-  coneConstraint.point1 = { 0, 0, 0 } -- [float] x, y, z
+  coneConstraint.space = "WorldSpace"     -- "WorldSpace" | "LocalToBodyCOM"
+  coneConstraint.point1 = { 0, 0, 0 }     -- [float] x, y, z
   coneConstraint.twistAxis1 = { 0, 1, 0 } -- [float] x, y, z
-  coneConstraint.point2 = { 0, 0, 0 } -- [float] x, y, z
+  coneConstraint.point2 = { 0, 0, 0 }     -- [float] x, y, z
   coneConstraint.twistAxis2 = { 0, 1, 0 } -- [float] x, y, z
   coneConstraint.halfConeAngle = 0.0
 
@@ -280,9 +323,12 @@ function AOP:ConstraintCone()
     return self.id
   end
 
+  function coneConstraint:Remove()
+    _AOP.remove_constraint(self.id)
+  end
+
   return coneConstraint;
 end
-
 
 function AOP:Character()
   local character = {

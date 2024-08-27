@@ -31,13 +31,18 @@ For detailed information on the different types of constraints and their configu
 To help you get started with the physics simulation system, here are some examples showcasing different aspects of its usage:
 
 1. [Basic](examples/basic.md): This example demonstrates how to initialize the simulation environment, create and configure bodies, apply physical motions, and update and retrieve simulation states. It covers the fundamental concepts and operations of the physics simulation system. 
-!!! Note "Note: This example does not include using **Constraints**"
+!!! note 
+    This example does not include using **Constraints**
 
-!!! Info "More Coming Soon..."
+!!! attention 
+    More Coming Soon...
 
 Feel free to explore these examples to gain a better understanding of how to use the physics simulation system in your projects.
 
 For more detailed usage and information on each component, please consult the respective documentation linked in the table of contents.
 
 
-!!! Warning "WARNING: AO Physics is still in its early stage of development..."
+!!! danger "IMPORTANT" 
+    AO Physics is still in its early stage of development...
+
+<!-- "attention", "caution", "danger", "error", "hint", "important", "note", "tip", "warning" -->

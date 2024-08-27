@@ -8,6 +8,9 @@ The `Body` class represents a physical object within the simulation, allowing fo
 - [Settings](#settings)
 - [Functions](#functions)
     - [`Add`](#add) - Add's the **Body** to the **World** 
+    - [`Remove`](#remove) - Remove the **Body** from the **World**
+    - [`SetData`](#setdata) - Set custom **Data** on the **Body**
+    - [`GetData`](#getdata) - Get the custom set **Data** from the **Body**
     - [`SetLinearVelocity`](#setlinearvelocity) - Sets the **Linear Velocity** of the **Body**
     - [`SetAngularVelocity`](#setangularvelocity) - Adds to the **Linear Velocity** of the **Body**
     - [`AddLinearVelocity`](#addlinearvelocity) - Sets the **Angular Velocity** of the **Body**
@@ -26,6 +29,7 @@ The following properties define the state and behavior of a body object in the s
 
 | Property                      | Type                 | Description                                                              | Default Value |
 |--------|----------------------|--------------------------------------------------------------------------|---------------|
+| `data`               | `table` | Custom JSON data associated with the body.                                       | `{}` |
 | `position`               | `table` | The position of the body in 3D space.                                       | `{ 0, 0, 0 }` |
 | `rotation`               | `table` | The rotation of the body as a quaternion (x, y, z, w).                       | `{ 0, 0, 0, 1 }` |
 | `linearVelocity`         | `table` | The linear velocity of the                                              | `{ 0, 0, 0 }` |
@@ -61,6 +65,45 @@ body:Add()
 ```
 
 This function serializes the body's properties and adds it to the simulation, generating and assigning a unique identifier (id) for the body. This id is used in subsequent operations to reference this specific body within the physics system.
+
+---
+
+### Remove
+
+Removes the body from the physics simulation using its unique `id`.
+
+#### Example Usage
+```lua
+body:Remove()
+```
+
+This function removes the body associated with the given `id` from the simulation. Once removed, the body's id will no longer be valid for operations within the physics system.
+
+---
+
+### SetData
+
+Allows setting custom JSON data to be associated with a body within the physics simulation without affecting its actual properties.
+
+#### Example Usage
+```lua
+body:SetData({"customKey": "customValue"})
+```
+
+This function stores the provided JSON data with the body in the physics simulation but does not modify the body's physical properties or behavior. It can be used to attach metadata or other non-physical information to the body for tracking or reference purposes.
+
+---
+
+### GetData
+
+Retrieves the custom JSON data associated with a body within the physics simulation.
+
+#### Example Usage
+```lua
+local data = body:GetData()
+```
+
+This function returns the JSON data that was previously set using `SetData`. The retrieved data does not affect the body's physical properties or behavior and is typically used for accessing metadata or other non-physical information associated with the body.
 
 ---
 

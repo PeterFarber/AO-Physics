@@ -1,19 +1,23 @@
 site_name: AO Physics (AOP)
 nav:
   - Overview: 'index.md'
+  - Getting Started: 
+    - Setup: 'setup.md'
   - Classes: 
     - World: 'world.md'
     - Body: 'body.md'
     - Constraint: 'constraint.md'
+    - Character: 'character.md'
   - Examples:
     - 'examples/basic.md'
-  - 'lua_module.md'
+  - Other:
+    - 'lua_module.md'
 
 markdown_extensions:
   - admonition
-  
+
 theme: 
-  name: mkdocs
+  name: readthedocs
   user_color_mode_toggle: true
   nav_style: dark
   highlightjs: true

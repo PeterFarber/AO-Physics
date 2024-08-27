@@ -165,5 +165,3 @@ world:Destroy()
 - The simulation environment is destroyed at the end to clean up resources.
 
 For more details on the AO Physics library and its components, please refer to the [AO Physics Documentation](https://peterfarber.github.io/AO-Physics/).
-
-This documentation provides a clear overview of the Lua example, breaking down each step and linking to the relevant documentation for additional information.

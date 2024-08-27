@@ -1,154 +1,108 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Lua Module - AO Physics (AOP)</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../css/brands.min.css" rel="stylesheet">
-        <link href="../css/solid.min.css" rel="stylesheet">
-        <link href="../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" disabled>
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" >
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
-
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="..">AO Physics (AOP)</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href=".." class="nav-link">Overview</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Classes</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../world/" class="dropdown-item">World</a>
-</li>
-                                    
-<li>
-    <a href="../body/" class="dropdown-item">Body</a>
-</li>
-                                    
-<li>
-    <a href="../constraint/" class="dropdown-item">Constraint</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Examples</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../examples/basic/" class="dropdown-item">Basic Example</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./" class="nav-link active" aria-current="page">Lua Module</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../examples/basic/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                              <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
-                                <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
-                                <span class="d-lg-none ms-2">Toggle theme</span>
-                              </button>
-                              <ul class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-                                    <i class="fa-solid fa-sun fa-fw"></i>
-                                    <span class="ms-2">Light</span>
-                                    <i class="fa-solid fa-check ms-auto d-none"></i>
-                                  </button>
-                                </li>
-                                <li>
-                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="true">
-                                    <i class="fa-solid fa-moon fa-fw"></i>
-                                    <span class="ms-2">Dark</span>
-                                    <i class="fa-solid fa-check ms-auto"></i>
-                                  </button>
-                                </li>
-                                <li>
-                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
-                                    <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
-                                    <span class="ms-2">Auto</span>
-                                    <i class="fa-solid fa-check ms-auto d-none"></i>
-                                  </button>
-                                </li>
-                              </ul>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <script src="../js/darkmode.js"></script>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
-
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Lua Module - AO Physics (AOP)</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#lua-module" class="nav-link">Lua Module</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Lua Module";
+        var mkdocs_page_input_path = "lua_module.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
 
-<h1 id="lua-module">Lua Module</h1>
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> AO Physics (AOP)
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup/">Setup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Classes</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../world/">World</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../body/">Body</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../constraint/">Constraint</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../character/">Character</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../examples/basic/">Basic Example</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Lua Module</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">AO Physics (AOP)</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Other</li>
+      <li class="breadcrumb-item active">Lua Module</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="lua-module">Lua Module</h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The Lua module in this documentation provides a convenient interface for interacting with the AO Physics library, which is implemented in C++. The module allows users to create and manipulate physics bodies, apply forces and constraints, and simulate physics interactions.</p>
 <p>To use the Lua module, you need to require the "aop" module, which internally loads the C++ AO Physics library. Additionally, you will need to import other Lua modules such as "json" and "class" for JSON encoding and class creation, respectively.</p>
 <p>Overall, the Lua module provides a high-level interface for working with the AO Physics library, making it easier to integrate physics simulations into Lua-based applications.</p>
 </div>
-<pre><code class="language-lua">_AOP = require(&quot;aop&quot;) -- C++ Library
+<pre><code class="language-lua">_AOP = require(&quot;aop&quot;)
 local json = require('json')
 local class = require('class')
 
@@ -159,11 +113,12 @@ AOP = AOPModule()
 function AOP:Body()
   local body = {}
   body.id = -1
+  body.data = {} -- Used to store custom data
   body.position = { 0, 0, 0 }
   body.rotation = { 0, 0, 0, 1 }
   body.linearVelocity = { 0, 0, 0 }
   body.angularVelocity = { 0, 0, 0 }
-  body.motionType = &quot;Dynamic&quot;    -- &quot;Dynamic&quot; | &quot;Static&quot; | &quot;Kinematic&quot;
+  body.motionType = &quot;Dynamic&quot;     -- &quot;Dynamic&quot; | &quot;Static&quot; | &quot;Kinematic&quot;
   body.motionQuality = &quot;Discrete&quot; -- &quot;Discrete&quot; | &quot;LinearCast&quot;
   body.layer = &quot;MOVING&quot;           -- &quot;MOVING&quot; | &quot;NON_MOVING&quot;
   body.shape = &quot;Box&quot;              -- &quot;Box&quot; | &quot;Sphere&quot; | &quot;Capsule&quot; | &quot;Cylinder&quot;
@@ -182,7 +137,17 @@ function AOP:Body()
   body.height = 2.0
 
   function body:Add()
+    self.data = json.encode(self.data);
     self.id = math.floor(_AOP.add_body(json.encode(self)))
+    self.data = json.decode(self.data);
+  end
+
+  function body:SetData(data)
+    _AOP.set_data_body(self.id, json.encode(data))
+  end
+
+  function body:GetData()
+    return json.decode(_AOP.get_data_body(self.id))
   end
 
   function body:SetLinearVelocity(velocity --[[{x, y, z}]])
@@ -223,21 +188,25 @@ function AOP:Body()
     return result
   end
 
+  function body:Remove()
+    _AOP.remove_body(self.id)
+  end
+
   return body;
 end
 
 function AOP:ConstraintHinge()
   local hingeConstraint = {};
   hingeConstraint.type = &quot;Hinge&quot;
-  hingeConstraint.space = &quot;WorldSpace&quot; -- &quot;WorldSpace&quot; | &quot;LocalToBodyCOM&quot;
-  hingeConstraint.point1 = { 0, 0, 0 } -- [float] x, y, z
-  hingeConstraint.hingeAxis1 = { 0, 1, 0 } -- [float] x, y, z
+  hingeConstraint.space = &quot;WorldSpace&quot;      -- &quot;WorldSpace&quot; | &quot;LocalToBodyCOM&quot;
+  hingeConstraint.point1 = { 0, 0, 0 }      -- [float] x, y, z
+  hingeConstraint.hingeAxis1 = { 0, 1, 0 }  -- [float] x, y, z
   hingeConstraint.normalAxis1 = { 1, 0, 0 } -- [float] x, y, z
-  hingeConstraint.point2 = { 0, 0, 0 } -- [float] x, y, z
-  hingeConstraint.hingeAxis2 = { 0, 1, 0 } -- [float] x, y, z
+  hingeConstraint.point2 = { 0, 0, 0 }      -- [float] x, y, z
+  hingeConstraint.hingeAxis2 = { 0, 1, 0 }  -- [float] x, y, z
   hingeConstraint.normalAxis2 = { 1, 0, 0 } -- [float] x, y, z
-  hingeConstraint.limitsMin = -180.0 -- [Degrees]
-  hingeConstraint.limitsMax = 180 -- [float] Degrees
+  hingeConstraint.limitsMin = -180.0        -- [Degrees]
+  hingeConstraint.limitsMax = 180           -- [float] Degrees
   hingeConstraint.maxFrictionTorque = 0.0
   hingeConstraint.limitsSpringSettings = {
     mode = &quot;FrequencyAndDamping&quot;, -- [string] &quot;FrequencyAndDamping&quot; | &quot;StiffnessAndDamping&quot;
@@ -260,18 +229,22 @@ function AOP:ConstraintHinge()
     return self.id
   end
 
+  function hingeConstraint:Remove()
+    _AOP.remove_constraint(self.id)
+  end
+
   return hingeConstraint;
 end
 
 function AOP:ConstraintSlider()
   local sliderConstraint = {};
   sliderConstraint.type = &quot;Slider&quot;
-  sliderConstraint.space = &quot;WorldSpace&quot; -- &quot;WorldSpace&quot; | &quot;LocalToBodyCOM&quot;
+  sliderConstraint.space = &quot;WorldSpace&quot;      -- &quot;WorldSpace&quot; | &quot;LocalToBodyCOM&quot;
   sliderConstraint.autoDetectPoint = false
-  sliderConstraint.point1 = { 0, 0, 0 } -- [float] x, y, z
+  sliderConstraint.point1 = { 0, 0, 0 }      -- [float] x, y, z
   sliderConstraint.sliderAxis1 = { 1, 0, 0 } -- [float] x, y, z
   sliderConstraint.normalAxis1 = { 0, 1, 0 } -- [float] x, y, z
-  sliderConstraint.point2 = { 0, 0, 0 } -- [float] x, y, z
+  sliderConstraint.point2 = { 0, 0, 0 }      -- [float] x, y, z
   sliderConstraint.sliderAxis2 = { 1, 0, 0 } -- [float] x, y, z
   sliderConstraint.normalAxis2 = { 0, 1, 0 } -- [float] x, y, z
   sliderConstraint.limitsMin = -3.40282347e+38
@@ -295,16 +268,20 @@ function AOP:ConstraintSlider()
     return self.id
   end
 
+  function sliderConstraint:Remove()
+    _AOP.remove_constraint(self.id)
+  end
+
   return sliderConstraint;
 end
 
 function AOP:ConstraintPulley()
   local pulleyConstraint = {};
   pulleyConstraint.type = &quot;Pulley&quot;
-  pulleyConstraint.space = &quot;WorldSpace&quot; -- &quot;WorldSpace&quot; | &quot;LocalToBodyCOM&quot;
-  pulleyConstraint.bodyPoint1 = { 0, 0, 0 } -- [float] x, y, z
+  pulleyConstraint.space = &quot;WorldSpace&quot;      -- &quot;WorldSpace&quot; | &quot;LocalToBodyCOM&quot;
+  pulleyConstraint.bodyPoint1 = { 0, 0, 0 }  -- [float] x, y, z
   pulleyConstraint.fixedPoint1 = { 0, 0, 0 } -- [float] x, y, z
-  pulleyConstraint.bodyPoint2 = { 0, 0, 0 } -- [float] x, y, z
+  pulleyConstraint.bodyPoint2 = { 0, 0, 0 }  -- [float] x, y, z
   pulleyConstraint.fixedPoint2 = { 0, 0, 0 } -- [float] x, y, z
   pulleyConstraint.ratio = 1.0
   pulleyConstraint.minLength = 0.0
@@ -315,6 +292,10 @@ function AOP:ConstraintPulley()
     self.body2ID = body2.id
     self.id = _AOP.add_constraint(json.encode(self))
     return self.id
+  end
+
+  function pulleyConstraint:Remove()
+    _AOP.remove_constraint(self.id)
   end
 
   return pulleyConstraint;
@@ -332,6 +313,10 @@ function AOP:ConstraintPoint()
     self.body2ID = body2.id
     self.id = _AOP.add_constraint(json.encode(self))
     return self.id
+  end
+
+  function pointConstraint:Remove()
+    _AOP.remove_constraint(self.id)
   end
 
   return pointConstraint;
@@ -354,6 +339,10 @@ function AOP:ConstraintGear()
     return self.id
   end
 
+  function gearConstraint:Remove()
+    _AOP.remove_constraint(self.id)
+  end
+
   return gearConstraint;
 end
 
@@ -373,6 +362,10 @@ function AOP:ConstraintFixed()
     self.body2ID = body2.id
     self.id = _AOP.add_constraint(json.encode(self))
     return self.id
+  end
+
+  function fixedConstraint:Remove()
+    _AOP.remove_constraint(self.id)
   end
 
   return fixedConstraint;
@@ -400,16 +393,20 @@ function AOP:ConstraintDistance()
     return self.id
   end
 
+  function distanceConstraint:Remove()
+    _AOP.remove_constraint(self.id)
+  end
+
   return distanceConstraint;
 end
 
 function AOP:ConstraintCone()
   local coneConstraint = {};
   coneConstraint.type = &quot;Cone&quot;
-  coneConstraint.space = &quot;WorldSpace&quot; -- &quot;WorldSpace&quot; | &quot;LocalToBodyCOM&quot;
-  coneConstraint.point1 = { 0, 0, 0 } -- [float] x, y, z
+  coneConstraint.space = &quot;WorldSpace&quot;     -- &quot;WorldSpace&quot; | &quot;LocalToBodyCOM&quot;
+  coneConstraint.point1 = { 0, 0, 0 }     -- [float] x, y, z
   coneConstraint.twistAxis1 = { 0, 1, 0 } -- [float] x, y, z
-  coneConstraint.point2 = { 0, 0, 0 } -- [float] x, y, z
+  coneConstraint.point2 = { 0, 0, 0 }     -- [float] x, y, z
   coneConstraint.twistAxis2 = { 0, 1, 0 } -- [float] x, y, z
   coneConstraint.halfConeAngle = 0.0
 
@@ -420,9 +417,12 @@ function AOP:ConstraintCone()
     return self.id
   end
 
+  function coneConstraint:Remove()
+    _AOP.remove_constraint(self.id)
+  end
+
   return coneConstraint;
 end
-
 
 function AOP:Character()
   local character = {
@@ -518,82 +518,49 @@ function AOP:World()
 end
 
 return AOP
-</code></pre></div>
+</code></pre>
+              
             </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../js/base.js"></script>
-        <script src="../search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../examples/basic/" class="btn btn-neutral float-left" title="Basic Example"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
         </div>
-    </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../examples/basic/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
 </div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
 
-    </body>
+</body>
 </html>

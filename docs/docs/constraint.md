@@ -14,7 +14,7 @@ The `Constraints` class defines various constraints used to govern the relations
     - [Fixed Constraint](#fixed-constraint)
     - [Distance Constraint](#distance-constraint)
     - [Cone Constraint](#cone-constraint)
-- [Example: Creating and Configuring Constraints](#example)
+- [Methods](#methods)
 
 ## **Constraint Types**
 
@@ -42,8 +42,7 @@ Represents a hinge-like connection between two bodies.
 | `targetAngularVelocity`     | `number` | Target angular velocity of the hinge.              | `0.0`                 |
 | `targetAngle`               | `number` | Target angle of the hinge.                         | `0.0`                 |
 
-#### Methods
-- [`Add(body1, body2)`](#add) - Adds the hinge constraint between two bodies.
+
 
 ---
 
@@ -69,8 +68,6 @@ Represents a slider-like connection that allows movement along a single axis.
 | `limitsSpringSettings`      | `table`  | Spring settings for the movement limits.            | `{ mode = "FrequencyAndDamping", frequency = 0.0, stiffness = 0.0, damping = 0.0 }` |
 | `motorSettings`             | `table`  | Motor settings for the slider.                      | `{ frequency = 0.0, damping = 0.0 }` |
 
-#### Methods
-- [`Add(body1, body2)`](#add) - Adds the slider constraint between two bodies.
 
 ---
 
@@ -91,8 +88,6 @@ Represents a pulley system connecting two bodies.
 | `minLength`                 | `number` | Minimum length of the pulley.                      | `0.0`                 |
 | `maxLength`                 | `number` | Maximum length of the pulley.                      | `0.0`                 |
 
-#### Methods
-- [`Add(body1, body2)`](#add) - Adds the pulley constraint between two bodies.
 
 ---
 
@@ -108,8 +103,6 @@ Represents a point-to-point connection between two bodies.
 | `point1`                    | `table`  | The point of attachment on the first body.         | `{ 0, 0, 0 }`         |
 | `point2`                    | `table`  | The point of attachment on the second body.        | `{ 0, 0, 0 }`         |
 
-#### Methods
-- [`Add(body1, body2)`](#add) - Adds the point constraint between two bodies.
 
 ---
 
@@ -130,8 +123,6 @@ Represents a gear-like connection between two bodies.
  rotation for the second gear.          | `{ 1, 0, 0 }`         |
 | `ratio`                     | `number` | Gear ratio between the two gears.                  | `1.0`                 |
 
-#### Methods
-- [`Add(body1, body2)`](#add) - Adds the gear constraint between two bodies.
 
 ---
 
@@ -151,8 +142,6 @@ Represents a fixed connection between two bodies.
 | `axisX2`                    | `table`  | The X axis direction for the second body.          | `{ 0, 1, 0 }`         |
 | `axisY2`                    | `table`  | The Y axis direction for the second body.          | `{ 1, 0, 0 }`         |
 
-#### Methods
-- [`Add(body1, body2)`](#add) - Adds the fixed constraint between two bodies.
 
 ---
 
@@ -171,8 +160,6 @@ Represents a distance constraint between two bodies.
 | `maxDistance`               | `number` | Maximum distance between the bodies.               | `-1.0`                |
 | `limitsSpringSettings`      | `table`  | Spring settings for distance limits.               | `{ mode = "FrequencyAndDamping", frequency = 0.0, stiffness = 0.0, damping = 0.0 }` |
 
-#### Methods
-- [`Add(body1, body2)`](#add) - Adds the distance constraint between two bodies.
 
 ---
 
@@ -191,14 +178,12 @@ Represents a cone-like connection allowing rotation within a cone.
 | `twistAxis2`                | `table`  | The twist axis for the second body.                | `{ 0, 1, 0 }`         |
 | `halfConeAngle`             | `number` | Half of the cone angle defining the constraint.     | `0.0`                 |
 
-#### Methods
-- [`Add(body1, body2)`](#add) - Adds the cone constraint between two bodies.
 
 ---
 
 ## **Methods**
 
-### Add
+### Add(Body1, Body2)
 
 Adds the constraint between two bodies.
 
@@ -209,13 +194,10 @@ Adds the constraint between two bodies.
 #### Returns
 - `id` (`number`): The unique identifier for the created constraint.
 
-#### Example Usage
-```lua
-local hinge = AOP:ConstraintHinge()
-hinge.point1 = {1, 2, 3}
-hinge.hingeAxis1 = {0, 1, 0}
-local id = hinge:Add(body1, body2)
-print("Hinge Constraint ID:", id)
-```
-
 This method creates and adds the constraint between the two specified bodies, returning the unique ID of the created constraint.
+
+---
+
+### Remove()
+
+Removes the specified constraint from the physics simulation.
