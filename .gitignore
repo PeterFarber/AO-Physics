@@ -9,7 +9,7 @@ aos/process/libs
 tests/jolt.json
 
 **/*.a
-!libs/*.a
+!build/libs/*.a
 process.js
 process.wasm
 **/package-lock.json
