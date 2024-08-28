@@ -32,21 +32,22 @@
 
 .docutils{
   display: table !important;
-  border: 1px solid #343131 !important;
+  /* border: 1px solid #343131 !important; */
+  border: 1px solid #e1e4e5 !important;
 }
 
 .docutils thead{
-  background: #343131  !important;
-  color: #e6e6e6 !important;
+  /* background: #343131  !important;
+  color: #e6e6e6 !important; */
 }
 
 .docutils thead tr th{
-  border-color: #343131 !important;
-  border-right-color: #807676 !important;
+  /* border-color: #343131 !important;
+  border-right-color: #807676 !important; */
 }
 
 .docutils thead tr th:last-child{
-  border-right-color: #343131 !important;
+  /* border-right-color: #343131 !important; */
 }
 
 h1 {
