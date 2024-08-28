@@ -4,7 +4,8 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 JOLT_DIR="${SCRIPT_DIR}/jolt"
 AOP_DIR="${SCRIPT_DIR}/AOP"
 PROCESS_DIR="${SCRIPT_DIR}/aos/process"
-LIBS_DIR="${SCRIPT_DIR}/libs"
+BUILD_DIR="${SCRIPT_DIR}/build"
+LIBS_DIR="${BUILD_DIR}/libs"
 PROCESS_LIBS_DIR="${PROCESS_DIR}/libs"
 
 AO_IMAGE="aomerge:latest"
@@ -55,10 +56,11 @@ sudo chmod -R 777 ${AOP_DIR}
 
 
 # # Copy jolt to the libs directory
-rm -rf ${LIBS_DIR}
+rm -rf ${BUILD_DIR}
 mkdir -p $LIBS_DIR
 cp ${JOLT_DIR}/libJolt.a $LIBS_DIR/libJolt.a
 cp ${AOP_DIR}/build/libaop.a $LIBS_DIR/libaop.a
+cp -r ${AOP_DIR}/Lua/. ${BUILD_DIR}/
 
 cp -r ${LIBS_DIR} ${PROCESS_DIR}
 

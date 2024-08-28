@@ -4,7 +4,7 @@ local class = require('class')
 
 AOPModule = class(function(aop) end)
 
-AOP = AOPModule()
+local AOP = AOPModule()
 
 function AOP:Body()
   local body = {}
