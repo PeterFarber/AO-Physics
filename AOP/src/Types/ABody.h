@@ -13,6 +13,8 @@ namespace AOP
         uint32 mID;
         Body *body = nullptr;
 
+        json mData;
+
         EShapeSubType mShape = EShapeSubType::Box;
 
         Vec3 mPosition = Vec3::sZero();
@@ -54,6 +56,12 @@ namespace AOP
         void AddLinearVelocity(Vec3 velocity);
         void AddAngularVelocity(Vec3 velocity);
         json CastRay(Vec3 direction);
+
+        void SetData(const char *params);
+        json GetData();
+
+
+        virtual ~ABody();
     };
 }
 #endif

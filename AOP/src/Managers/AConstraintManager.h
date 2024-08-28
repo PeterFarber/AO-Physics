@@ -20,6 +20,8 @@ namespace AOP
 
         uint32 AddConstraint(const char *params);
 
+        void RemoveConstraint(uint32 constraintID);
+
         std::map<uint32, AConstraint *> GetConstraints() { return mConstraints; }
         AConstraint *GetConstraint(uint32 id) { return mConstraints[id]; }
 

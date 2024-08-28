@@ -28,8 +28,9 @@ namespace AOP
         virtual json GetData() = 0;
 
         AConstraint(const char *params);
+        
+        virtual ~AConstraint();
 
     };
-
 }
 #endif

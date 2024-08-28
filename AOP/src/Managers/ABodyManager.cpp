@@ -12,7 +12,7 @@ namespace AOP
     {
     }
 
-    uint32 ABodyManager::CreateBody(const char *params)
+    uint32 ABodyManager::AddBody(const char *params)
     {
         ABody *body = new ABody(params);
         mBodies[body->mID] = body;
@@ -88,6 +88,34 @@ namespace AOP
         {
             ABody *body = mBodies[bodyID];
             return body->CastRay(direction);
+        }
+        return nullptr;
+    }
+
+    void ABodyManager::RemoveBody(uint32 bodyID)
+    {
+        if (mBodies.find(bodyID) != mBodies.end())
+        {
+            delete mBodies[bodyID];
+            mBodies.erase(bodyID);
+        }
+    }
+
+    void ABodyManager::SetData(uint32 bodyID, const char *params)
+    {
+        if (mBodies.find(bodyID) != mBodies.end())
+        {
+            ABody *body = mBodies[bodyID];
+            body->SetData(params);
+        }
+    }
+
+    json ABodyManager::GetData(uint32 bodyID)
+    {
+        if (mBodies.find(bodyID) != mBodies.end())
+        {
+            ABody *body = mBodies[bodyID];
+            return body->GetData();
         }
         return nullptr;
     }

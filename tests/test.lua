@@ -2,7 +2,7 @@ AOP = require("AOP")
 
 local framesToSimulate = 1000
 local deltaTime = 1.0 / 60.0
-local scenario = "SliderConstraint"                  -- "BodyForces", "HingeConstraint", "SliderConstraint", "PointConstraint", "ConeConstraint"
+local scenario = "BodyForces"                  -- "BodyForces", "HingeConstraint", "SliderConstraint", "PointConstraint", "ConeConstraint"
 
 --- Create a World ---
 local world = AOP:World()
@@ -12,11 +12,14 @@ if scenario == "BodyForces" then
     --- Create a Floor ---
     local body = AOP:Body()
     body.shape = "Box"
+    body.data = { name = "Floor" }
     body.size = { 100.0, 1.0, 100.0 }
     body.motionType = "Static"
     body.layer = "NON_MOVING"
     body.activate = false
     body:Add()
+
+
 
     --- Create A Sphere ---
     local sphere = AOP:Body()
@@ -65,6 +68,7 @@ if scenario == "BodyForces" then
     for i = 1, framesToSimulate do
         world:Update(1, deltaTime)
         world:GetState()
+
     end
 end
 

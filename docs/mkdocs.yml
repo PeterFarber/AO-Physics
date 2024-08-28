@@ -1,6 +1,6 @@
 site_name: AO Physics (AOP)
 nav:
-  - Overview: 'index.md'
+  - 'AO Physics': 'index.md'
   - Getting Started: 
     - Setup: 'setup.md'
   - Classes: 

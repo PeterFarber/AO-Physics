@@ -21,6 +21,10 @@ namespace AOP
     {
         json j = json::parse(params);
         delete &params;
+
+        if (j.contains("data")){
+            mData = j.at("data").get<std::string>();
+        }
         if (j.contains("shape"))
             mShape = Helpers::GetShapeSubType(j.at("shape").get<std::string>());
 
@@ -178,6 +182,23 @@ namespace AOP
             j["hitBodyID"] = collector.mHit.mBodyID.GetIndexAndSequenceNumber();
         }
         return j;
+    }
+
+    void ABody::SetData(const char *params)
+    {
+        mData = json::parse(params);
+    }
+
+    json ABody::GetData()
+    {
+        return mData;
+    }
+
+    ABody::~ABody()
+    {
+        BodyID body_id_obj(mID);
+        AWorld::GetInstance()->mBodyInterface->RemoveBody(body_id_obj);
+        AWorld::GetInstance()->mBodyInterface->DestroyBody(body_id_obj);
     }
 
 } // namespace AOP

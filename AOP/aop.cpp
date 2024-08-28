@@ -54,12 +54,34 @@ extern "C"
     return 1;
   }
 
-  static int l_create_body(lua_State *L)
+  static int l_add_body(lua_State *L)
   {
 
-    uint32 body_id = AOP::AWorld::GetInstance()->mBodyManager->CreateBody(luaL_checkstring(L, 1));
+    uint32 body_id = AOP::AWorld::GetInstance()->mBodyManager->AddBody(luaL_checkstring(L, 1));
 
     lua_pushnumber(L, body_id);
+    return 1;
+  }
+
+  static int l_remove_body(lua_State *L)
+  {
+    uint32 body_id = luaL_checknumber(L, 1);
+    AOP::AWorld::GetInstance()->mBodyManager->RemoveBody(body_id);
+    return 0;
+  }
+
+  static int l_set_data_body(lua_State *L)
+  {
+    uint32 body_id = luaL_checknumber(L, 1);
+    AOP::AWorld::GetInstance()->mBodyManager->SetData(body_id, luaL_checkstring(L, 2));
+    return 0;
+  }
+
+  static int l_get_data_body(lua_State *L)
+  {
+    uint32 body_id = luaL_checknumber(L, 1);
+    json body_data = AOP::AWorld::GetInstance()->mBodyManager->GetData(body_id);
+    lua_pushstring(L, body_data.dump().c_str());
     return 1;
   }
 
@@ -153,6 +175,15 @@ extern "C"
     return 1;
   }
 
+  static int l_remove_constraint(lua_State *L)
+  {
+      
+      uint32 constraint_id = luaL_checknumber(L, 1);
+      AOP::AWorld::GetInstance()->mConstraintManager->RemoveConstraint(constraint_id);
+  
+      return 0;
+  }
+
   // library to be registered
   static const struct luaL_Reg aop_funcs[] = {
       {"add_character", l_create_character},
@@ -163,6 +194,12 @@ extern "C"
       {"world_destroy", l_destroy_world},
       {"get_world_state", l_get_world_state},
 
+      {"add_body", l_add_body},
+      {"remove_body", l_remove_body},
+
+      {"set_data_body", l_set_data_body},
+      {"get_data_body", l_get_data_body},
+
       {"set_linear_velocity", l_set_linear_velocity},
       {"set_angular_velocity", l_set_angular_velocity},
       {"add_linear_velocity", l_add_linear_velocity},
@@ -172,9 +209,10 @@ extern "C"
       {"add_impulse", l_add_impulse},
       {"cast_ray", l_cast_ray},
 
-      {"add_body", l_create_body},
+
 
       {"add_constraint", l_add_constraint},
+      {"remove_constraint", l_remove_constraint},
       {NULL, NULL} /* sentinel */
   };
 

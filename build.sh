@@ -4,7 +4,8 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 JOLT_DIR="${SCRIPT_DIR}/jolt"
 AOP_DIR="${SCRIPT_DIR}/AOP"
 PROCESS_DIR="${SCRIPT_DIR}/aos/process"
-LIBS_DIR="${PROCESS_DIR}/libs"
+LIBS_DIR="${SCRIPT_DIR}/libs"
+PROCESS_LIBS_DIR="${PROCESS_DIR}/libs"
 
 AO_IMAGE="aomerge:latest"
 
@@ -59,6 +60,7 @@ mkdir -p $LIBS_DIR
 cp ${JOLT_DIR}/libJolt.a $LIBS_DIR/libJolt.a
 cp ${AOP_DIR}/build/libaop.a $LIBS_DIR/libaop.a
 
+cp -r ${LIBS_DIR} ${PROCESS_DIR}
 
 # Copy config.yml to the process directory
 cp ${SCRIPT_DIR}/config.yml ${PROCESS_DIR}/config.yml

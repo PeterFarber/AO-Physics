@@ -25,5 +25,10 @@ namespace AOP
                 mSpace = Helpers::GetConstraintSpace(j.at("space").get<std::string>());
         }
 
+        AConstraint::~AConstraint()
+        {
+            AWorld::GetInstance()->mPhysicsSystem->RemoveConstraint(mConstraint);
+            delete mConstraint;
+        }
 
 }

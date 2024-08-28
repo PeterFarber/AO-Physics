@@ -19,7 +19,7 @@ namespace AOP
         ABodyManager();
         ~ABodyManager();
 
-        uint32 CreateBody(const char *params);
+        uint32 AddBody(const char *params);
         void SetLinearVelocity(uint32 bodyID, Vec3 velocity);
         void SetAngularVelocity(uint32 bodyID, Vec3 velocity);
         void AddForce(uint32 bodyID, Vec3 force);
@@ -28,6 +28,9 @@ namespace AOP
         void AddLinearVelocity(uint32 bodyID, Vec3 velocity);
         void AddAngularVelocity(uint32 bodyID, Vec3 velocity);
         json CastRay(uint32 bodyID, Vec3 direction);
+        void RemoveBody(uint32 bodyID);
+        void SetData(uint32 bodyID, const char *params);
+        json GetData(uint32 bodyID);
     };
 }
 #endif

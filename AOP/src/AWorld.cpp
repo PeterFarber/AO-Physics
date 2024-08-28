@@ -169,6 +169,7 @@ namespace AOP
             double radius = size.GetX() * 0.5f;
             double height = size.GetY();
 
+            json body_data = AWorld::GetInstance()->mBodyManager->GetData(body_id.GetIndexAndSequenceNumber());
             world_state_json["bodies"].push_back({{"id", body_id.GetIndexAndSequenceNumber()},
                                                   {"position", {position.GetX(), position.GetY(), position.GetZ()}},
                                                   {"rotation", {rotation.GetX(), rotation.GetY(), rotation.GetZ(), rotation.GetW()}},
@@ -176,7 +177,9 @@ namespace AOP
                                                   {"radius", radius},
                                                   {"height", height},
                                                   {"motion_type", motion_type},
-                                                  {"shape", shape_type}});
+                                                  {"shape", shape_type},
+                                                  {"data", body_data.dump().c_str()}
+                                                  });
         }
 
         // Get all contraints
@@ -191,7 +194,7 @@ namespace AOP
             const uint id = reinterpret_cast<uint32>(constraint);
             AConstraint *aConstraint = mConstraintManager->GetConstraint(id);
             json data = aConstraint->GetData();
-            data['space'] = aConstraint->mSpace;
+            data["space"] = aConstraint->mSpace;
             world_state_json["constraints"].push_back(data);
         }
 
