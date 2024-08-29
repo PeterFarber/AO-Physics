@@ -7,8 +7,49 @@
   .wy-body-for-nav {
       background: rgba(0, 0, 0, 0.05);
   } */
+  .wy-body-for-nav {
+    /* margin-left: auto; */
+    width:100%;
+    /* margin-right:auto; */
+    display:flex;
+    justify-content: space-between;
 
+    background:#edf0f2;
+  }
+  .wy-body-for-nav::before {
+    content: "";
+    z-index: -1;
+  }
+  .wy-body-for-nav::after {
+    content: "";
+    z-index: -1;
+    flex: 0 1000 300px;
+  }
+  .wy-grid-for-nav {
+    position: relative !important;
+    width: unset !important;
+    height: 100% !important;
+    box-shadow: 1px 2px 5px 0px #777;
+
+  }
+  .wy-nav-shift {
+    position: relative !important;
+  }
+
+  .rst-versions{
+    display: none;
+  }
+
+  .wy-nav-side{
+    position: absolute !important;
+  }
   .wy-nav-content-wrap {
+    margin-left: 300px !important;
+  }
+  .wy-side-nav-search {
+    /* background-color: #2980b9; */
+  }
+  /* .wy-nav-content-wrap {
     display: flex;
     justify-content: space-between;
   }
@@ -22,35 +63,34 @@
     z-index: -1;
     flex: 0 5 300px;
   }
-
+*/
   .wy-nav-content {
     max-width: 1024px;
-    /* flex: 0 1 894px; */
-    box-shadow: 1px 2px 5px 0px #777;
+
   }
 }
 
-.docutils{
+.docutils {
   display: table !important;
   /* border: 1px solid #343131 !important; */
   border: 1px solid #e1e4e5 !important;
 }
 
-.docutils thead{
+.docutils thead {
   /* background: #343131  !important;
   color: #e6e6e6 !important; */
 }
 
-.docutils thead tr th{
+.docutils thead tr th {
   /* border-color: #343131 !important;
   border-right-color: #807676 !important; */
 }
 
-.docutils thead tr th:last-child{
+.docutils thead tr th:last-child {
   /* border-right-color: #343131 !important; */
 }
 
-h1 {
+/* h1 {
   color: #111;
 }
 h2,
@@ -59,10 +99,9 @@ h4,
 h5,
 h6 {
   color: #333;
-}
+} */
 
-
-td{
+td {
   border: 0px solid transparent !important;
 }
 
@@ -76,7 +115,7 @@ td.hljs-ln-numbers {
 
   text-align: center !important;
   color: #ccc !important;
-  border-right: 1px solid #CCC !important;
+  border-right: 1px solid #ccc !important;
   vertical-align: top !important;
   padding-right: 5px !important;
 }
