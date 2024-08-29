@@ -8,9 +8,7 @@
       background: rgba(0, 0, 0, 0.05);
   } */
   .wy-body-for-nav {
-    /* margin-left: auto; */
     width:100%;
-    /* margin-right:auto; */
     display:flex;
     justify-content: space-between;
 
@@ -41,7 +39,11 @@
   }
 
   .wy-nav-side{
-    position: absolute !important;
+    position: fixed !important;
+    padding-bottom: unset !important;
+    bottom: unset !important;
+    top: unset !important;
+    left: unset !important;
   }
   .wy-nav-content-wrap {
     margin-left: 300px !important;
