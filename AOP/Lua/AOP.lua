@@ -333,7 +333,6 @@ function AOP:Character()
   character.friction = 0.5
   character.gravityFactor = 1.0
   character.jumpForce = 6.0
-  character.mass = 0.0
   character.maxSlopeAngle = 45.0
   character.speed = 1.0
   character.sprintMultiplier = 2.0
@@ -350,8 +349,8 @@ function AOP:Character()
 
   function character:Input()
     local input = {
-      x = 0,
-      z = 0,
+      x = 0.0,
+      z = 0.0,
       jump = false,
       sprint = false,
       crouch = false

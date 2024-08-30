@@ -9,12 +9,55 @@ local scenario =
 local world = AOP:World()
 world:Create()
 
+if scenario == "Falling Shapes" then
+    local floor = AOP:Body()
+    floor.shape = "Box"
+    floor.size = { 100.0, 1.0, 100.0 }
+    floor.position = { 0, -0.5, 0 }
+    floor.motionType = "Static"
+    floor.layer = "NON_MOVING"
+    floor.activate = false
+    floor:Add()
+
+    local sphere = AOP:Body()
+    sphere.shape = "Sphere"
+    sphere.radius = 0.5
+    sphere.position = { -3, 5, 0 }
+    sphere:Add()
+
+    local box = AOP:Body()
+    box.shape = "Box"
+    box.size = { 1.0, 1.0, 1.0 }
+    box.position = { 1, 10, 0 }
+    box:Add()
+
+    local capsule = AOP:Body()
+    capsule.shape = "Capsule"
+    capsule.radius = 0.5
+    capsule.height = 1.0
+    capsule.position = { 1, 5, 0 }
+    capsule:Add()
+
+    local cylinder = AOP:Body()
+    cylinder.shape = "Cylinder"
+    cylinder.radius = 0.5
+    cylinder.height = 1.0
+    cylinder.position = { 3, 5, 0 }
+    cylinder:Add()
+
+    for i = 1, framesToSimulate do
+        world:Update(1, deltaTime)
+        world:GetState()
+    end
+
+end
+
 if scenario == "Character" then
     --- Create a Floor ---
     local body = AOP:Body()
     body.shape = "Box"
     body.size = { 100.0, 1.0, 100.0 }
-    -- body.position = { 0, -1, 0 }
+    body.position = { 0, -0.5, 0 }
     body.motionType = "Static"
     body.layer = "NON_MOVING"
     body.activate = false
@@ -26,11 +69,26 @@ if scenario == "Character" then
     character.shape = "Capsule"
     character.radiusStanding = 0.5
     character.heightStanding = 2.0
-    character.position = { 0.0, 2, 0.0 }
+    character.position = { 0.0, 1, 0.0 }
     character:Add()
 
+    
+    local boxfall = AOP:Body()
+    boxfall.shape = "Box"
+    boxfall.size = { 1.0, 1.0, 1.0 }
+    boxfall.position = { 0, 5, 0 }
+    boxfall:Add()
+
+    local box = AOP:Body()
+    box.shape = "Box"
+    box.size = { 1.0, 0.1, 1.0 }
+    box.position = { 0, 0.05, 2 }
+    box.motionType = "Static"
+    box.layer = "NON_MOVING"
+    box.activate = false
+    box:Add()
+
     local input = character:Input()
-    input.z = 1
 
 
     --- Update the World ---
@@ -39,7 +97,7 @@ if scenario == "Character" then
         --     input.jump = true
         -- end
 
-        if (i > 100) then
+        if (i > 300) then
             input.crouch = true
         else
             input.crouch = false

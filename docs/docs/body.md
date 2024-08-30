@@ -1,31 +1,8 @@
-# Body
+# **Body**
 
 The `Body` class represents a physical object within the simulation, allowing for various configurations and interactions.
 
-## **Table of Contents**
-
-- [Introduction](#introduction)
-- [Settings](#settings)
-- [Functions](#functions)
-    - [`Add`](#add) - Add's the **Body** to the **World** 
-    - [`Remove`](#remove) - Remove the **Body** from the **World**
-    - [`SetData`](#setdata) - Set custom **Data** on the **Body**
-    - [`GetData`](#getdata) - Get the custom set **Data** from the **Body**
-    - [`SetLinearVelocity`](#setlinearvelocity) - Sets the **Linear Velocity** of the **Body**
-    - [`SetAngularVelocity`](#setangularvelocity) - Sets the **Angular Velocity** of the **Body**
-    - [`AddLinearVelocity`](#addlinearvelocity) - Adds to the **Linear Velocity** of the **Body**
-    - [`AddAngularVelocity`](#addangularvelocity) - Adds to the **Angular Velocity** of the **Body**
-    - [`AddForce`](#addforce)  - Adds **Force** of the **Body**
-    - [`AddTorque`](#addtorque)  - Adds **Torque** of the **Body**
-    - [`AddImpulse`](#addimpulse) - Adds **Impulse** of the **Body**
-    - [`CastRay`](#castray) - Casts a ray from a starting point in a specified direction and returns information about any intersected objects.
-- [Example: Creating and Configuring a Sphere Body](#example)
-
-
-
-## **Settings**
-
-The following properties define the state and behavior of a body object in the simulation.
+## **Properties**
 
 | Property                      | Type                 | Description                                                              | Default Value |
 |--------|----------------------|--------------------------------------------------------------------------|---------------|
@@ -54,199 +31,188 @@ The following properties define the state and behavior of a body object in the s
 
 
 ## **Functions**
----
+
 ### Add
+!!! Abstract ""
+    === "Details"
 
-Adds the body to the physics simulation and assigns it a unique `id`.
+        Adds the body to the physics simulation and assigns it a unique `id`. <br>
+        > This function serializes the body's properties and adds it to the simulation, generating and assigning a unique identifier (id) for the body. This id is used in subsequent operations to reference this specific body within the physics system.
 
-#### Example Usage
-```lua
-body:Add()
-```
-
-This function serializes the body's properties and adds it to the simulation, generating and assigning a unique identifier (id) for the body. This id is used in subsequent operations to reference this specific body within the physics system.
-
----
+    === "Example"
+        ```lua
+        body:Add()
+        ```
 
 ### Remove
+!!! Abstract ""
+    === "Details"
 
-Removes the body from the physics simulation using its unique `id`.
+        Removes the body from the physics simulation using its unique `id`. <br>
+        > This function removes the body associated with the given `id` from the simulation. Once removed, the body's id will no longer be valid for operations within the physics system.
 
-#### Example Usage
-```lua
-body:Remove()
-```
-
-This function removes the body associated with the given `id` from the simulation. Once removed, the body's id will no longer be valid for operations within the physics system.
-
----
+    === "Example"
+        ```lua
+        body:Remove()
+        ```
 
 ### SetData
+!!! Abstract ""
+    === "Details"
 
-Allows setting custom JSON data to be associated with a body within the physics simulation without affecting its actual properties.
+        Allows setting custom JSON data to be associated with a body within the physics simulation without affecting its actual properties. <br>
+        > This function stores the provided JSON data with the body in the physics simulation but does not modify the body's physical properties or behavior. It can be used to attach metadata or other non-physical information to the body for tracking or reference purposes.
 
-#### Example Usage
-```lua
-body:SetData({"customKey": "customValue"})
-```
-
-This function stores the provided JSON data with the body in the physics simulation but does not modify the body's physical properties or behavior. It can be used to attach metadata or other non-physical information to the body for tracking or reference purposes.
-
----
+    === "Example"
+        ```lua
+        body:SetData({"customKey": "customValue"})
+        ```
 
 ### GetData
+!!! Abstract ""
+    === "Details"
 
-Retrieves the custom JSON data associated with a body within the physics simulation.
+        Retrieves the custom JSON data associated with a body within the physics simulation. <br>
+        > This function returns the JSON data that was previously set using `SetData`. The retrieved data does not affect the body's physical properties or behavior and is typically used for accessing metadata or other non-physical information associated with the body.
 
-#### Example Usage
-```lua
-local data = body:GetData()
-```
-
-This function returns the JSON data that was previously set using `SetData`. The retrieved data does not affect the body's physical properties or behavior and is typically used for accessing metadata or other non-physical information associated with the body.
-
----
+    === "Example"
+        ```lua
+        local data = body:GetData()
+        ```
 
 ### SetLinearVelocity
+!!! Abstract ""
+    === "Details"
 
-Sets the linear velocity of the body.
+        Sets the linear velocity of the body. <br>
+        > This function sets the body's linear velocity to the specified vector components, directly altering its motion in the simulation.
 
-#### Parameters
-- `velocity` (`table {number, number, number}`): A table representing the x, y, and z components of the linear velocity.
+    === "Parameters"
+        - `velocity` (`table {number, number, number}`): A table representing the x, y, and z components of the linear velocity.
 
-#### Example Usage
-```lua
-local velocity = {1.0, 2.0, 0.0}
-body:SetLinearVelocity(velocity)
-```
-
-This function sets the body's linear velocity to the specified vector components, directly altering its motion in the simulation.
-
----
+    === "Example"
+        ```lua
+        local velocity = {1.0, 2.0, 0.0}
+        body:SetLinearVelocity(velocity)
+        ```
 
 ### SetAngularVelocity
+!!! Abstract ""
+    === "Details"
 
-Sets the angular velocity of the body.
+        Sets the angular velocity of the body. <br>
+        > This function sets the body's angular velocity to the specified vector components, directly affecting its rotational motion in the simulation.
 
-#### Parameters
-- `velocity` (`table {number, number, number}`): A table representing the x, y, and z components of the angular velocity.
+    === "Parameters"
+        - `velocity` (`table {number, number, number}`): A table representing the x, y, and z components of the angular velocity.
 
-#### Example Usage
-```lua
-local angularVelocity = {0.1, 0.2, 0.3}
-body:SetAngularVelocity(angularVelocity)
-```
-This function sets the body's angular velocity to the specified vector components, directly affecting its rotational motion in the simulation.
-
----
+    === "Example"
+        ```lua
+        local angularVelocity = {0.1, 0.2, 0.3}
+        body:SetAngularVelocity(angularVelocity)
+        ```
 
 ### AddLinearVelocity
+!!! Abstract ""
+    === "Details"
 
-Adds to the current linear velocity of the body.
+        Adds to the current linear velocity of the body. <br>
+        > This function modifies the body's current linear velocity by adding the specified velocity vector components to it.
 
-#### Parameters
-- `velocity` (`table {number, number, number}`): A table representing the x, y, and z components of the velocity to add. 
+    === "Parameters"
+        - `velocity` (`table {number, number, number}`): A table representing the x, y, and z components of the velocity to add.
 
-#### Example Usage
-```lua
-local velocity = {1.0, 0.5, 0.0}
-body:AddLinearVelocity(velocity)
-```
-This function modifies the body's current linear velocity by adding the specified velocity vector components to it.
-
----
+    === "Example"
+        ```lua
+        local velocity = {1.0, 0.5, 0.0}
+        body:AddLinearVelocity(velocity)
+        ```
 
 ### AddAngularVelocity
+!!! Abstract ""
+    === "Details"
 
-Adds to the current angular velocity of the body.
+        Adds to the current angular velocity of the body. <br>
+        > This function adjusts the body's current angular velocity by adding the specified velocity vector components to it, effectively changing the body's rotational motion.
 
-#### Parameters
-- `velocity` (`table {number, number, number}`): A table representing the x, y, and z components of the angular velocity to add.
+    === "Parameters"
+        - `velocity` (`table {number, number, number}`): A table representing the x, y, and z components of the angular velocity to add.
 
-#### Example Usage
-```lua
-local angularVelocity = {0.1, 0.2, 0.3}
-body:AddAngularVelocity(angularVelocity)
-```
-
-This function adjusts the body's current angular velocity by adding the specified velocity vector components to it, effectively changing the body's rotational motion.
-
----
+    === "Example"
+        ```lua
+        local angularVelocity = {0.1, 0.2, 0.3}
+        body:AddAngularVelocity(angularVelocity)
+        ```
 
 ### AddForce
+!!! Abstract ""
+    === "Details"
 
-Applies a force to the body.
+        Applies a force to the body. <br>
+        > This function applies a force to the body, influencing its movement and interaction with other bodies.
 
-#### Parameters
-- `force` (`table {number, number, number}`): A table representing the x, y, and z components of the force to apply.
+    === "Parameters"
+        - `force` (`table {number, number, number}`): A table representing the x, y, and z components of the force to apply.
 
-#### Example Usage
-```lua
-local force = {10.0, 0.0, 0.0}
-body:AddForce(force)
-```
-
-This function applies a force to the body, influencing its movement and interaction with other bodies.
-
----
+    === "Example"
+        ```lua
+        local force = {10.0, 0.0, 0.0}
+        body:AddForce(force)
+        ```
 
 ### AddTorque
+!!! Abstract ""
+    === "Details"
 
-Applies a torque to the body.
+        Applies a torque to the body. <br>
+        > This function applies a torque to the body, affecting its rotational motion.
 
-#### Parameters
-- `torque` (`table {number, number, number}`): A table representing the x, y, and z components of the torque to apply.
+    === "Parameters"
+        - `torque` (`table {number, number, number}`): A table representing the x, y, and z components of the torque to apply.
 
-#### Example Usage
-```lua
-local torque = {0.0, 5.0, 0.0}
-body:AddTorque(torque)
-```
-
-This function applies a torque to the body, affecting its rotational motion.
-
----
+    === "Example"
+        ```lua
+        local torque = {0.0, 5.0, 0.0}
+        body:AddTorque(torque)
+        ```
 
 ### AddImpulse
+!!! Abstract ""
+    === "Details"
 
-Applies an impulse to the body.
+        Applies an impulse to the body. <br>
+        > This function applies an impulse to the body, resulting in a sudden change in its velocity.
 
-#### Parameters
-- `impulse` (`table {number, number, number}`): A table representing the x, y, and z components of the impulse to apply.
+    === "Parameters"
+        - `impulse` (`table {number, number, number}`): A table representing the x, y, and z components of the impulse to apply.
 
-#### Example Usage
-```lua
-local impulse = {0.0, 10.0, 0.0}
-body:AddImpulse(impulse)
-```
-
-This function applies an impulse to the body, resulting in a sudden change in its velocity.
-
----
+    === "Example"
+        ```lua
+        local impulse = {0.0, 10.0, 0.0}
+        body:AddImpulse(impulse)
+        ```
 
 ### CastRay
+!!! Abstract ""
+    === "Details"
 
-Casts a ray from the body's current position in a specified direction to detect collisions.
-
-#### Parameters
-- `direction` (`table {number, number, number}`): A table representing the x, y, and z components of the direction vector for the ray.
-
-#### Returns
-- `result` (`table`): A table containing the result of the ray cast, including:
-  - `hit` (`boolean`): Whether the ray hit something.
-  - `hitPoint` (`table {number, number, number}`): The point of collision.
-  - `hitBodyID` (`number`): The ID of the body that was hit.
-
-#### Example Usage
-```lua
-local direction = {0.0, 0.0, -1.0}
-local result = body:CastRay(direction)
-if result.hit then
-    print("Hit at:", result.hitPoint[1], result.hitPoint[2], result.hitPoint[3])
-end
-```
-
-This function casts a ray from the body's current position in the specified direction and returns information about any collisions detected.
+        Casts a ray from the body's current position in a specified direction to detect collisions. <br>
+        > This function casts a ray from the body's current position in the specified direction and returns information about any collisions detected.
+    === "Parameters"
+        - `direction` (`table {number, number, number}`): A table representing the x, y, and z components of the direction vector for the ray.
+    === "Returns"
+        - `result` (`table`): A table containing the result of the ray cast, including:
+        - `hit` (`boolean`): Whether the ray hit something.
+        - `hitPoint` (`table {number, number, number}`): The point of collision.
+        - `hitBodyID` (`number`): The ID of the body that was hit.
+    === "Example"
+        ```lua
+        local direction = {0.0, 0.0, -1.0}
+        local result = body:CastRay(direction)
+        if result.hit then
+            print("Hit at:", result.hitPoint[1], result.hitPoint[2], result.hitPoint[3])
+        end
+        ```
 
 ## **Example**
 

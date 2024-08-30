@@ -1,110 +1,84 @@
-# World
+# **World**
 
 The `World` class represents the entire simulation environment, handling physical interactions and managing the state of the simulation.
 
-## **Table of Contents**
+## **Properties**
 
-- [Introduction](#introduction)
-- [Settings](#settings)
-- [Functions](#functions)
-    - [`Create`](#create) - Initializes the **World**
-    - [`Update`](#update) - Updates the **World** simulation
-    - [`GetState`](#getstate) - Retrieves the current state of the **World**
-    - [`GetStates`](#getstates) - Retrieves the history of **World** states
-    - [`Destroy`](#destroy) - Destroys the **World**
-- [Example: Creating and Configuring a World](#example)
-
-## **Settings**
-
-The following properties define the configuration and behavior of the simulation world.
-
-| Property                 | Type     | Description                                             | Default Value       |
-|--------------------------|----------|---------------------------------------------------------|---------------------|
-| `gravity`                | `table`   | The gravitational force affecting the world.            | `{ 0.0, -9.81, 0.0 }` |
-| `timeBeforeSleep`        | `number`  | Time before bodies go to sleep.                         | `0.5`               |
-| `allowSleeping`          | `boolean` | Whether bodies are allowed to sleep when inactive.      | `true`              |
-| `maxBodies`              | `number`  | Maximum number of bodies in the world.                  | `1024`              |
-| `numBodyMutexes`         | `number`  | Number of mutexes used for body operations.             | `0`                 |
-| `maxBodyPairs`           | `number`  | Maximum number of body pairs for collision detection.   | `1024`              |
-| `maxContactConstraints`  | `number`  | Maximum number of contact constraints.                  | `1024`              |
+| Property                 | Type       | Description                                             | Default Value       |
+|--------------------------|------------|---------------------------------------------------------|---------------------|
+| `gravity`                | `table`    | The gravitational force affecting the world.            | `{ 0.0, -9.81, 0.0 }` |
+| `timeBeforeSleep`        | `number`   | Time before bodies go to sleep.                         | `0.5`               |
+| `allowSleeping`          | `boolean`  | Whether bodies are allowed to sleep when inactive.      | `true`              |
+| `maxBodies`              | `number`   | Maximum number of bodies in the world.                  | `1024`              |
+| `numBodyMutexes`         | `number`   | Number of mutexes used for body operations.             | `0`                 |
+| `maxBodyPairs`           | `number`   | Maximum number of body pairs for collision detection.   | `1024`              |
+| `maxContactConstraints`  | `number`   | Maximum number of contact constraints.                  | `1024`              |
 
 ## **Functions**
----
+
 ### Create
-
-Initializes the world with the specified settings.
-
-#### Example Usage
-```lua
-local world = AOP:World()
-world:Create()
-```
-
-This function creates the world instance in the simulation using the current settings.
-
----
+!!! Abstract ""
+    === "Details"
+    
+        Initializes the world with the specified settings.
+    
+    === "Example"
+        ```lua
+        local world = AOP:World()
+        world:Create()
+        ```
 
 ### Update
-
-Updates the world simulation by a specified number of steps and time delta.
-
-#### Parameters
-- `steps` (`number`): The number of simulation steps to advance.
-- `deltaTime` (`number`): The time increment for each simulation step.
-
-#### Example Usage
-```lua
-world:Update(1, 0.016)
-```
-
-This function advances the simulation by the given number of steps and time increment, updating the world state accordingly.
-
----
+!!! Abstract ""
+    === "Details"
+    
+        Updates the world simulation by a specified number of steps and time delta.
+    === "Parameters"
+        - `steps` (`number`): The number of simulation steps to advance.
+        - `deltaTime` (`number`): The time increment for each simulation step.
+    
+    === "Example"
+        ```lua
+        world:Update(1, 0.016)
+        ```
 
 ### GetState
-
-Retrieves the current state of the world.
-
-#### Returns
-- `state` (`table`): The current state of the world.
-
-#### Example Usage
-```lua
-local state = world:GetState()
-print(state)
-```
-
-This function returns the current state of the world and logs it for analysis or debugging.
-
----
+!!! Abstract ""
+    === "Details"
+    
+        Retrieves the current state of the world.
+    === "Returns"
+        - `state` (`table`): The current state of the world.
+    
+    === "Example"
+        ```lua
+        local state = world:GetState()
+        print(state)
+        ```
 
 ### GetStates
-
-Retrieves the history of world states since the last call.
-
-#### Returns
-- `stateHistory` (`string`): A JSON string representing the history of world states.
-
-#### Example Usage
-```lua
-local stateHistory = world:GetStates()
-print(stateHistory)
-```
-
-This function returns a JSON string containing all the world states recorded since the last call to `GetStates`, and clears the history.
-
----
+!!! Abstract ""
+    === "Details"
+    
+        Retrieves the history of world states since the last call.
+    === "Returns"
+        - `stateHistory` (`string`): A JSON string representing the history of world states.
+    
+    === "Example"
+        ```lua
+        local stateHistory = world:GetStates()
+        print(stateHistory)
+        ```
 
 ### Destroy
-
-Destroys the world, cleaning up resources and ending the simulation.
-
-#### Example Usage
-```lua
-world:Destroy()
-```
-
-This function destroys the world instance, releasing all associated resources and stopping the simulation.
+!!! Abstract ""
+    === "Details"
+    
+        Destroys the world, cleaning up resources and ending the simulation.
+    === "Example"
+        ```lua
+        world:Destroy()
+        ```
 
 ## **Example**
 
@@ -128,6 +102,7 @@ print("State History:", stateHistory)
 
 world:Destroy()                       -- Destroy the world and clean up resources.
 ```
+
 ### Description
 
 - **Create a World Instance:** `AOP:World()` creates a new world instance with default settings.

@@ -166,15 +166,18 @@ namespace AOP
 
             if (sub_shape_type == EShapeSubType::RotatedTranslated)
             {
-                ACharacter *character = mCharacterManager->mCharacters[body_id.GetIndexAndSequenceNumber()];
-                sub_shape_type = static_cast<const DecoratedShape *>(body->GetShape())->GetInnerShape()->GetSubType();
-                if(character->mCrouching){
-                    height = character->mHeightCrouching;
-                    radius = character->mRadiusCrouching;
-                }else{
-                    height = character->mHeightStanding;
-                    radius = character->mRadiusStanding;
-                }
+                const DecoratedShape * decoratedShape = static_cast<const DecoratedShape *>(body->GetShape());
+
+                sub_shape_type = decoratedShape->GetInnerShape()->GetSubType();
+                // height = decoratedShape->GetLocalBounds().GetSize().GetY();
+                // radius = decoratedShape->GetInnerRadius();
+                // if(character->mCrouching){
+                //     height = character->mHeightCrouching;
+                //     radius = character->mRadiusCrouching;
+                // }else{
+                //     height = character->mHeightStanding;
+                //     radius = character->mRadiusStanding;
+                // }
             }
 
             const char *shape_type = Helpers::GetShapeType(sub_shape_type);

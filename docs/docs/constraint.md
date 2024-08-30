@@ -1,7 +1,7 @@
-# Constraints
+# **Constraints**
 
 The `Constraints` class defines various constraints used to govern the relationships between bodies in the simulation. Each constraint type has specific properties and methods to manage and apply the constraints.
-
+<!-- 
 ## **Table of Contents**
 
 - [Introduction](#introduction)
@@ -14,7 +14,7 @@ The `Constraints` class defines various constraints used to govern the relations
     - [Fixed Constraint](#fixed-constraint)
     - [Distance Constraint](#distance-constraint)
     - [Cone Constraint](#cone-constraint)
-- [Methods](#methods)
+- [Methods](#methods) -->
 
 ## **Constraint Types**
 
@@ -181,23 +181,33 @@ Represents a cone-like connection allowing rotation within a cone.
 
 ---
 
-## **Methods**
+## **Functions**
 
-### Add(Body1, Body2)
+### Add
+!!! Abstract ""
+    === "Details"
 
-Adds the constraint between two bodies.
+        Adds the constraint between two bodies. This method creates and adds the constraint between the two specified bodies, returning the unique ID of the created constraint.
 
-#### Parameters
-- `body1` (`object`): The first body to connect.
-- `body2` (`object`): The second body to connect.
+    === "Parameters"
+        - `body1` (`object`): The first body to connect.
+        - `body2` (`object`): The second body to connect.
 
-#### Returns
-- `id` (`number`): The unique identifier for the created constraint.
+    === "Returns"
+        - `id` (`number`): The unique identifier for the created constraint.
 
-This method creates and adds the constraint between the two specified bodies, returning the unique ID of the created constraint.
+    === "Example"
+        ```lua
+        local id = AOP:Add(body1, body2)
+        ```
 
----
+### Remove
+!!! Abstract ""
+    === "Details"
 
-### Remove()
+        Removes the specified constraint from the physics simulation.
 
-Removes the specified constraint from the physics simulation.
+    === "Example"
+        ```lua
+        AOP:Remove(id)
+        ```

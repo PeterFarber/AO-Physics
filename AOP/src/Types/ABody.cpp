@@ -92,10 +92,10 @@ namespace AOP
             body_settings = BodyCreationSettings(new BoxShape(size), mPosition, mRotation, mMotionType, mLayer);
             break;
         case EShapeSubType::Capsule:
-            body_settings = BodyCreationSettings(new CapsuleShape((mHeight * 0.5f) - (mRadius), mRadius), mPosition, mRotation, mMotionType, mLayer);
+            body_settings = BodyCreationSettings(new CapsuleShape((mHeight * 0.5f), mRadius), mPosition, mRotation, mMotionType, mLayer);
             break;
         case EShapeSubType::Cylinder:
-            body_settings = BodyCreationSettings(new CylinderShape((mHeight * 0.5f), mRadius), mPosition, mRotation, mMotionType, mLayer);
+            body_settings = BodyCreationSettings(new CylinderShape(0.5f * mHeight + mRadius, mRadius), mPosition, mRotation, mMotionType, mLayer);
             break;
         default:
             body_settings = BodyCreationSettings(new SphereShape(mRadius), mPosition, mRotation, mMotionType, mLayer);

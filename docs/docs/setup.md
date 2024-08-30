@@ -1,8 +1,8 @@
-# Setup
+# **Setup**
 
 This guide will walk you through the process of setting up and creating your own physics simulation using the AO-Physics library. By following these steps, you'll be able to integrate AO-Physics into your Lua projects with ease.
 
-## Step 1: Clone the AO-Physics Repository
+## **Step 1: Clone the AO-Physics Repository**
 
 Start by cloning the official AO-Physics GitHub repository. This repository contains all the necessary files and resources to get you started.
 
@@ -11,10 +11,10 @@ Open your terminal and run the following command:
 ```bash
 git clone https://github.com/PeterFarber/AO-Physics.git
 ```
+!!! info 
+    This command will download the entire AO-Physics project to your local machine. The repository includes the core library, examples, and other important assets.
 
-This command will download the entire AO-Physics project to your local machine. The repository includes the core library, examples, and other important assets.
-
-## Step 2: Copy the Build Directory Contents
+## **Step 2: Copy the Build Directory Contents**
 
 After cloning the repository, you'll need to integrate the AO-Physics library into your project. To do this, copy the contents of the `build` directory from the cloned repository to your module's source code directory.
 
@@ -29,10 +29,10 @@ Then, copy the contents:
 ```bash
 cp -r build/* /path/to/your/module/source
 ```
+!!! info 
+    Replace `/path/to/your/module/source` with the actual path to your module’s source code. The `build` directory contains precompiled assets and scripts that are essential for running the AO-Physics library.
 
-Replace `/path/to/your/module/source` with the actual path to your module’s source code. The `build` directory contains precompiled assets and scripts that are essential for running the AO-Physics library.
-
-## Step 3: Include AOP.lua in Your Process
+## **Step 3: Include AOP.lua in Your Process**
 
 To utilize AO-Physics in your Lua project, you need to include the `AOP.lua` script in your `process.lua` file. This script provides the necessary functions and classes to build physics simulations.
 
@@ -42,11 +42,10 @@ Add the following line to the top of your `process.lua` file:
 local AOP = require('AOP')
 ```
 
-This line imports the AO-Physics library, making its features available in your script. Now, you can call AO-Physics functions and access its physics engine.
+!!! info 
+    This line imports the AO-Physics library, making its features available in your script. Now, you can call AO-Physics functions and access its physics engine.
 
-Here’s the updated Step 4 with an example using the provided Lua code:
-
-## Step 4: Write Your Lua Physics Simulation
+## **Step 4: Write Your Lua Physics Simulation**
 
 Now that you've integrated AO-Physics into your project, it's time to write your physics simulation. The AO-Physics library allows you to create and manage physical bodies, simulate interactions, and update the world in a few straightforward steps. Below is an example of how to set up a simple simulation:
 
@@ -90,9 +89,10 @@ world:Destroy()
 5. **Clean Up:**
     - Finally, we destroy the world using `world:Destroy()` to free up any resources used by the simulation.
 
-This example demonstrates how to set up a simple physics world, create a static body, and run a simulation step. You can build on this foundation to create more complex simulations, adding dynamic bodies, forces, and interactions as needed.
+!!! info 
+    This example demonstrates how to set up a simple physics world, create a static body, and run a simulation step. You can build on this foundation to create more complex simulations, adding dynamic bodies, forces, and interactions as needed.
 
-## Step 5: Build and Run Your Simulation
+## **Step 5: Build and Run Your Simulation**
 
 Once your simulation code is ready, it's time to build it. The AO-Physics library comes with a build command that compiles your Lua scripts into a fully functional physics simulation.
 
@@ -102,9 +102,11 @@ Run the following command in your terminal:
 ao build
 ```
 
-This command will compile your project, incorporating the AO-Physics library. If everything is set up correctly, you should see a message indicating a successful build.
+!!! info 
+    This command will compile your project, incorporating the AO-Physics library. If everything is set up correctly, you should see a message indicating a successful build.
 
-Congratulations! You’ve successfully created a physics simulation using AO-Physics. You can now run your simulation and observe the physics interactions you’ve programmed.
+!!! success ""
+    Congratulations! You’ve successfully created a physics simulation using AO-Physics. You can now run your simulation and observe the physics interactions you’ve programmed.
 
 ---
 

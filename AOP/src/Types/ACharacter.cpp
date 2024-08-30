@@ -10,7 +10,6 @@
 #include "Jolt/Physics/Character/Character.h"
 #include "Jolt/Physics/Character/CharacterVirtual.h"
 
-
 namespace AOP
 {
     InputParams::InputParams(const char *params)
@@ -20,8 +19,12 @@ namespace AOP
         if (j.contains("id"))
             mID = j.at("id");
 
-        if (j.contains("input"))
-            mInput = Vec3(j.at("input")[0], 0, j.at("input")[1]).Normalized();
+        mInput = Vec3::sZero();
+        if (j.contains("x"))
+            mInput.SetX(j.at("x").get<double>());
+
+        if (j.contains("z"))
+            mInput.SetY(j.at("z").get<double>());
 
         if (j.contains("jump"))
             mJump = j.at("jump").get<bool>();
@@ -31,7 +34,6 @@ namespace AOP
 
         if (j.contains("crouch"))
             mCrouch = j.at("crouch").get<bool>();
-
     }
 
     ACharacter::ACharacter(const char *params)
@@ -93,8 +95,8 @@ namespace AOP
 
     void ACharacter::Initialize()
     {
-        mStandingShape = RotatedTranslatedShapeSettings(Vec3(0, 0.5f * mHeightStanding + mRadiusStanding, 0), Quat::sIdentity(), new CapsuleShape((mHeightStanding * 0.5f), mRadiusStanding)).Create().Get();
-        mCrouchingShape = RotatedTranslatedShapeSettings(Vec3(0, 0.5f * mHeightCrouching + mRadiusCrouching , 0), Quat::sIdentity(), new CapsuleShape((mHeightCrouching * 0.5f), mRadiusCrouching)).Create().Get();
+        mStandingShape = RotatedTranslatedShapeSettings(Vec3(0, 0.5f * mHeightStanding - mRadiusStanding, 0), Quat::sIdentity(), new CapsuleShape((mHeightStanding * 0.5f) - mRadiusStanding, mRadiusStanding)).Create().Get();
+        mCrouchingShape = RotatedTranslatedShapeSettings(Vec3(0, 0.5f * mHeightCrouching - mRadiusCrouching, 0), Quat::sIdentity(), new CapsuleShape((mHeightCrouching * 0.5f) - mRadiusCrouching, mRadiusCrouching)).Create().Get();
 
         Ref<CharacterSettings> settings = new CharacterSettings();
         settings->mMaxSlopeAngle = mMaxSlopeAngle;
@@ -138,10 +140,13 @@ namespace AOP
 
         // Stance switch
         float penetration_slop = AWorld::GetInstance()->mPhysicsSystem->GetPhysicsSettings().mPenetrationSlop;
-        if (params.mCrouch){
-		    mCharacter->SetShape(mCrouchingShape, 1.5f * penetration_slop);
-        }else{
-		    mCharacter->SetShape(mStandingShape , 1.5f * penetration_slop);
+        if (params.mCrouch)
+        {
+            mCharacter->SetShape(mCrouchingShape, 1.5f * penetration_slop);
+        }
+        else
+        {
+            mCharacter->SetShape(mStandingShape, 1.5f * penetration_slop);
         }
 
         if (mCanMoveWhileJumping || mCharacter->IsSupported())
@@ -152,12 +157,12 @@ namespace AOP
             if (!desired_velocity.IsNearZero() || current_velocity.GetY() < 0.0f || !mCharacter->IsSupported())
                 desired_velocity.SetY(current_velocity.GetY());
             Vec3 new_velocity = 0.75f * current_velocity + 0.25f * desired_velocity;
-
             // Jump
             if (jump && ground_state == Character::EGroundState::OnGround)
                 new_velocity += Vec3(0, mJumpForce, 0);
 
             // Update the velocity
+
             mCharacter->SetLinearVelocity(new_velocity);
         }
     }

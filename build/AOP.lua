@@ -350,8 +350,8 @@ function AOP:Character()
 
   function character:Input()
     local input = {
-      x = 0,
-      z = 0,
+      x = 0.0,
+      z = 0.0,
       jump = false,
       sprint = false,
       crouch = false

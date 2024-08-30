@@ -1,4 +1,4 @@
-.hljs {
+/* .hljs {
   background: #1e1e1e !important;
   color: #dcdcdc !important;
 }
@@ -80,9 +80,6 @@
   font-weight: bold !important;
 }
 
-/*.hljs-code {
-  font-family:'Monospace' !important;
-}*/
 
 .hljs-bullet,
 .hljs-selector-tag,
@@ -103,4 +100,4 @@
   background-color: #600 !important;
   display: inline-block !important;
   width: 100% !important;
-}
+} */

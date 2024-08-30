@@ -1,10 +1,9 @@
-# Basic Example
-
+# **Basic Example**
 This example demonstrates how to create and manage a simple simulation using AO Physics in Lua. The script sets up a world, creates multiple physical bodies with different properties and interactions, and then runs a simulation for a specified number of frames.
 
 ## **Code Overview**
 
-```lua
+```lua linenums="1"
 -- Load the AO Physics library
 AOP = require("AOP")
 
