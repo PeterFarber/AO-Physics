@@ -914,15 +914,21 @@
 </ul>
 <h2 id="installation"><strong>Installation</strong></h2>
 <ol>
-<li><strong>Add Script to Unity Project</strong>:</li>
+<li><strong>Add Script to Unity Project</strong>:<ul>
 <li>Copy the <code>ParseWorldState</code> script into your Unity project's <code>Assets/Scripts</code> directory.</li>
 <li>Attach the <code>ParseWorldState</code> script to a GameObject in your Unity scene.</li>
-<li><strong>Prepare JSON File</strong></li>
+</ul>
+</li>
+<li><strong>Prepare JSON File</strong><ul>
 <li>Ensure that the JSON file describing the world states is accessible from your Unity environment.</li>
 <li>Update the file path in the script to point to your JSON file location.</li>
-<li><strong>Configure Materials</strong>:</li>
+</ul>
+</li>
+<li><strong>Configure Materials</strong>:<ul>
 <li>Set the <code>bodyMaterial</code> and <code>constraintMaterial</code> fields in the Unity Inspector to your desired URP materials.</li>
 <li>Optionally, assign textures to <code>normalMap</code> and <code>albedoMap</code> fields for enhanced visual effects.</li>
+</ul>
+</li>
 </ol>
 <details class="abstract">
 <summary>Here are the normal map and albedo map that I used.</summary>
@@ -981,17 +987,17 @@
 <ol>
 <li>
 <p><strong>Start the Simulation</strong>:</p>
-</li>
-<li>
-<p>The simulation begins automatically when the scene is played.</p>
-</li>
-<li>
-<p>The script parses the JSON file, creating and positioning the GameObjects based on the data.</p>
+<ul>
+<li>The simulation begins automatically when the scene is played.</li>
+<li>The script parses the JSON file, creating and positioning the GameObjects based on the data.</li>
+</ul>
 </li>
 <li>
 <p><strong>Resetting the Simulation</strong>:</p>
-</li>
+<ul>
 <li>Press the <code>Space</code> key to clear the current simulation and reload it from the JSON file.</li>
+</ul>
+</li>
 </ol>
 <h3 id="customization">Customization</h3>
 <ul>
