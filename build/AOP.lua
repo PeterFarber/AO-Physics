@@ -321,24 +321,28 @@ function AOP:ConstraintCone()
 end
 
 function AOP:Character()
-  local character = {
-    canMoveWhileJumping = false,
-    speed = 1.0,
-    sprintSpeed = 2.0,
-    jumpForce = 6.0,
-    heightStanding = 1.35,
-    radiusStanding = 0.3,
-    maxSlopeAngle = 45.0,
-    friction = 0.5,
-    mass = 0.0,
-    gravityFactor = 1.0,
-    position = { 0, 0, 0 },
-    rotation = { 0, 0, 0, 1 },
-    up = { 0, 1, 0 },
-    layer = "MOVING", -- "MOVING" | "NON_MOVING"
-    activate = true
-  }
-  character.id = -1;
+  local character = {}
+  character.position = { 0, 0, 0 }
+  character.rotation = { 0, 0, 0, 1 }
+  character.radiusStanding = 0.5
+  character.heightStanding = 2.0
+  character.radiusCrouching = 0.5
+  character.heightCrouching = 1.0
+  character.up = { 0, 1, 0 }
+
+  character.friction = 0.5
+  character.gravityFactor = 1.0
+  character.jumpForce = 6.0
+  character.mass = 0.0
+  character.maxSlopeAngle = 45.0
+  character.speed = 1.0
+  character.sprintMultiplier = 2.0
+
+  character.canMoveWhileJumping = false
+
+  character.activate = true
+  character.layer = "MOVING" -- "MOVING" | "NON_MOVING"
+
   function character:Add()
     self.id = math.floor(_AOP.add_character(json.encode(self)))
     return self.id;

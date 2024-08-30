@@ -10,6 +10,7 @@ tests/jolt.json
 
 **/*.a
 !build/libs/*.a
+docs/site
 process.js
 process.wasm
 **/package-lock.json

@@ -5,6 +5,7 @@
 #include "Jolt/Physics/Constraints/PointConstraint.h"
 #include "Jolt/Physics/Constraints/PulleyConstraint.h"
 #include "Jolt/Physics/Collision/Shape/DecoratedShape.h"
+#include "Jolt/Physics/Collision/Shape/CapsuleShape.h"
 
 #include "Types/Constraints/AConeConstraint.h"
 #include "Types/Constraints/ADistanceConstraint.h"
@@ -14,6 +15,7 @@
 #include "Types/Constraints/APointConstraint.h"
 #include "Types/Constraints/APulleyConstraint.h"
 #include "Types/Constraints/ASliderConstraint.h"
+
 
 namespace AOP
 {
@@ -155,19 +157,29 @@ namespace AOP
         {
             Body *body = Helpers::GetBody(mPhysicsSystem, body_id);
             EShapeSubType sub_shape_type = body->GetShape()->GetSubType();
+
+            RVec3 position = body->GetCenterOfMassPosition();
+            Vec3 size = body->GetShape()->GetLocalBounds().GetSize();
+            Quat rotation = body->GetRotation();
+            double radius = body->GetShape()->GetInnerRadius();
+            double height = size.GetY();
+
             if (sub_shape_type == EShapeSubType::RotatedTranslated)
             {
+                ACharacter *character = mCharacterManager->mCharacters[body_id.GetIndexAndSequenceNumber()];
                 sub_shape_type = static_cast<const DecoratedShape *>(body->GetShape())->GetInnerShape()->GetSubType();
+                if(character->mCrouching){
+                    height = character->mHeightCrouching;
+                    radius = character->mRadiusCrouching;
+                }else{
+                    height = character->mHeightStanding;
+                    radius = character->mRadiusStanding;
+                }
             }
 
             const char *shape_type = Helpers::GetShapeType(sub_shape_type);
             const char *motion_type = Helpers::GetMotionType(body->GetMotionType());
 
-            RVec3 position = body->GetCenterOfMassPosition();
-            Vec3 size = body->GetShape()->GetLocalBounds().GetSize();
-            Quat rotation = body->GetRotation();
-            double radius = size.GetX() * 0.5f;
-            double height = size.GetY();
 
             json body_data = AWorld::GetInstance()->mBodyManager->GetData(body_id.GetIndexAndSequenceNumber());
             world_state_json["bodies"].push_back({{"id", body_id.GetIndexAndSequenceNumber()},

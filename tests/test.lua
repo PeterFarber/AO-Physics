@@ -2,11 +2,56 @@ AOP = require("AOP")
 
 local framesToSimulate = 1000
 local deltaTime = 1.0 / 60.0
-local scenario = "BodyForces"                  -- "BodyForces", "HingeConstraint", "SliderConstraint", "PointConstraint", "ConeConstraint"
+local scenario =
+"Character" -- "BodyForces", "HingeConstraint", "SliderConstraint", "PointConstraint", "ConeConstraint"
 
 --- Create a World ---
 local world = AOP:World()
 world:Create()
+
+if scenario == "Character" then
+    --- Create a Floor ---
+    local body = AOP:Body()
+    body.shape = "Box"
+    body.size = { 100.0, 1.0, 100.0 }
+    -- body.position = { 0, -1, 0 }
+    body.motionType = "Static"
+    body.layer = "NON_MOVING"
+    body.activate = false
+    body:Add()
+
+
+    --- Create A Sphere ---
+    local character = AOP:Character()
+    character.shape = "Capsule"
+    character.radiusStanding = 0.5
+    character.heightStanding = 2.0
+    character.position = { 0.0, 2, 0.0 }
+    character:Add()
+
+    local input = character:Input()
+    input.z = 1
+
+
+    --- Update the World ---
+    for i = 1, framesToSimulate do
+        -- if (i == 175) then
+        --     input.jump = true
+        -- end
+
+        if (i > 100) then
+            input.crouch = true
+        else
+            input.crouch = false
+        end
+
+        character:SendInput(input)
+
+        world:Update(1, deltaTime)
+        world:GetState()
+        input.jump = false
+    end
+end
 
 if scenario == "BodyForces" then
     --- Create a Floor ---
@@ -68,7 +113,6 @@ if scenario == "BodyForces" then
     for i = 1, framesToSimulate do
         world:Update(1, deltaTime)
         world:GetState()
-
     end
 end
 
@@ -264,7 +308,7 @@ if scenario == "SliderConstraint" then
     --- Slider Constraint ---
     local constraint = AOP:ConstraintSlider()
     -- constraint.autoDetectPoint = true
-    constraint.point1 =  { 0, 0.15, 1.75 }
+    constraint.point1 = { 0, 0.15, 1.75 }
     constraint.point2 = { 0, 0.15, -2.5 }
 
     constraint.sliderAxis1 = { 0, 0, 1 }
@@ -273,21 +317,21 @@ if scenario == "SliderConstraint" then
     constraint.limitsMax = 1
     -- constraint.limitsSpringSettings.frequency = 1.0;
     -- constraint.limitsSpringSettings.damping = 0.5;
-    -- constraint.limitsMin = 
+    -- constraint.limitsMin =
     -- constraint:Add(slider, body)
 
 
     --- Point Constraint ---
     local constraint2 = AOP:ConstraintPoint()
     constraint2.space = "LocalToBodyCOM"
-    constraint2.point1 =  { 0, 0, 0 }
-    constraint2.point2 =  { 0, 0, 0 }
+    constraint2.point1 = { 0, 0, 0 }
+    constraint2.point2 = { 0, 0, 0 }
     constraint2:Add(slider, spinner)
 
 
     local constraint3 = AOP:ConstraintPoint()
     constraint3.space = "WorldSpace"
-    constraint3.point1 ={ 0, 0.15, -2.5 }
+    constraint3.point1 = { 0, 0.15, -2.5 }
     constraint3.point2 = { 0, 0.15, -2.5 }
     constraint3:Add(spinner, body)
     -- --- Add Angular Velocity ---

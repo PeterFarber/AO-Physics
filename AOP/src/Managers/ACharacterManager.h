@@ -9,7 +9,7 @@ namespace AOP
 
     class ACharacterManager
     {
-    private:
+    public:
         std::map<uint32, ACharacter *> mCharacters;
         
 

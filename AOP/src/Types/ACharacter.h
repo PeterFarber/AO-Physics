@@ -31,25 +31,41 @@ namespace AOP
 
     public:
         uint32 mID;
-        Character *character = nullptr;
+        Character *mCharacter = nullptr;
 
-        // Custom
+        // Shapes
+        RefConst<Shape> mStandingShape;
+        RefConst<Shape> mCrouchingShape;
+
+        // Position and Rotation 
+        Vec3 mPosition = Vec3::sZero();
+        Quat mRotation = Quat::sIdentity();
+        Vec3 mUp = Vec3::sAxisY();
+
+        // Abilities
         bool mCanMoveWhileJumping = false;
+        bool mCanJump = true;
+
+        // Movement
         double mSpeed = 1.0;
-        double mSprintSpeed = 2.0;
+        double mSprintMultiplier = 2.0;
+        double mCrouchSpeed = 0.5;
         double mJumpForce = 6.0;
 
+        bool mCrouching = false;
+
+        // Character Properties
+        float mHeightStanding = 2.0f;
+        float mRadiusStanding = 0.5f;
+        float mHeightCrouching = 1.0f;
+        float mRadiusCrouching = 0.5f;
+        
         // Physics
-        float mHeightStanding = 1.35f;
-        float mRadiusStanding = 0.3f;
         float mMaxSlopeAngle = DegreesToRadians(45.0f);
         float mFriction = 0.5f;
         float mMass = 0.0f;
         float mGravityFactor = 1.0f;
 
-        Vec3 mPosition = Vec3::sZero();
-        Quat mRotation = Quat::sIdentity();
-        Vec3 mUp;
 
         ObjectLayer mLayer = Layers::MOVING;
         EActivation mActivation = EActivation::Activate;
