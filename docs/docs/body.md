@@ -12,8 +12,8 @@ The `Body` class represents a physical object within the simulation, allowing fo
     - [`SetData`](#setdata) - Set custom **Data** on the **Body**
     - [`GetData`](#getdata) - Get the custom set **Data** from the **Body**
     - [`SetLinearVelocity`](#setlinearvelocity) - Sets the **Linear Velocity** of the **Body**
-    - [`SetAngularVelocity`](#setangularvelocity) - Adds to the **Linear Velocity** of the **Body**
-    - [`AddLinearVelocity`](#addlinearvelocity) - Sets the **Angular Velocity** of the **Body**
+    - [`SetAngularVelocity`](#setangularvelocity) - Sets the **Angular Velocity** of the **Body**
+    - [`AddLinearVelocity`](#addlinearvelocity) - Adds to the **Linear Velocity** of the **Body**
     - [`AddAngularVelocity`](#addangularvelocity) - Adds to the **Angular Velocity** of the **Body**
     - [`AddForce`](#addforce)  - Adds **Force** of the **Body**
     - [`AddTorque`](#addtorque)  - Adds **Torque** of the **Body**

@@ -170,7 +170,7 @@ Represents a cone-like connection allowing rotation within a cone.
 #### Properties
 | Property                    | Type    | Description                                         | Default Value          |
 |-----------------------------|---------|-----------------------------------------------------|------------------------|
-| `type`             l         | `string` | Type of constraint.                                | `"Cone"`               |
+| `type`                      | `string` | Type of constraint.                                | `"Cone"`               |
 | `space`                     | `string` | Space in which the constraint is defined.           | `"WorldSpace"`         |
 | `point1`                    | `table`  | The point of attachment on the first body.         | `{ 0, 0, 0 }`         |
 | `twistAxis1`                | `table`  | The twist axis for the first body.                 | `{ 0, 1, 0 }`         |

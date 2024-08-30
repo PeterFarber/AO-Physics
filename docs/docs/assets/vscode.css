@@ -1,0 +1,106 @@
+.hljs {
+  background: #1e1e1e !important;
+  color: #dcdcdc !important;
+}
+
+.hljs-keyword,
+.hljs-literal,
+.hljs-symbol,
+.hljs-name {
+  color: #569cd6 !important;
+}
+.hljs-link {
+  color: #569cd6 !important;
+  text-decoration: underline !important;
+}
+
+.hljs-built_in,
+.hljs-type {
+  color: #4ec9b0 !important;
+}
+
+.hljs-number,
+.hljs-class {
+  color: #b8d7a3 !important;
+}
+
+.hljs-string,
+.hljs-meta .hljs-string {
+  color: #d69d85 !important;
+}
+
+.hljs-regexp,
+.hljs-template-tag {
+  color: #9a5334 !important;
+}
+
+.hljs-subst,
+.hljs-function,
+.hljs-title,
+.hljs-params,
+.hljs-formula {
+  color: #dcdcdc !important;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #57a64a !important;
+  font-style: italic !important;
+}
+
+.hljs-doctag {
+  color: #608b4e !important;
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-tag {
+  color: #9b9b9b !important;
+}
+
+.hljs-variable,
+.hljs-template-variable {
+  color: #bd63c5 !important;
+}
+
+.hljs-attr,
+.hljs-attribute {
+  color: #9cdcfe !important;
+}
+
+.hljs-section {
+  color: gold !important;
+}
+
+.hljs-emphasis {
+  font-style: italic !important;
+}
+
+.hljs-strong {
+  font-weight: bold !important;
+}
+
+/*.hljs-code {
+  font-family:'Monospace' !important;
+}*/
+
+.hljs-bullet,
+.hljs-selector-tag,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #d7ba7d !important;
+}
+
+.hljs-addition {
+  background-color: #144212 !important;
+  display: inline-block !important;
+  width: 100% !important;
+}
+
+.hljs-deletion {
+  background-color: #600 !important;
+  display: inline-block !important;
+  width: 100% !important;
+}

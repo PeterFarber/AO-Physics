@@ -1,0 +1,131 @@
+@media screen and (min-width: 1100px) {
+  /* .wy-nav-side,
+  .wy-grid-for-nav {
+      margin-left: calc(((100vw - 1100px) / 2));
+  }
+
+  .wy-body-for-nav {
+      background: rgba(0, 0, 0, 0.05);
+  } */
+  .wy-body-for-nav {
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+
+    background:#edf0f2;
+  }
+  .wy-body-for-nav::before {
+    content: "";
+    z-index: -1;
+  }
+  .wy-body-for-nav::after {
+    content: "";
+    z-index: -1;
+    flex: 0 1000 300px;
+  }
+  .wy-grid-for-nav {
+    position: relative !important;
+    width: unset !important;
+    height: 100% !important;
+    box-shadow: 1px 2px 5px 0px #777;
+
+  }
+  .wy-nav-shift {
+    position: relative !important;
+  }
+
+  .rst-versions{
+    display: none;
+  }
+
+  .wy-nav-side{
+    position: fixed !important;
+    padding-bottom: unset !important;
+    bottom: unset !important;
+    top: unset !important;
+    left: unset !important;
+  }
+  .wy-nav-content-wrap {
+    margin-left: 300px !important;
+  }
+  .wy-side-nav-search {
+    /* background-color: #2980b9; */
+  }
+  /* .wy-nav-content-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .wy-nav-content-wrap::before {
+    content: "";
+    z-index: -1;
+  }
+  .wy-nav-content-wrap::after {
+    content: "";
+    z-index: -1;
+    flex: 0 5 300px;
+  }
+*/
+  .wy-nav-content {
+    max-width: 1024px;
+
+  }
+}
+
+.docutils {
+  display: table !important;
+  /* border: 1px solid #343131 !important; */
+  border: 1px solid #e1e4e5 !important;
+}
+
+.docutils thead {
+  /* background: #343131  !important;
+  color: #e6e6e6 !important; */
+}
+
+.docutils thead tr th {
+  /* border-color: #343131 !important;
+  border-right-color: #807676 !important; */
+}
+
+.docutils thead tr th:last-child {
+  /* border-right-color: #343131 !important; */
+}
+
+/* h1 {
+  color: #111;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #333;
+} */
+
+td {
+  border: 0px solid transparent !important;
+}
+
+td.hljs-ln-numbers {
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+
+  text-align: center !important;
+  color: #ccc !important;
+  border-right: 1px solid #ccc !important;
+  vertical-align: top !important;
+  padding-right: 5px !important;
+}
+
+td.hljs-ln-code {
+  padding-left: 10px !important;
+}
+
+/* table.hljs-ln tbody > tr{
+  border: 2px solid transparent !important;
+} */
