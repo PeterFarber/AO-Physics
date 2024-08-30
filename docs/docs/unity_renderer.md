@@ -18,20 +18,20 @@ The `ParseWorldState` script is a Unity component designed to load and visualize
 ## **Installation**
 
 1. **Add Script to Unity Project**:
-   - Copy the `ParseWorldState` script into your Unity project's `Assets/Scripts` directory.
-   - Attach the `ParseWorldState` script to a GameObject in your Unity scene.
+    - Copy the `ParseWorldState` script into your Unity project's `Assets/Scripts` directory.
+    - Attach the `ParseWorldState` script to a GameObject in your Unity scene.
 2. **Prepare JSON File**
-   - Ensure that the JSON file describing the world states is accessible from your Unity environment.
-   - Update the file path in the script to point to your JSON file location.
+    - Ensure that the JSON file describing the world states is accessible from your Unity environment.
+    - Update the file path in the script to point to your JSON file location.
 3. **Configure Materials**:
-   - Set the `bodyMaterial` and `constraintMaterial` fields in the Unity Inspector to your desired URP materials.
-   - Optionally, assign textures to `normalMap` and `albedoMap` fields for enhanced visual effects.
+    - Set the `bodyMaterial` and `constraintMaterial` fields in the Unity Inspector to your desired URP materials.
+    - Optionally, assign textures to `normalMap` and `albedoMap` fields for enhanced visual effects.
 
 ??? abstract "Here are the normal map and albedo map that I used."
     ![Screenshot](img/prototype_512x512_normal.png){: style="height:150px;width:150px"}
     ![Screenshot](img/prototype_512x512_grey1.png){: style="height:150px;width:150px"}
 
-## Usage
+## **Usage**
 
 ### JSON File Structure
 
@@ -87,12 +87,11 @@ The JSON file must follow a specific structure to be parsed correctly by the scr
 ### Running the Simulation
 
 1. **Start the Simulation**:
-
-   - The simulation begins automatically when the scene is played.
-   - The script parses the JSON file, creating and positioning the GameObjects based on the data.
+    - The simulation begins automatically when the scene is played.
+    - The script parses the JSON file, creating and positioning the GameObjects based on the data.
 
 2. **Resetting the Simulation**:
-   - Press the `Space` key to clear the current simulation and reload it from the JSON file.
+    - Press the `Space` key to clear the current simulation and reload it from the JSON file.
 
 ### Customization
 
