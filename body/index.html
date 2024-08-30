@@ -1,232 +1,1048 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Body - AO Physics</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../assets/style.css" rel="stylesheet" />
-        <link href="../assets/vscode.css" rel="stylesheet" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Body";
-        var mkdocs_page_input_path = "body.md";
-        var mkdocs_page_url = null;
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://peterfarber.github.io/body/">
+      
+      
+        <link rel="prev" href="../world/">
+      
+      
+        <link rel="next" href="../constraint/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
     
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>Body - AO Physics</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="..">
-          <img src="../img/AOP.png" class="logo" alt="Logo"/>
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/style.css">
+    
+      <link rel="stylesheet" href="../assets/vscode.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../setup/">Setup</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Classes</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../world/">World</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Body</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#add">Add</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage">Example Usage</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#remove">Remove</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_1">Example Usage</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#setdata">SetData</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_2">Example Usage</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getdata">GetData</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_3">Example Usage</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#setlinearvelocity">SetLinearVelocity</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_4">Example Usage</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#setangularvelocity">SetAngularVelocity</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_1">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_5">Example Usage</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#addlinearvelocity">AddLinearVelocity</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_2">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_6">Example Usage</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#addangularvelocity">AddAngularVelocity</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_3">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_7">Example Usage</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#addforce">AddForce</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_4">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_8">Example Usage</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#addtorque">AddTorque</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_5">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_9">Example Usage</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#addimpulse">AddImpulse</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_6">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_10">Example Usage</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#castray">CastRay</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_7">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#returns">Returns</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-usage_11">Example Usage</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#code">Code</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../constraint/">Constraint</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../character/">Character</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Examples</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../examples/basic/">Basic Example</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Other</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../lua_module/">Lua Module</a>
-                  </li>
-              </ul>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#body" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AO Physics" class="md-header__button md-logo" aria-label="AO Physics" data-md-component="logo">
+      
+  <img src="../img/AOP.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AO Physics
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Body
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">AO Physics</a>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
         
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
       </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Classes</li>
-      <li class="breadcrumb-item active">Body</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PeterFarber/AO-Physics" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AO-Physics
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <h1 id="body">Body</h1>
-<p>The <code>Body</code> class represents a physical object within the simulation, allowing for various configurations and interactions.</p>
-<h2 id="table-of-contents"><strong>Table of Contents</strong></h2>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#settings">Settings</a></li>
-<li><a href="#functions">Functions</a><ul>
-<li><a href="#add"><code>Add</code></a> - Add's the <strong>Body</strong> to the <strong>World</strong> </li>
-<li><a href="#remove"><code>Remove</code></a> - Remove the <strong>Body</strong> from the <strong>World</strong></li>
-<li><a href="#setdata"><code>SetData</code></a> - Set custom <strong>Data</strong> on the <strong>Body</strong></li>
-<li><a href="#getdata"><code>GetData</code></a> - Get the custom set <strong>Data</strong> from the <strong>Body</strong></li>
-<li><a href="#setlinearvelocity"><code>SetLinearVelocity</code></a> - Sets the <strong>Linear Velocity</strong> of the <strong>Body</strong></li>
-<li><a href="#setangularvelocity"><code>SetAngularVelocity</code></a> - Sets the <strong>Angular Velocity</strong> of the <strong>Body</strong></li>
-<li><a href="#addlinearvelocity"><code>AddLinearVelocity</code></a> - Adds to the <strong>Linear Velocity</strong> of the <strong>Body</strong></li>
-<li><a href="#addangularvelocity"><code>AddAngularVelocity</code></a> - Adds to the <strong>Angular Velocity</strong> of the <strong>Body</strong></li>
-<li><a href="#addforce"><code>AddForce</code></a>  - Adds <strong>Force</strong> of the <strong>Body</strong></li>
-<li><a href="#addtorque"><code>AddTorque</code></a>  - Adds <strong>Torque</strong> of the <strong>Body</strong></li>
-<li><a href="#addimpulse"><code>AddImpulse</code></a> - Adds <strong>Impulse</strong> of the <strong>Body</strong></li>
-<li><a href="#castray"><code>CastRay</code></a> - Casts a ray from a starting point in a specified direction and returns information about any intersected objects.</li>
-</ul>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AO Physics" class="md-nav__button md-logo" aria-label="AO Physics" data-md-component="logo">
+      
+  <img src="../img/AOP.png" alt="logo">
+
+    </a>
+    AO Physics
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PeterFarber/AO-Physics" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AO-Physics
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Classes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Classes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../world/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    World
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Body
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Body
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
 </li>
-<li><a href="#example">Example: Creating and Configuring a Sphere Body</a></li>
-</ul>
-<h2 id="settings"><strong>Settings</strong></h2>
-<p>The following properties define the state and behavior of a body object in the simulation.</p>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetData
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetData
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setlinearvelocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetLinearVelocity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setangularvelocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetAngularVelocity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addlinearvelocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddLinearVelocity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addangularvelocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddAngularVelocity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addforce" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddForce
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addtorque" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddTorque
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addimpulse" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddImpulse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#castray" class="md-nav__link">
+    <span class="md-ellipsis">
+      CastRay
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constraint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constraint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../character/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Character
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Example
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Other
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Other
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lua_module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lua Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unity_renderer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unity Renderer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetData
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetData
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setlinearvelocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetLinearVelocity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setangularvelocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetAngularVelocity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addlinearvelocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddLinearVelocity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addangularvelocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddAngularVelocity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addforce" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddForce
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addtorque" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddTorque
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addimpulse" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddImpulse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#castray" class="md-nav__link">
+    <span class="md-ellipsis">
+      CastRay
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="body"><strong>Body</strong></h1>
+<p>The <code>Body</code> class represents a physical object within the simulation, allowing for various configurations and interactions.</p>
+<h2 id="properties"><strong>Properties</strong></h2>
 <table>
 <thead>
 <tr>
@@ -372,152 +1188,281 @@
 </tbody>
 </table>
 <h2 id="functions"><strong>Functions</strong></h2>
-<hr />
 <h3 id="add">Add</h3>
-<p>Adds the body to the physics simulation and assigns it a unique <code>id</code>.</p>
-<h4 id="example-usage">Example Usage</h4>
-<pre><code class="language-lua">body:Add()
-</code></pre>
+<div class="admonition abstract">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Details</label><label for="__tabbed_1_2">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Adds the body to the physics simulation and assigns it a unique <code>id</code>. <br></p>
+<blockquote>
 <p>This function serializes the body's properties and adds it to the simulation, generating and assigning a unique identifier (id) for the body. This id is used in subsequent operations to reference this specific body within the physics system.</p>
-<hr />
+</blockquote>
+</div>
+<div class="tabbed-block">
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">body</span><span class="p">:</span><span class="n">Add</span><span class="p">()</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <h3 id="remove">Remove</h3>
-<p>Removes the body from the physics simulation using its unique <code>id</code>.</p>
-<h4 id="example-usage_1">Example Usage</h4>
-<pre><code class="language-lua">body:Remove()
-</code></pre>
+<div class="admonition abstract">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Details</label><label for="__tabbed_2_2">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Removes the body from the physics simulation using its unique <code>id</code>. <br></p>
+<blockquote>
 <p>This function removes the body associated with the given <code>id</code> from the simulation. Once removed, the body's id will no longer be valid for operations within the physics system.</p>
-<hr />
+</blockquote>
+</div>
+<div class="tabbed-block">
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">body</span><span class="p">:</span><span class="n">Remove</span><span class="p">()</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <h3 id="setdata">SetData</h3>
-<p>Allows setting custom JSON data to be associated with a body within the physics simulation without affecting its actual properties.</p>
-<h4 id="example-usage_2">Example Usage</h4>
-<pre><code class="language-lua">body:SetData({&quot;customKey&quot;: &quot;customValue&quot;})
-</code></pre>
+<div class="admonition abstract">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Details</label><label for="__tabbed_3_2">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Allows setting custom JSON data to be associated with a body within the physics simulation without affecting its actual properties. <br></p>
+<blockquote>
 <p>This function stores the provided JSON data with the body in the physics simulation but does not modify the body's physical properties or behavior. It can be used to attach metadata or other non-physical information to the body for tracking or reference purposes.</p>
-<hr />
+</blockquote>
+</div>
+<div class="tabbed-block">
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">body</span><span class="p">:</span><span class="n">SetData</span><span class="p">({</span><span class="s2">&quot;customKey&quot;</span><span class="p">:</span> <span class="s2">&quot;customValue&quot;</span><span class="p">})</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <h3 id="getdata">GetData</h3>
-<p>Retrieves the custom JSON data associated with a body within the physics simulation.</p>
-<h4 id="example-usage_3">Example Usage</h4>
-<pre><code class="language-lua">local data = body:GetData()
-</code></pre>
+<div class="admonition abstract">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Details</label><label for="__tabbed_4_2">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Retrieves the custom JSON data associated with a body within the physics simulation. <br></p>
+<blockquote>
 <p>This function returns the JSON data that was previously set using <code>SetData</code>. The retrieved data does not affect the body's physical properties or behavior and is typically used for accessing metadata or other non-physical information associated with the body.</p>
-<hr />
+</blockquote>
+</div>
+<div class="tabbed-block">
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="n">body</span><span class="p">:</span><span class="n">GetData</span><span class="p">()</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <h3 id="setlinearvelocity">SetLinearVelocity</h3>
-<p>Sets the linear velocity of the body.</p>
-<h4 id="parameters">Parameters</h4>
+<div class="admonition abstract">
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Details</label><label for="__tabbed_5_2">Parameters</label><label for="__tabbed_5_3">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Sets the linear velocity of the body. <br></p>
+<blockquote>
+<p>This function sets the body's linear velocity to the specified vector components, directly altering its motion in the simulation.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
 <ul>
 <li><code>velocity</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the linear velocity.</li>
 </ul>
-<h4 id="example-usage_4">Example Usage</h4>
-<pre><code class="language-lua">local velocity = {1.0, 2.0, 0.0}
-body:SetLinearVelocity(velocity)
-</code></pre>
-<p>This function sets the body's linear velocity to the specified vector components, directly altering its motion in the simulation.</p>
-<hr />
+</div>
+<div class="tabbed-block">
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">local</span> <span class="n">velocity</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">}</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">body</span><span class="p">:</span><span class="n">SetLinearVelocity</span><span class="p">(</span><span class="n">velocity</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <h3 id="setangularvelocity">SetAngularVelocity</h3>
-<p>Sets the angular velocity of the body.</p>
-<h4 id="parameters_1">Parameters</h4>
+<div class="admonition abstract">
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Details</label><label for="__tabbed_6_2">Parameters</label><label for="__tabbed_6_3">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Sets the angular velocity of the body. <br></p>
+<blockquote>
+<p>This function sets the body's angular velocity to the specified vector components, directly affecting its rotational motion in the simulation.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
 <ul>
 <li><code>velocity</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the angular velocity.</li>
 </ul>
-<h4 id="example-usage_5">Example Usage</h4>
-<pre><code class="language-lua">local angularVelocity = {0.1, 0.2, 0.3}
-body:SetAngularVelocity(angularVelocity)
-</code></pre>
-<p>This function sets the body's angular velocity to the specified vector components, directly affecting its rotational motion in the simulation.</p>
-<hr />
+</div>
+<div class="tabbed-block">
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">local</span> <span class="n">angularVelocity</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">}</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">body</span><span class="p">:</span><span class="n">SetAngularVelocity</span><span class="p">(</span><span class="n">angularVelocity</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <h3 id="addlinearvelocity">AddLinearVelocity</h3>
-<p>Adds to the current linear velocity of the body.</p>
-<h4 id="parameters_2">Parameters</h4>
-<ul>
-<li><code>velocity</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the velocity to add. </li>
-</ul>
-<h4 id="example-usage_6">Example Usage</h4>
-<pre><code class="language-lua">local velocity = {1.0, 0.5, 0.0}
-body:AddLinearVelocity(velocity)
-</code></pre>
+<div class="admonition abstract">
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Details</label><label for="__tabbed_7_2">Parameters</label><label for="__tabbed_7_3">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Adds to the current linear velocity of the body. <br></p>
+<blockquote>
 <p>This function modifies the body's current linear velocity by adding the specified velocity vector components to it.</p>
-<hr />
+</blockquote>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>velocity</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the velocity to add.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">local</span> <span class="n">velocity</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">}</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">body</span><span class="p">:</span><span class="n">AddLinearVelocity</span><span class="p">(</span><span class="n">velocity</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <h3 id="addangularvelocity">AddAngularVelocity</h3>
-<p>Adds to the current angular velocity of the body.</p>
-<h4 id="parameters_3">Parameters</h4>
+<div class="admonition abstract">
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Details</label><label for="__tabbed_8_2">Parameters</label><label for="__tabbed_8_3">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Adds to the current angular velocity of the body. <br></p>
+<blockquote>
+<p>This function adjusts the body's current angular velocity by adding the specified velocity vector components to it, effectively changing the body's rotational motion.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
 <ul>
 <li><code>velocity</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the angular velocity to add.</li>
 </ul>
-<h4 id="example-usage_7">Example Usage</h4>
-<pre><code class="language-lua">local angularVelocity = {0.1, 0.2, 0.3}
-body:AddAngularVelocity(angularVelocity)
-</code></pre>
-<p>This function adjusts the body's current angular velocity by adding the specified velocity vector components to it, effectively changing the body's rotational motion.</p>
-<hr />
+</div>
+<div class="tabbed-block">
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">local</span> <span class="n">angularVelocity</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">}</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">body</span><span class="p">:</span><span class="n">AddAngularVelocity</span><span class="p">(</span><span class="n">angularVelocity</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <h3 id="addforce">AddForce</h3>
-<p>Applies a force to the body.</p>
-<h4 id="parameters_4">Parameters</h4>
+<div class="admonition abstract">
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Details</label><label for="__tabbed_9_2">Parameters</label><label for="__tabbed_9_3">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Applies a force to the body. <br></p>
+<blockquote>
+<p>This function applies a force to the body, influencing its movement and interaction with other bodies.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
 <ul>
 <li><code>force</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the force to apply.</li>
 </ul>
-<h4 id="example-usage_8">Example Usage</h4>
-<pre><code class="language-lua">local force = {10.0, 0.0, 0.0}
-body:AddForce(force)
-</code></pre>
-<p>This function applies a force to the body, influencing its movement and interaction with other bodies.</p>
-<hr />
+</div>
+<div class="tabbed-block">
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">local</span> <span class="n">force</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">}</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">body</span><span class="p">:</span><span class="n">AddForce</span><span class="p">(</span><span class="n">force</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <h3 id="addtorque">AddTorque</h3>
-<p>Applies a torque to the body.</p>
-<h4 id="parameters_5">Parameters</h4>
+<div class="admonition abstract">
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Details</label><label for="__tabbed_10_2">Parameters</label><label for="__tabbed_10_3">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Applies a torque to the body. <br></p>
+<blockquote>
+<p>This function applies a torque to the body, affecting its rotational motion.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
 <ul>
 <li><code>torque</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the torque to apply.</li>
 </ul>
-<h4 id="example-usage_9">Example Usage</h4>
-<pre><code class="language-lua">local torque = {0.0, 5.0, 0.0}
-body:AddTorque(torque)
-</code></pre>
-<p>This function applies a torque to the body, affecting its rotational motion.</p>
-<hr />
+</div>
+<div class="tabbed-block">
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">local</span> <span class="n">torque</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">}</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">body</span><span class="p">:</span><span class="n">AddTorque</span><span class="p">(</span><span class="n">torque</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <h3 id="addimpulse">AddImpulse</h3>
-<p>Applies an impulse to the body.</p>
-<h4 id="parameters_6">Parameters</h4>
+<div class="admonition abstract">
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Details</label><label for="__tabbed_11_2">Parameters</label><label for="__tabbed_11_3">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Applies an impulse to the body. <br></p>
+<blockquote>
+<p>This function applies an impulse to the body, resulting in a sudden change in its velocity.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
 <ul>
 <li><code>impulse</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the impulse to apply.</li>
 </ul>
-<h4 id="example-usage_10">Example Usage</h4>
-<pre><code class="language-lua">local impulse = {0.0, 10.0, 0.0}
-body:AddImpulse(impulse)
-</code></pre>
-<p>This function applies an impulse to the body, resulting in a sudden change in its velocity.</p>
-<hr />
+</div>
+<div class="tabbed-block">
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">local</span> <span class="n">impulse</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">}</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">body</span><span class="p">:</span><span class="n">AddImpulse</span><span class="p">(</span><span class="n">impulse</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <h3 id="castray">CastRay</h3>
-<p>Casts a ray from the body's current position in a specified direction to detect collisions.</p>
-<h4 id="parameters_7">Parameters</h4>
+<div class="admonition abstract">
+<div class="tabbed-set tabbed-alternate" data-tabs="12:4"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><input id="__tabbed_12_4" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Details</label><label for="__tabbed_12_2">Parameters</label><label for="__tabbed_12_3">Returns</label><label for="__tabbed_12_4">Example</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Casts a ray from the body's current position in a specified direction to detect collisions. <br></p>
+<blockquote>
+<p>This function casts a ray from the body's current position in the specified direction and returns information about any collisions detected.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
 <ul>
 <li><code>direction</code> (<code>table {number, number, number}</code>): A table representing the x, y, and z components of the direction vector for the ray.</li>
 </ul>
-<h4 id="returns">Returns</h4>
+</div>
+<div class="tabbed-block">
 <ul>
 <li><code>result</code> (<code>table</code>): A table containing the result of the ray cast, including:</li>
 <li><code>hit</code> (<code>boolean</code>): Whether the ray hit something.</li>
 <li><code>hitPoint</code> (<code>table {number, number, number}</code>): The point of collision.</li>
 <li><code>hitBodyID</code> (<code>number</code>): The ID of the body that was hit.</li>
 </ul>
-<h4 id="example-usage_11">Example Usage</h4>
-<pre><code class="language-lua">local direction = {0.0, 0.0, -1.0}
-local result = body:CastRay(direction)
-if result.hit then
-    print(&quot;Hit at:&quot;, result.hitPoint[1], result.hitPoint[2], result.hitPoint[3])
-end
-</code></pre>
-<p>This function casts a ray from the body's current position in the specified direction and returns information about any collisions detected.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">local</span> <span class="n">direction</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">}</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">local</span> <span class="n">result</span> <span class="o">=</span> <span class="n">body</span><span class="p">:</span><span class="n">CastRay</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kr">if</span> <span class="n">result</span><span class="p">.</span><span class="n">hit</span> <span class="kr">then</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hit at:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">hitPoint</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">result</span><span class="p">.</span><span class="n">hitPoint</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">result</span><span class="p">.</span><span class="n">hitPoint</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kr">end</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <h2 id="example"><strong>Example</strong></h2>
 <p>This example demonstrates how to create a sphere body, configure its properties, and set its linear velocity.</p>
 <h3 id="code">Code</h3>
-<pre><code class="language-lua">local sphere = AOP:Body()               -- Create a new body instance.
-sphere.shape = &quot;Sphere&quot;                -- Set the shape of the body to &quot;Sphere&quot;.
-sphere.radius = 0.5                    -- Set the radius of the sphere to 0.5 units.
-sphere.position = { -3.0, 1, 0.0 }    -- Position the sphere at coordinates (-3.0, 1, 0.0).
-sphere.layer = &quot;MOVING&quot;                -- Assign the body to the &quot;MOVING&quot; layer.
-sphere.activate = true                 -- Activate the body in the simulation.
-sphere:Add()                           -- Add the body to the physics simulation.
-sphere:SetLinearVelocity({ 0.0, 0.0, 5.0 })  -- Set the linear velocity of the body to (0.0, 0.0, 5.0).
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">local</span> <span class="n">sphere</span> <span class="o">=</span> <span class="n">AOP</span><span class="p">:</span><span class="n">Body</span><span class="p">()</span>               <span class="c1">-- Create a new body instance.</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">sphere</span><span class="p">.</span><span class="n">shape</span> <span class="o">=</span> <span class="s2">&quot;Sphere&quot;</span>                <span class="c1">-- Set the shape of the body to &quot;Sphere&quot;.</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">sphere</span><span class="p">.</span><span class="n">radius</span> <span class="o">=</span> <span class="mf">0.5</span>                    <span class="c1">-- Set the radius of the sphere to 0.5 units.</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">sphere</span><span class="p">.</span><span class="n">position</span> <span class="o">=</span> <span class="p">{</span> <span class="o">-</span><span class="mf">3.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">}</span>    <span class="c1">-- Position the sphere at coordinates (-3.0, 1, 0.0).</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">sphere</span><span class="p">.</span><span class="n">layer</span> <span class="o">=</span> <span class="s2">&quot;MOVING&quot;</span>                <span class="c1">-- Assign the body to the &quot;MOVING&quot; layer.</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">sphere</span><span class="p">.</span><span class="n">activate</span> <span class="o">=</span> <span class="kc">true</span>                 <span class="c1">-- Activate the body in the simulation.</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">sphere</span><span class="p">:</span><span class="n">Add</span><span class="p">()</span>                           <span class="c1">-- Add the body to the physics simulation.</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="n">sphere</span><span class="p">:</span><span class="n">SetLinearVelocity</span><span class="p">({</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span> <span class="p">})</span>  <span class="c1">-- Set the linear velocity of the body to (0.0, 0.0, 5.0).</span>
+</span></code></pre></div>
 <h3 id="description">Description</h3>
 <ul>
 <li><strong>Create a Body Instance:</strong> <code>AOP:Body()</code> creates a new body instance.</li>
@@ -529,52 +1474,117 @@ sphere:SetLinearVelocity({ 0.0, 0.0, 5.0 })  -- Set the linear velocity of the b
 <li><strong>Add to Simulation:</strong> The <code>Add</code> method is called to add the body to the physics simulation.</li>
 <li><strong>Set Linear Velocity:</strong> The <code>SetLinearVelocity</code> method is used to set the body's linear velocity to <code>(0.0, 0.0, 5.0)</code>, influencing its movement in the simulation.</li>
 </ul>
-              
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../world/" class="btn btn-neutral float-left" title="World"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../constraint/" class="btn btn-neutral float-right" title="Constraint">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
           
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
     
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../world/" class="md-footer__link md-footer__link--prev" aria-label="Previous: World">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                World
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../constraint/" class="md-footer__link md-footer__link--next" aria-label="Next: Constraint">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Constraint
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
-      <span><a href="../world/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../constraint/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../assets/linenumbers.js"></script>
-      <script src="../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
-</body>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/PeterFarber/AO-Physics" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.sections", "navigation.path", "navigation.top", "toc.follow", "content.tooltips", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.footer"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.af256bd8.min.js"></script>
+      
+    
+  </body>
 </html>
