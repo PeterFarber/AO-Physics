@@ -2,7 +2,7 @@
 
 import { test } from 'node:test'
 import * as assert from 'node:assert'
-import AoLoader from '/home/peterfarber/Workspace/ao_32/loader/dist/index.cjs'
+import AoLoader from './loader/index.cjs'
 import fs from 'fs'
 
 let simulation = fs.readFileSync("./simulation.lua", "utf8");
