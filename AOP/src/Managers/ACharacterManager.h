@@ -22,6 +22,9 @@ namespace AOP
 
         void PostSimulation(float deltaTime);
 
+        std::map<uint32, ACharacter *> GetCharacters() { return mCharacters; }
+        ACharacter *GetCharacter(uint32 id) { return mCharacters[id]; }
+
     public:
         
     };

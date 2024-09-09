@@ -8,7 +8,7 @@ BUILD_DIR="${SCRIPT_DIR}/build"
 LIBS_DIR="${BUILD_DIR}/libs"
 PROCESS_LIBS_DIR="${PROCESS_DIR}/libs"
 
-AO_IMAGE="aomerge:latest"
+AO_IMAGE="ao32:latest"
 
 # EMXX_CFLAGS=" -s EXPORT_ALL=1 -s EXPORT_ES6=1 -Wno-unused-command-line-argument -Wno-experimental /lua-5.3.4/src/liblua.a -I/lua-5.3.4/src"
 EMXX_CFLAGS="/lua-5.3.4/src/liblua.a -I/lua-5.3.4/src -I/jolt/ -I/jolt/Jolt -s SUPPORT_LONGJMP=1"
@@ -66,6 +66,7 @@ cp -r ${LIBS_DIR} ${PROCESS_DIR}
 
 # Copy config.yml to the process directory
 cp ${SCRIPT_DIR}/config.yml ${PROCESS_DIR}/config.yml
+cp -r ${AOP_DIR}/Lua/. ${PROCESS_DIR}/
 
 # Build the process module
 cd ${PROCESS_DIR} 
@@ -73,6 +74,7 @@ docker run -e DEBUG=1 --platform linux/amd64 -v ./:/src ${AO_IMAGE} ao-build-mod
 
 # # Copy the process module to the tests directory
 cp ${PROCESS_DIR}/process.wasm ${SCRIPT_DIR}/tests/process.wasm
+cp ${PROCESS_DIR}/process.wasm ${SCRIPT_DIR}/tests-loader/process.wasm
 cp ${PROCESS_DIR}/process.js ${SCRIPT_DIR}/tests/process.js
 
 # rm -rf ${SCRIPT_DIR}/tests/Lua

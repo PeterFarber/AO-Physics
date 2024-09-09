@@ -6,6 +6,7 @@
 #include "Jolt/Physics/Collision/Shape/CapsuleShape.h"
 #include "Jolt/Physics/Collision/Shape/CylinderShape.h"
 #include "Jolt/Physics/Collision/Shape/DecoratedShape.h"
+#include "Jolt/Physics/Collision/Shape/RotatedTranslatedShape.h"
 #include "Jolt/Physics/Collision/RayCast.h"
 #include "Jolt/Physics/Collision/CastResult.h"
 #include "Jolt/Physics/Collision/ShapeCast.h"
@@ -30,6 +31,10 @@ namespace AOP
 
         if (j.contains("position"))
             mPosition = Vec3(j.at("position").at(0).get<double>(), j.at("position").at(1).get<double>(), j.at("position").at(2).get<double>());
+
+        if (j.contains("center"))
+            mCenter = Vec3(j.at("center").at(0).get<double>(), j.at("center").at(1).get<double>(), j.at("center").at(2).get<double>());
+        
         if (j.contains("rotation"))
             mRotation = Quat(j.at("rotation").at(0).get<double>(), j.at("rotation").at(1).get<double>(), j.at("rotation").at(2).get<double>(), j.at("rotation").at(3).get<double>());
         if (j.contains("linearVelocity"))
@@ -85,20 +90,26 @@ namespace AOP
         switch (mShape)
         {
         case EShapeSubType::Sphere:
-            body_settings = BodyCreationSettings(new SphereShape(mRadius), mPosition, mRotation, mMotionType, mLayer);
+            // Use RotatedTranslatedShape to set the position of the sphere
+            body_settings = BodyCreationSettings(new RotatedTranslatedShapeSettings(mCenter, Quat::sIdentity(), new SphereShape(mRadius)), mPosition, mRotation, mMotionType, mLayer);
+            // body_settings = BodyCreationSettings(new SphereShape(mRadius), mPosition, mRotation, mMotionType, mLayer);
             break;
         case EShapeSubType::Box:
             size = mSize * 0.5f;
-            body_settings = BodyCreationSettings(new BoxShape(size), mPosition, mRotation, mMotionType, mLayer);
+            body_settings = BodyCreationSettings(new RotatedTranslatedShapeSettings(mCenter, Quat::sIdentity(), new BoxShape(size)), mPosition, mRotation, mMotionType, mLayer);
+            // body_settings = BodyCreationSettings(new BoxShape(size), mPosition, mRotation, mMotionType, mLayer);
             break;
         case EShapeSubType::Capsule:
-            body_settings = BodyCreationSettings(new CapsuleShape((mHeight * 0.5f), mRadius), mPosition, mRotation, mMotionType, mLayer);
+            body_settings = BodyCreationSettings(new RotatedTranslatedShapeSettings(mCenter, Quat::sIdentity(), new CapsuleShape((mHeight * 0.5f), mRadius)), mPosition, mRotation, mMotionType, mLayer);
+            // body_settings = BodyCreationSettings(new CapsuleShape((mHeight * 0.5f), mRadius), mPosition, mRotation, mMotionType, mLayer);
             break;
         case EShapeSubType::Cylinder:
-            body_settings = BodyCreationSettings(new CylinderShape(0.5f * mHeight + mRadius, mRadius), mPosition, mRotation, mMotionType, mLayer);
+            body_settings = BodyCreationSettings(new RotatedTranslatedShapeSettings(mCenter, Quat::sIdentity(), new CylinderShape(0.5f * mHeight + mRadius, mRadius)), mPosition, mRotation, mMotionType, mLayer);
+            // body_settings = BodyCreationSettings(new CylinderShape(0.5f * mHeight + mRadius, mRadius), mPosition, mRotation, mMotionType, mLayer);
             break;
         default:
-            body_settings = BodyCreationSettings(new SphereShape(mRadius), mPosition, mRotation, mMotionType, mLayer);
+            body_settings = BodyCreationSettings(new RotatedTranslatedShapeSettings(mCenter, Quat::sIdentity(), new SphereShape(mRadius)), mPosition, mRotation, mMotionType, mLayer);
+            // body_settings = BodyCreationSettings(new SphereShape(mRadius), mPosition, mRotation, mMotionType, mLayer);
             break;
         }
         body_settings.mEnhancedInternalEdgeRemoval = mEnhancedInternalEdgeRemoval;
@@ -111,8 +122,12 @@ namespace AOP
         body_settings.mMaxAngularVelocity = mMaxAngularVelocity;
         body_settings.mGravityFactor = mGravityFactor;
         body_settings.mMotionQuality = mMotionQuality;
+        body_settings.mLinearVelocity = mLinearVelocity;
+        body_settings.mAngularVelocity = mAngularVelocity;
 
-        mID = AWorld::GetInstance()->mBodyInterface->CreateAndAddBody(body_settings, mActivation).GetIndexAndSequenceNumber();
+        BodyID bodyID = AWorld::GetInstance()->mBodyInterface->CreateAndAddBody(body_settings, mActivation);
+        mBody = Helpers::GetBody(AWorld::GetInstance()->mPhysicsSystem, bodyID); 
+        mID = bodyID.GetIndexAndSequenceNumber();
     }
 
     void ABody::SetLinearVelocity(Vec3 velocity)
@@ -192,6 +207,13 @@ namespace AOP
     json ABody::GetData()
     {
         return mData;
+    }
+
+    json ABody::GetBodyData()
+    {
+        json j = Helpers::GetBodyData(AWorld::GetInstance()->mPhysicsSystem, BodyID(mID));
+        j["data"] = mData.dump().c_str(); 
+        return j;
     }
 
     ABody::~ABody()

@@ -5,6 +5,7 @@
 #include "Core/Layers.h"
 
 #include "Jolt/Physics/Collision/Shape/Shape.h"
+#include "Jolt/Physics/Collision/Shape/DecoratedShape.h"
 #include "Jolt/Physics/PhysicsSystem.h"
 #include "Jolt/Physics/Body/BodyCreationSettings.h"
 #include "Jolt/Physics/Constraints/MotorSettings.h"
@@ -108,6 +109,38 @@ namespace Helpers
             body_lock.ReleaseLock();
         }
         return body;
+    }
+    
+    static json GetBodyData(PhysicsSystem *physicsSystem, BodyID body_id)
+    {
+        Body *body = GetBody(physicsSystem, body_id);
+        if (body == nullptr)
+        {
+            return json();
+        }
+
+        EShapeSubType sub_shape_type = static_cast<const DecoratedShape *>(body->GetShape())->GetInnerShape()->GetSubType();
+        RVec3 position = body->GetCenterOfMassPosition();
+        Vec3 size = body->GetShape()->GetLocalBounds().GetSize();
+        Quat rotation = body->GetRotation();
+        double radius = body->GetShape()->GetInnerRadius();
+        double height = size.GetY();
+
+        const char *shape_type = GetShapeType(sub_shape_type);
+        const char *motion_type = GetMotionType(body->GetMotionType());
+
+        json body_data = {
+            {"id", body_id.GetIndexAndSequenceNumber()},
+            {"position", {position.GetX(), position.GetY(), position.GetZ()}},
+            {"rotation", {rotation.GetX(), rotation.GetY(), rotation.GetZ(), rotation.GetW()}},
+            {"size", {size.GetX(), size.GetY(), size.GetZ()}},
+            {"radius", radius},
+            {"height", height},
+            {"motion_type", motion_type},
+            {"shape", shape_type}
+            };
+
+        return body_data;
     }
 
     static EConstraintSubType GetConstraintSubType(std::string type)

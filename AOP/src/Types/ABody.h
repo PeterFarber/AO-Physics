@@ -11,13 +11,14 @@ namespace AOP
     {
     public:
         uint32 mID;
-        Body *body = nullptr;
+        Body *mBody = nullptr;
 
         json mData;
 
         EShapeSubType mShape = EShapeSubType::Box;
 
         Vec3 mPosition = Vec3::sZero();
+        Vec3 mCenter = Vec3::sZero();
         Quat mRotation = Quat::sIdentity();
         Vec3 mLinearVelocity = Vec3::sZero();
         Vec3 mAngularVelocity = Vec3::sZero();
@@ -60,6 +61,7 @@ namespace AOP
         void SetData(const char *params);
         json GetData();
 
+        json GetBodyData();
 
         virtual ~ABody();
     };

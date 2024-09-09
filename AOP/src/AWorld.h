@@ -81,6 +81,7 @@ namespace AOP
     public:
         void ParseParams(const char *params);
         void Create(const char * params);
+        void LoadWorldState(const char *params);
         void Update();
         json GetWorldState();
         void Destroy();

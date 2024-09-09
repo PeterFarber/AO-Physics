@@ -128,6 +128,36 @@ namespace AOP
         this->is_initialized = true;
     }
 
+    void AWorld::LoadWorldState(const char *params)
+    {
+        json j = json::parse(params);
+
+        // Load Bodies
+        if (j.contains("bodies"))
+        {
+
+            for(json::iterator it = j["bodies"].begin(); it != j["bodies"].end(); ++it) {
+                json body = *it;
+                if(body.contains("data")){
+                    // convert data to a string
+                    std::string data = body.at("data").dump();
+                    body["data"] = data;
+                }
+                mBodyManager->AddBody(body.dump().c_str());
+            }
+        }
+
+        // Load Constraints
+        if (j.contains("constraints"))
+        {
+            for (json::iterator it = j["constraints"].begin(); it != j["constraints"].end(); ++it)
+            {
+                json constraint = *it;
+                mConstraintManager->AddConstraint(constraint.dump().c_str());
+            }
+        }
+    }
+
     void AWorld::Update()
     {
         float delta_time = 1.0f / mUpdateFrequency;
@@ -151,51 +181,66 @@ namespace AOP
     {
         json world_state_json;
         world_state_json["bodies"] = json::array();
-        BodyIDVector bodies;
-        mPhysicsSystem->GetBodies(bodies);
-        for (BodyID body_id : bodies)
+
+        std::map<uint, AOP::ABody *> bodies = mBodyManager->GetBodies();
+        for (auto const &body : bodies)
         {
-            Body *body = Helpers::GetBody(mPhysicsSystem, body_id);
-            EShapeSubType sub_shape_type = body->GetShape()->GetSubType();
-
-            RVec3 position = body->GetCenterOfMassPosition();
-            Vec3 size = body->GetShape()->GetLocalBounds().GetSize();
-            Quat rotation = body->GetRotation();
-            double radius = body->GetShape()->GetInnerRadius();
-            double height = size.GetY();
-
-            if (sub_shape_type == EShapeSubType::RotatedTranslated)
-            {
-                const DecoratedShape * decoratedShape = static_cast<const DecoratedShape *>(body->GetShape());
-
-                sub_shape_type = decoratedShape->GetInnerShape()->GetSubType();
-                // height = decoratedShape->GetLocalBounds().GetSize().GetY();
-                // radius = decoratedShape->GetInnerRadius();
-                // if(character->mCrouching){
-                //     height = character->mHeightCrouching;
-                //     radius = character->mRadiusCrouching;
-                // }else{
-                //     height = character->mHeightStanding;
-                //     radius = character->mRadiusStanding;
-                // }
-            }
-
-            const char *shape_type = Helpers::GetShapeType(sub_shape_type);
-            const char *motion_type = Helpers::GetMotionType(body->GetMotionType());
-
-
-            json body_data = AWorld::GetInstance()->mBodyManager->GetData(body_id.GetIndexAndSequenceNumber());
-            world_state_json["bodies"].push_back({{"id", body_id.GetIndexAndSequenceNumber()},
-                                                  {"position", {position.GetX(), position.GetY(), position.GetZ()}},
-                                                  {"rotation", {rotation.GetX(), rotation.GetY(), rotation.GetZ(), rotation.GetW()}},
-                                                  {"size", {size.GetX(), size.GetY(), size.GetZ()}},
-                                                  {"radius", radius},
-                                                  {"height", height},
-                                                  {"motion_type", motion_type},
-                                                  {"shape", shape_type},
-                                                  {"data", body_data.dump().c_str()}
-                                                  });
+            json body_data = body.second->GetBodyData();
+            world_state_json["bodies"].push_back(body_data);
         }
+
+        std::map<uint, AOP::ACharacter *> characters = mCharacterManager->GetCharacters();
+        for (auto const &character : characters)
+        {
+            json character_data = character.second->GetCharacterData();
+            world_state_json["characters"].push_back(character_data);
+        }
+
+        // BodyIDVector bodies;
+        // mPhysicsSystem->GetBodies(bodies);
+        // for (BodyID body_id : bodies)
+        // {
+        //     Body *body = Helpers::GetBody(mPhysicsSystem, body_id);
+        //     EShapeSubType sub_shape_type = body->GetShape()->GetSubType();
+
+        //     RVec3 position = body->GetCenterOfMassPosition();
+        //     Vec3 size = body->GetShape()->GetLocalBounds().GetSize();
+        //     Quat rotation = body->GetRotation();
+        //     double radius = body->GetShape()->GetInnerRadius();
+        //     double height = size.GetY();
+
+        //     if (sub_shape_type == EShapeSubType::RotatedTranslated)
+        //     {
+        //         const DecoratedShape * decoratedShape = static_cast<const DecoratedShape *>(body->GetShape());
+
+        //         sub_shape_type = decoratedShape->GetInnerShape()->GetSubType();
+        //         // height = decoratedShape->GetLocalBounds().GetSize().GetY();
+        //         // radius = decoratedShape->GetInnerRadius();
+        //         // if(character->mCrouching){
+        //         //     height = character->mHeightCrouching;
+        //         //     radius = character->mRadiusCrouching;
+        //         // }else{
+        //         //     height = character->mHeightStanding;
+        //         //     radius = character->mRadiusStanding;
+        //         // }
+        //     }
+
+        //     const char *shape_type = Helpers::GetShapeType(sub_shape_type);
+        //     const char *motion_type = Helpers::GetMotionType(body->GetMotionType());
+
+
+        //     json body_data = AWorld::GetInstance()->mBodyManager->GetData(body_id.GetIndexAndSequenceNumber());
+        //     world_state_json["bodies"].push_back({{"id", body_id.GetIndexAndSequenceNumber()},
+        //                                           {"position", {position.GetX(), position.GetY(), position.GetZ()}},
+        //                                           {"rotation", {rotation.GetX(), rotation.GetY(), rotation.GetZ(), rotation.GetW()}},
+        //                                           {"size", {size.GetX(), size.GetY(), size.GetZ()}},
+        //                                           {"radius", radius},
+        //                                           {"height", height},
+        //                                           {"motion_type", motion_type},
+        //                                           {"shape", shape_type},
+        //                                           {"data", body_data.dump().c_str()}
+        //                                           });
+        // }
 
         // Get all contraints
         world_state_json["constraints"] = json::array();

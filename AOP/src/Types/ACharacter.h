@@ -33,6 +33,8 @@ namespace AOP
         uint32 mID;
         Character *mCharacter = nullptr;
 
+        json mData;
+        
         // Shapes
         RefConst<Shape> mStandingShape;
         RefConst<Shape> mCrouchingShape;
@@ -70,6 +72,7 @@ namespace AOP
         ObjectLayer mLayer = Layers::MOVING;
         EActivation mActivation = EActivation::Activate;
 
+
     public:
         ACharacter(const char *params);
 
@@ -77,6 +80,11 @@ namespace AOP
         void PreSimulation(float inDeltaTime);
         void HandleInput(InputParams params);
         void PostSimulation(float inDeltaTime);
+
+        void SetData(const char *params);
+        json GetData();
+
+        json GetCharacterData();
     };
 }
 #endif

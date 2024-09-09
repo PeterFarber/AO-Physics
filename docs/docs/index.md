@@ -1,5 +1,6 @@
 # **Overview**
-This documentation provides an overview of the core components of the physics simulation system: `World`, `Body`, and various `Constraints`. Each component plays a crucial role in defining the behavior and interactions of objects within the simulation.
+This documentation provides an overview of the core components of the physics simulation system: `World`, `Body`, `Constraints`, and `Character`. Each component plays a crucial role in defining the behavior and interactions of objects within the simulation.
+
 !!! danger "" 
     AO Physics is still in its early stage of development...
 
@@ -21,6 +22,12 @@ Constraints define relationships and restrictions between bodies, simulating var
 
 For detailed information on the different types of constraints and their configurations, refer to the [Constraints documentation](constraint.md){ data-preview }.
 
+## **Character**
+
+The `Character` object represents entities within the simulation that can interact with the environment and other characters. It includes properties and methods for defining character attributes, such as movement, jump force, and more. Characters can be added to the simulation, receive input data, and execute movement commands.
+
+For detailed information on the properties and methods available for `Character`, refer to the [Character documentation](character.md){ data-preview }.
+
 ## **Examples**
 To help you get started with the physics simulation system, here are some examples showcasing different aspects of its usage:
 
@@ -32,7 +39,3 @@ To help you get started with the physics simulation system, here are some exampl
 Feel free to explore these examples to gain a better understanding of how to use the physics simulation system in your projects.
 
 For more detailed usage and information on each component, please consult the respective documentation linked in the table of contents.
-
-
-
-<!-- "attention", "caution", "danger", "error", "hint", "important", "note", "tip", "warning" -->

@@ -13,7 +13,7 @@ namespace AOP
     class ABodyManager
     {
     private:
-        std::map<uint, ABody*> mBodies;
+        std::map<uint, ABody *> mBodies;
 
     public:
         ABodyManager();
@@ -31,6 +31,9 @@ namespace AOP
         void RemoveBody(uint32 bodyID);
         void SetData(uint32 bodyID, const char *params);
         json GetData(uint32 bodyID);
+
+        std::map<uint32, ABody *> GetBodies() { return mBodies; }
+        ABody *GetBody(uint32 id) { return mBodies[id]; }
     };
 }
 #endif

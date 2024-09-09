@@ -40,6 +40,11 @@ namespace AOP
     {
         json j = json::parse(params);
         delete &params;
+
+        if (j.contains("data")){
+            mData = j.at("data").get<std::string>();
+        }
+
         if (j.contains("position"))
             mPosition = Vec3(j.at("position").at(0).get<double>(), j.at("position").at(1).get<double>(), j.at("position").at(2).get<double>());
         if (j.contains("rotation"))
@@ -170,5 +175,30 @@ namespace AOP
     void ACharacter::PostSimulation(float inDeltaTime)
     {
         mCharacter->PostSimulation(cCollisionTolerance);
+    }
+
+    void ACharacter::SetData(const char *params)
+    {
+        mData = json::parse(params);
+    }
+
+    json ACharacter::GetData()
+    {
+        return mData;
+    }
+
+    json ACharacter::GetCharacterData()
+    {
+
+        json character_data = Helpers::GetBodyData(AWorld::GetInstance()->mPhysicsSystem, mCharacter->GetBodyID());
+        character_data["data"] = mData.dump().c_str();
+        if(mCrouching){
+            character_data["height"] = mHeightCrouching;
+            character_data["radius"] = mRadiusCrouching;
+        }else{
+            character_data["height"] = mHeightStanding;
+            character_data["radius"] = mRadiusStanding;
+        }
+        return character_data;
     }
 }

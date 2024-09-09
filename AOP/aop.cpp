@@ -35,6 +35,12 @@ extern "C"
     return 0;
   }
 
+  static int l_load_world_state(lua_State *L)
+  {
+    AOP::AWorld::GetInstance()->LoadWorldState(luaL_checkstring(L, 1));
+    return 0;
+  }
+
   static int l_update_world(lua_State *L)
   {
     AOP::AWorld::GetInstance()->Update();
@@ -190,6 +196,7 @@ extern "C"
       {"move_character", l_move_character},
 
       {"world_create", l_create_world},
+      {"world_load_state", l_load_world_state},
       {"world_update", l_update_world},
       {"world_destroy", l_destroy_world},
       {"get_world_state", l_get_world_state},
