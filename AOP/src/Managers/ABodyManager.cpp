@@ -120,5 +120,15 @@ namespace AOP
         return nullptr;
     }
 
-
+    ABody *ABodyManager::GetBodyByCustomID(uint32 customID)
+    {
+        for (auto const &body : mBodies)
+        {
+            if (body.second->mCustomID == customID)
+            {
+                return body.second;
+            }
+        }
+        return nullptr;
+    }
 }

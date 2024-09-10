@@ -13,8 +13,7 @@ namespace AOP
     {
         json j = json::parse(params);
 
-        printf("Slider Constraint\n");
-        
+    
         if (j.contains("point1"))
             mPoint1 = Vec3(j.at("point1").at(0).get<double>(), j.at("point1").at(1).get<double>(), j.at("point1").at(2).get<double>());
 

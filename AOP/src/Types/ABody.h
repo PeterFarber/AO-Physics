@@ -11,6 +11,7 @@ namespace AOP
     {
     public:
         uint32 mID;
+        uint32 mCustomID;
         Body *mBody = nullptr;
 
         json mData;

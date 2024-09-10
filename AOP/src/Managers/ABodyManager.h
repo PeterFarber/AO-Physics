@@ -34,6 +34,8 @@ namespace AOP
 
         std::map<uint32, ABody *> GetBodies() { return mBodies; }
         ABody *GetBody(uint32 id) { return mBodies[id]; }
+
+        ABody *GetBodyByCustomID(uint32 customID);
     };
 }
 #endif

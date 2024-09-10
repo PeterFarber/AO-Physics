@@ -23,6 +23,10 @@ namespace AOP
         json j = json::parse(params);
         delete &params;
 
+        if(j.contains("customID")){
+            mCustomID = j.at("customID").get<int>();
+        }
+
         if (j.contains("data")){
             mData = j.at("data").get<std::string>();
         }

@@ -369,6 +369,7 @@ end
 
 function AOP:Character()
   local character = {}
+  character.data = {} -- Used to store custom data
   character.position = { 0, 0, 0 }
   character.rotation = { 0, 0, 0, 1 }
   character.radiusStanding = 0.5
@@ -390,8 +391,19 @@ function AOP:Character()
   character.layer = "MOVING" -- "MOVING" | "NON_MOVING"
 
   function character:Add()
+    self.data = json.encode(self.data);
     self.id = math.floor(_AOP.add_character(json.encode(self)))
+    self.data = json.decode(self.data);
     return self.id;
+  end
+
+
+  function character:SetData(data)
+    _AOP.get_character_data(self.id, json.encode(data))
+  end
+
+  function character:GetData()
+    return json.decode(_AOP.get_character_data(self.id))
   end
 
   function character:Input()

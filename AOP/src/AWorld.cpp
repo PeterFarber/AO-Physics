@@ -153,6 +153,17 @@ namespace AOP
             for (json::iterator it = j["constraints"].begin(); it != j["constraints"].end(); ++it)
             {
                 json constraint = *it;
+                // Get Body1 and Body2 by customID
+                if (constraint.contains("body1ID"))
+                {
+                    uint body1ID = constraint.at("body1ID").get<uint>();
+                    constraint["body1ID"] = mBodyManager->GetBodyByCustomID(body1ID)->mBody->GetID().GetIndexAndSequenceNumber();
+                }
+                if (constraint.contains("body2ID"))
+                {
+                    uint body2ID = constraint.at("body2ID").get<uint>();
+                    constraint["body2ID"] = mBodyManager->GetBodyByCustomID(body2ID)->mBody->GetID().GetIndexAndSequenceNumber();
+                }
                 mConstraintManager->AddConstraint(constraint.dump().c_str());
             }
         }

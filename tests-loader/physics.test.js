@@ -15,12 +15,9 @@ test('Physics', async () => {
     const handle = await AoLoader(wasm, options)
 
     extractedWorldState = JSON.stringify(JSON.parse(extractedWorldState));
-    console.log(extractedWorldState);
     simulation = simulation.replace("__worldstate__", extractedWorldState);
-    console.log(simulation);
 
     const result = await handle(null, getEval(simulation), getEnv());
-    console.log(result.Error)
     fs.writeFileSync("simulated_world_state.json", result.Output.data);
     assert.ok(result.Output.data.length >= 1);
 })
