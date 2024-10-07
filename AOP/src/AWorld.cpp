@@ -16,7 +16,6 @@
 #include "Types/Constraints/APulleyConstraint.h"
 #include "Types/Constraints/ASliderConstraint.h"
 
-
 namespace AOP
 {
 
@@ -64,28 +63,26 @@ namespace AOP
         return sInstance;
     }
 
-    void AWorld::ParseParams(const char *params)
+    void AWorld::ParseParams(json *params)
     {
-        json j = json::parse(params);
-        delete &params;
 
-        if (j.contains("gravity"))
-            mGravity = Vec3(j.at("gravity").at(0).get<double>(), j.at("gravity").at(1).get<double>(), j.at("gravity").at(2).get<double>());
-        if (j.contains("timeBeforeSleep"))
-            mTimeBeforeSleep = j.at("timeBeforeSleep").get<float>();
-        if (j.contains("allowSleeping"))
-            mAllowSleeping = j.at("allowSleeping").get<bool>();
-        if (j.contains("maxBodies"))
-            mMaxBodies = j.at("maxBodies").get<uint>();
-        if (j.contains("numBodyMutexes"))
-            mNumBodyMutexes = j.at("numBodyMutexes").get<uint>();
-        if (j.contains("maxBodyPairs"))
-            mMaxBodyPairs = j.at("maxBodyPairs").get<uint>();
-        if (j.contains("maxContactConstraints"))
-            mMaxContactConstraints = j.at("maxContactConstraints").get<uint>();
+        if (params->contains("gravity"))
+            mGravity = Vec3(params->at("gravity").at(0).get<double>(), params->at("gravity").at(1).get<double>(), params->at("gravity").at(2).get<double>());
+        if (params->contains("timeBeforeSleep"))
+            mTimeBeforeSleep = params->at("timeBeforeSleep").get<float>();
+        if (params->contains("allowSleeping"))
+            mAllowSleeping = params->at("allowSleeping").get<bool>();
+        if (params->contains("maxBodies"))
+            mMaxBodies = params->at("maxBodies").get<uint>();
+        if (params->contains("numBodyMutexes"))
+            mNumBodyMutexes = params->at("numBodyMutexes").get<uint>();
+        if (params->contains("maxBodyPairs"))
+            mMaxBodyPairs = params->at("maxBodyPairs").get<uint>();
+        if (params->contains("maxContactConstraints"))
+            mMaxContactConstraints = params->at("maxContactConstraints").get<uint>();
     }
 
-    void AWorld::Create(const char *params)
+    void AWorld::Create(json *params)
     {
 
         if (is_initialized)
@@ -128,32 +125,35 @@ namespace AOP
         this->is_initialized = true;
     }
 
-    void AWorld::LoadWorldState(const char *params)
+    void AWorld::LoadWorldState(json *params)
     {
-        json j = json::parse(params);
 
         // Load Bodies
-        if (j.contains("bodies"))
+        if (params->contains("bodies"))
         {
-
-            for(json::iterator it = j["bodies"].begin(); it != j["bodies"].end(); ++it) {
-                json body = *it;
-                if(body.contains("data")){
-                    // convert data to a string
-                    std::string data = body.at("data").dump();
-                    body["data"] = data;
+            for (auto &body : (*params)["bodies"])
+            {
+                if (body.contains("data"))
+                {
+                    // Instead of dumping the whole data into a string, process it more efficiently if possible
+                    // Avoiding the conversion if it's unnecessary
+                    if (!body["data"].is_string())
+                    {
+                        body["data"] = body["data"].dump(); // This may still consume memory, optimize if possible.
+                    }
                 }
-                mBodyManager->AddBody(body.dump().c_str());
+
+                // Directly pass the reference to avoid unnecessary copying
+                mBodyManager->AddBody(&body);
             }
         }
 
         // Load Constraints
-        if (j.contains("constraints"))
+        if (params->contains("constraints"))
         {
-            for (json::iterator it = j["constraints"].begin(); it != j["constraints"].end(); ++it)
+            for (auto &constraint : (*params)["constraints"])
             {
-                json constraint = *it;
-                // Get Body1 and Body2 by customID
+                // Get Body1 and Body2 by customID, map to proper ID
                 if (constraint.contains("body1ID"))
                 {
                     uint body1ID = constraint.at("body1ID").get<uint>();
@@ -164,7 +164,9 @@ namespace AOP
                     uint body2ID = constraint.at("body2ID").get<uint>();
                     constraint["body2ID"] = mBodyManager->GetBodyByCustomID(body2ID)->mBody->GetID().GetIndexAndSequenceNumber();
                 }
-                mConstraintManager->AddConstraint(constraint.dump().c_str());
+
+                // Directly pass the reference to avoid unnecessary copying
+                mConstraintManager->AddConstraint(&constraint);
             }
         }
     }
@@ -239,7 +241,6 @@ namespace AOP
         //     const char *shape_type = Helpers::GetShapeType(sub_shape_type);
         //     const char *motion_type = Helpers::GetMotionType(body->GetMotionType());
 
-
         //     json body_data = AWorld::GetInstance()->mBodyManager->GetData(body_id.GetIndexAndSequenceNumber());
         //     world_state_json["bodies"].push_back({{"id", body_id.GetIndexAndSequenceNumber()},
         //                                           {"position", {position.GetX(), position.GetY(), position.GetZ()}},
@@ -253,21 +254,21 @@ namespace AOP
         //                                           });
         // }
 
-        // Get all contraints
-        world_state_json["constraints"] = json::array();
+        // // Get all contraints
+        // world_state_json["constraints"] = json::array();
 
-        Constraints constraints = mPhysicsSystem->GetConstraints();
-        for (Constraint *constraint : constraints)
-        {
+        // Constraints constraints = mPhysicsSystem->GetConstraints();
+        // for (Constraint *constraint : constraints)
+        // {
 
-            // Get Contrain Settings
-            ConstraintSettings *constraint_settings = constraint->GetConstraintSettings();
-            const uint id = reinterpret_cast<uint32>(constraint);
-            AConstraint *aConstraint = mConstraintManager->GetConstraint(id);
-            json data = aConstraint->GetData();
-            data["space"] = aConstraint->mSpace;
-            world_state_json["constraints"].push_back(data);
-        }
+        //     // Get Contrain Settings
+        //     ConstraintSettings *constraint_settings = constraint->GetConstraintSettings();
+        //     const uint id = reinterpret_cast<uint32>(constraint);
+        //     AConstraint *aConstraint = mConstraintManager->GetConstraint(id);
+        //     json data = aConstraint->GetData();
+        //     data["space"] = aConstraint->mSpace;
+        //     world_state_json["constraints"].push_back(data);
+        // }
 
         return world_state_json;
     }

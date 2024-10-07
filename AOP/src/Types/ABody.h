@@ -48,7 +48,7 @@ namespace AOP
         float mHeight = 2.0f;
 
     public:
-        ABody(const char *params);
+        ABody(json * params);
         void Initialize();
         void SetLinearVelocity(Vec3 velocity);
         void SetAngularVelocity(Vec3 velocity);
@@ -59,7 +59,7 @@ namespace AOP
         void AddAngularVelocity(Vec3 velocity);
         json CastRay(Vec3 direction);
 
-        void SetData(const char *params);
+        void SetData(json *params);
         json GetData();
 
         json GetBodyData();

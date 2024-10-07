@@ -9,24 +9,23 @@
 namespace AOP
 {
 
-    ADistanceConstraint::ADistanceConstraint(const char *params) : AConstraint(params)
+    ADistanceConstraint::ADistanceConstraint(json * params) : AConstraint(params)
     {
-        json j = json::parse(params);
 
-        if (j.contains("point1"))
-            mPoint1 = Vec3(j.at("point1").at(0).get<double>(), j.at("point1").at(1).get<double>(), j.at("point1").at(2).get<double>());
-        if (j.contains("point2"))
-            mPoint2 = Vec3(j.at("point2").at(0).get<double>(), j.at("point2").at(1).get<double>(), j.at("point2").at(2).get<double>());
+        if (params->contains("point1"))
+            mPoint1 = Vec3(params->at("point1").at(0).get<double>(), params->at("point1").at(1).get<double>(), params->at("point1").at(2).get<double>());
+        if (params->contains("point2"))
+            mPoint2 = Vec3(params->at("point2").at(0).get<double>(), params->at("point2").at(1).get<double>(), params->at("point2").at(2).get<double>());
 
-        if (j.contains("minDistance"))
-            mMinDistance = j.at("minDistance").get<float>();
-        if (j.contains("maxDistance"))
-            mMaxDistance = j.at("maxDistance").get<float>();
+        if (params->contains("minDistance"))
+            mMinDistance = params->at("minDistance").get<float>();
+        if (params->contains("maxDistance"))
+            mMaxDistance = params->at("maxDistance").get<float>();
 
-        if (j.contains("limitsSpringSettings"))
+        if (params->contains("limitsSpringSettings"))
         {
             SpringSettings settings;
-            if (j.at("limitsSpringSettings").at("mode").get<std::string>() == "FrequencyAndDamping")
+            if (params->at("limitsSpringSettings").at("mode").get<std::string>() == "FrequencyAndDamping")
             {
                 settings.mMode = ESpringMode::FrequencyAndDamping;
             }
@@ -34,16 +33,15 @@ namespace AOP
             {
                 settings.mMode = ESpringMode::StiffnessAndDamping;
             }
-            if (j.at("limitsSpringSettings").contains("stiffness"))
-                settings.mStiffness = j.at("limitsSpringSettings").at("stiffness").get<float>();
-            if (j.at("limitsSpringSettings").contains("frequency"))
-                settings.mFrequency = j.at("limitsSpringSettings").at("frequency").get<float>();
-            if (j.at("limitsSpringSettings").contains("damping"))
-                settings.mDamping = j.at("limitsSpringSettings").at("damping").get<float>();
+            if (params->at("limitsSpringSettings").contains("stiffness"))
+                settings.mStiffness = params->at("limitsSpringSettings").at("stiffness").get<float>();
+            if (params->at("limitsSpringSettings").contains("frequency"))
+                settings.mFrequency = params->at("limitsSpringSettings").at("frequency").get<float>();
+            if (params->at("limitsSpringSettings").contains("damping"))
+                settings.mDamping = params->at("limitsSpringSettings").at("damping").get<float>();
             mLimitsSpringSettings = settings;
         }
 
-        delete &params;
 
         Initialize();
     }

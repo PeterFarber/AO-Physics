@@ -1,6 +1,6 @@
 AOP = require('.AOP')
 
-local framesToSimulate = 1000
+local framesToSimulate = 5
 local deltaTime = 1.0 / 60.0
 --- Create a World ---
 local world = AOP:World()

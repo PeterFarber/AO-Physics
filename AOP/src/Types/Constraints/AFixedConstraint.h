@@ -27,7 +27,7 @@ namespace AOP
         Vec3 mAxisY2 = Vec3::sAxisX();
 
     public:
-        AFixedConstraint(const char *params);
+        AFixedConstraint(json * params);
         void Initialize();
         json GetData();
     };

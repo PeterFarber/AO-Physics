@@ -17,8 +17,8 @@ namespace AOP
         ACharacterManager();
         ~ACharacterManager();
 
-        uint32 CreateCharacter(const char *params);
-        void MoveCharacter(const char *params);
+        uint32 CreateCharacter(json * params);
+        void MoveCharacter(json * params);
 
         void PostSimulation(float deltaTime);
 

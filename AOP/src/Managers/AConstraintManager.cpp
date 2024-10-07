@@ -23,12 +23,11 @@ namespace AOP
     {
     }
 
-    uint32 AConstraintManager::AddConstraint(const char *params)
+    uint32 AConstraintManager::AddConstraint(json * params)
     {
-        json j = json::parse(params);
         EConstraintSubType type;
-        if (j.contains("type"))
-            type = Helpers::GetConstraintSubType(j.at("type").get<std::string>());
+        if (params->contains("type"))
+            type = Helpers::GetConstraintSubType(params->at("type").get<std::string>());
         else
         {
             printf("Constraint type not found\n");

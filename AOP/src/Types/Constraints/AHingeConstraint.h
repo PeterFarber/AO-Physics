@@ -36,7 +36,7 @@ namespace AOP
         float mTargetAngle = 0.0f;
 
     public:
-        AHingeConstraint(const char *params);
+        AHingeConstraint(json * params);
         void Initialize();
         json GetData();
     };

@@ -9,27 +9,23 @@
 namespace AOP
 {
 
-    AFixedConstraint::AFixedConstraint(const char *params) : AConstraint(params)
+    AFixedConstraint::AFixedConstraint(json * params) : AConstraint(params)
     {
-        json j = json::parse(params);
+        if (params->contains("autoDetectPoint"))
+            mAutoDetectPoint = params->at("autoDetectPoint").get<bool>();
 
-        if (j.contains("autoDetectPoint"))
-            mAutoDetectPoint = j.at("autoDetectPoint").get<bool>();
-
-        if (j.contains("point1"))
-            mPoint1 = Vec3(j.at("point1").at(0).get<double>(), j.at("point1").at(1).get<double>(), j.at("point1").at(2).get<double>());
-        if (j.contains("axisX1"))
-            mAxisX1 = Vec3(j.at("axisX1").at(0).get<double>(), j.at("axisX1").at(1).get<double>(), j.at("axisX1").at(2).get<double>());
-        if (j.contains("axisY1"))
-            mAxisY1 = Vec3(j.at("axisY1").at(0).get<double>(), j.at("axisY1").at(1).get<double>(), j.at("axisY1").at(2).get<double>());
-        if (j.contains("point2"))
-            mPoint2 = Vec3(j.at("point2").at(0).get<double>(), j.at("point2").at(1).get<double>(), j.at("point2").at(2).get<double>());
-        if (j.contains("axisX2"))
-            mAxisX2 = Vec3(j.at("axisX2").at(0).get<double>(), j.at("axisX2").at(1).get<double>(), j.at("axisX2").at(2).get<double>());
-        if (j.contains("axisY2"))
-            mAxisY2 = Vec3(j.at("axisY2").at(0).get<double>(), j.at("axisY2").at(1).get<double>(), j.at("axisY2").at(2).get<double>());
-
-        delete &params;
+        if (params->contains("point1"))
+            mPoint1 = Vec3(params->at("point1").at(0).get<double>(), params->at("point1").at(1).get<double>(), params->at("point1").at(2).get<double>());
+        if (params->contains("axisX1"))
+            mAxisX1 = Vec3(params->at("axisX1").at(0).get<double>(), params->at("axisX1").at(1).get<double>(), params->at("axisX1").at(2).get<double>());
+        if (params->contains("axisY1"))
+            mAxisY1 = Vec3(params->at("axisY1").at(0).get<double>(), params->at("axisY1").at(1).get<double>(), params->at("axisY1").at(2).get<double>());
+        if (params->contains("point2"))
+            mPoint2 = Vec3(params->at("point2").at(0).get<double>(), params->at("point2").at(1).get<double>(), params->at("point2").at(2).get<double>());
+        if (params->contains("axisX2"))
+            mAxisX2 = Vec3(params->at("axisX2").at(0).get<double>(), params->at("axisX2").at(1).get<double>(), params->at("axisX2").at(2).get<double>());
+        if (params->contains("axisY2"))
+            mAxisY2 = Vec3(params->at("axisY2").at(0).get<double>(), params->at("axisY2").at(1).get<double>(), params->at("axisY2").at(2).get<double>());
 
         Initialize();
     }

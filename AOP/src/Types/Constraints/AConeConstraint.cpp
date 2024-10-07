@@ -9,26 +9,25 @@
 namespace AOP
 {
 
-    AConeConstraint::AConeConstraint(const char *params) : AConstraint(params)
+    AConeConstraint::AConeConstraint(json * params) : AConstraint(params)
     {
-        json j = json::parse(params);
+
         
-        if (j.contains("point1"))
-            mPoint1 = Vec3(j.at("point1").at(0).get<double>(), j.at("point1").at(1).get<double>(), j.at("point1").at(2).get<double>());
+        if (params->contains("point1"))
+            mPoint1 = Vec3(params->at("point1").at(0).get<double>(), params->at("point1").at(1).get<double>(), params->at("point1").at(2).get<double>());
 
-        if (j.contains("twistAxis1"))
-            mTwistAxis1 = Vec3(j.at("twistAxis1").at(0).get<double>(), j.at("twistAxis1").at(1).get<double>(), j.at("twistAxis1").at(2).get<double>());
+        if (params->contains("twistAxis1"))
+            mTwistAxis1 = Vec3(params->at("twistAxis1").at(0).get<double>(), params->at("twistAxis1").at(1).get<double>(), params->at("twistAxis1").at(2).get<double>());
 
-        if (j.contains("point2"))
-            mPoint2 = Vec3(j.at("point2").at(0).get<double>(), j.at("point2").at(1).get<double>(), j.at("point2").at(2).get<double>());
+        if (params->contains("point2"))
+            mPoint2 = Vec3(params->at("point2").at(0).get<double>(), params->at("point2").at(1).get<double>(), params->at("point2").at(2).get<double>());
 
-        if (j.contains("twistAxis2"))
-            mTwistAxis2 = Vec3(j.at("twistAxis2").at(0).get<double>(), j.at("twistAxis2").at(1).get<double>(), j.at("twistAxis2").at(2).get<double>());
+        if (params->contains("twistAxis2"))
+            mTwistAxis2 = Vec3(params->at("twistAxis2").at(0).get<double>(), params->at("twistAxis2").at(1).get<double>(), params->at("twistAxis2").at(2).get<double>());
 
-        if (j.contains("halfConeAngle"))
-            mHalfConeAngle = j.at("halfConeAngle").get<float>();
+        if (params->contains("halfConeAngle"))
+            mHalfConeAngle = params->at("halfConeAngle").get<float>();
 
-        delete &params;
 
         Initialize();
     }

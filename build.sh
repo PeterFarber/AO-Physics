@@ -8,10 +8,10 @@ BUILD_DIR="${SCRIPT_DIR}/build"
 LIBS_DIR="${BUILD_DIR}/libs"
 PROCESS_LIBS_DIR="${PROCESS_DIR}/libs"
 
-AO_IMAGE="ao32:latest"
+AO_IMAGE="p3rmaw3b/ao:0.1.3"
 
 # EMXX_CFLAGS=" -s EXPORT_ALL=1 -s EXPORT_ES6=1 -Wno-unused-command-line-argument -Wno-experimental /lua-5.3.4/src/liblua.a -I/lua-5.3.4/src"
-EMXX_CFLAGS="/lua-5.3.4/src/liblua.a -I/lua-5.3.4/src -I/jolt/ -I/jolt/Jolt -s SUPPORT_LONGJMP=1"
+EMXX_CFLAGS="/lua-5.3.4-32/src/liblua.a -I/lua-5.3.4-32/src -I/jolt/ -I/jolt/Jolt -s SUPPORT_LONGJMP=1"
 
 # # Clone jolt if it doesn't exist
 # rm -rf ${JOLT_DIR}
@@ -80,3 +80,10 @@ cp ${PROCESS_DIR}/process.js ${SCRIPT_DIR}/tests/process.js
 # rm -rf ${SCRIPT_DIR}/tests/Lua
 # cp -r ${AOP_DIR}/Lua/ ${SCRIPT_DIR}/tests/Lua/
 # cp -r ${AOP_DIR}/Lua/ ${PROCESS_DIR}
+# apt-get -y install --no-install-recommends llvm-dev libclang-dev librocksdb-dev clang
+# git clone https://github.com/emscripten-core/emsdk.git /emsdk
+# cd /emsdk
+# git pull
+# ./emsdk install 3.1.59
+# ./emsdk activate 3.1.59
+#  source "/emsdk/emsdk_env.sh"

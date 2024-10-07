@@ -20,7 +20,7 @@ namespace AOP
         Vec3 mPoint2 = Vec3::sZero();
 
     public:
-        APointConstraint(const char *params);
+        APointConstraint(json * params);
         void Initialize();
         json GetData();
     };

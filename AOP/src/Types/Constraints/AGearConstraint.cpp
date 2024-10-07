@@ -9,29 +9,27 @@
 namespace AOP
 {
 
-    AGearConstraint::AGearConstraint(const char *params) : AConstraint(params)
+    AGearConstraint::AGearConstraint(json * params) : AConstraint(params)
     {
-        json j = json::parse(params);
 
-        if (j.contains("numTeeth1"))
-            mNumTeeth1 = j.at("numTeeth1").get<float>();
-        if (j.contains("numTeeth2"))
-            mNumTeeth2 = j.at("numTeeth2").get<float>();
+        if (params->contains("numTeeth1"))
+            mNumTeeth1 = params->at("numTeeth1").get<float>();
+        if (params->contains("numTeeth2"))
+            mNumTeeth2 = params->at("numTeeth2").get<float>();
 
-        if (j.contains("hingeAxis1"))
-            mHingeAxis1 = Vec3(j.at("hingeAxis1").at(0).get<double>(), j.at("hingeAxis1").at(1).get<double>(), j.at("hingeAxis1").at(2).get<double>());
+        if (params->contains("hingeAxis1"))
+            mHingeAxis1 = Vec3(params->at("hingeAxis1").at(0).get<double>(), params->at("hingeAxis1").at(1).get<double>(), params->at("hingeAxis1").at(2).get<double>());
 
-        if (j.contains("hingeAxis2"))
-            mHingeAxis2 = Vec3(j.at("hingeAxis2").at(0).get<double>(), j.at("hingeAxis2").at(1).get<double>(), j.at("hingeAxis2").at(2).get<double>());
+        if (params->contains("hingeAxis2"))
+            mHingeAxis2 = Vec3(params->at("hingeAxis2").at(0).get<double>(), params->at("hingeAxis2").at(1).get<double>(), params->at("hingeAxis2").at(2).get<double>());
 
-        if (j.contains("ratio"))
-            mRatio = j.at("ratio").get<float>();
+        if (params->contains("ratio"))
+            mRatio = params->at("ratio").get<float>();
 
         if(mNumTeeth1 != 1 || mNumTeeth2 != 1){
             mRatio = mNumTeeth1 / mNumTeeth2;
         }
 
-        delete &params;
 
         Initialize();
     }

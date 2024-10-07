@@ -25,7 +25,7 @@ namespace AOP
         float mHalfConeAngle = 0.0f;
 
     public:
-        AConeConstraint(const char *params);
+        AConeConstraint(json * params);
         void Initialize();
         json GetData();
         

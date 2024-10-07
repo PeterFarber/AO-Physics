@@ -26,7 +26,7 @@ namespace AOP
 
 
     public:
-        AGearConstraint(const char *params);
+        AGearConstraint(json * params);
         void Initialize();
         json GetData();
     };

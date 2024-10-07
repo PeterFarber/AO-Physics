@@ -15,14 +15,14 @@ namespace AOP
     {
     }
 
-    uint32 ACharacterManager::CreateCharacter(const char *params)
+    uint32 ACharacterManager::CreateCharacter(json * params)
     {
         ACharacter *character = new ACharacter(params);
         mCharacters[character->mID] = character;
         return character->mID;
     }
 
-    void ACharacterManager::MoveCharacter(const char *params)
+    void ACharacterManager::MoveCharacter(json * params)
     {
         InputParams input_params(params);
         if (mCharacters.find(input_params.mID) != mCharacters.end())

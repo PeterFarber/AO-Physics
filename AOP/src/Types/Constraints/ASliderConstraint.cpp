@@ -9,57 +9,56 @@
 namespace AOP
 {
 
-    ASliderConstraint::ASliderConstraint(const char *params) : AConstraint(params)
+    ASliderConstraint::ASliderConstraint(json * params) : AConstraint(params)
     {
-        json j = json::parse(params);
+
 
     
-        if (j.contains("point1"))
-            mPoint1 = Vec3(j.at("point1").at(0).get<double>(), j.at("point1").at(1).get<double>(), j.at("point1").at(2).get<double>());
+        if (params->contains("point1"))
+            mPoint1 = Vec3(params->at("point1").at(0).get<double>(), params->at("point1").at(1).get<double>(), params->at("point1").at(2).get<double>());
 
-        if (j.contains("sliderAxis1"))
-            mSliderAxis1 = Vec3(j.at("sliderAxis1").at(0).get<double>(), j.at("sliderAxis1").at(1).get<double>(), j.at("sliderAxis1").at(2).get<double>());
+        if (params->contains("sliderAxis1"))
+            mSliderAxis1 = Vec3(params->at("sliderAxis1").at(0).get<double>(), params->at("sliderAxis1").at(1).get<double>(), params->at("sliderAxis1").at(2).get<double>());
 
-        if (j.contains("normalAxis1"))
-            mNormalAxis1 = Vec3(j.at("normalAxis1").at(0).get<double>(), j.at("normalAxis1").at(1).get<double>(), j.at("normalAxis1").at(2).get<double>());
+        if (params->contains("normalAxis1"))
+            mNormalAxis1 = Vec3(params->at("normalAxis1").at(0).get<double>(), params->at("normalAxis1").at(1).get<double>(), params->at("normalAxis1").at(2).get<double>());
 
-        if (j.contains("point2"))
-            mPoint2 = Vec3(j.at("point2").at(0).get<double>(), j.at("point2").at(1).get<double>(), j.at("point2").at(2).get<double>());
+        if (params->contains("point2"))
+            mPoint2 = Vec3(params->at("point2").at(0).get<double>(), params->at("point2").at(1).get<double>(), params->at("point2").at(2).get<double>());
 
-        if (j.contains("sliderAxis2"))
-            mSliderAxis2 = Vec3(j.at("sliderAxis2").at(0).get<double>(), j.at("sliderAxis2").at(1).get<double>(), j.at("sliderAxis2").at(2).get<double>());
+        if (params->contains("sliderAxis2"))
+            mSliderAxis2 = Vec3(params->at("sliderAxis2").at(0).get<double>(), params->at("sliderAxis2").at(1).get<double>(), params->at("sliderAxis2").at(2).get<double>());
 
-        if (j.contains("normalAxis2"))
-            mNormalAxis2 = Vec3(j.at("normalAxis2").at(0).get<double>(), j.at("normalAxis2").at(1).get<double>(), j.at("normalAxis2").at(2).get<double>());
+        if (params->contains("normalAxis2"))
+            mNormalAxis2 = Vec3(params->at("normalAxis2").at(0).get<double>(), params->at("normalAxis2").at(1).get<double>(), params->at("normalAxis2").at(2).get<double>());
 
-        if (j.contains("limitsMin"))
-            mLimitsMin = j.at("limitsMin").get<float>();
+        if (params->contains("limitsMin"))
+            mLimitsMin = params->at("limitsMin").get<float>();
 
-        if (j.contains("limitsMax"))
-            mLimitsMax = j.at("limitsMax").get<float>();
+        if (params->contains("limitsMax"))
+            mLimitsMax = params->at("limitsMax").get<float>();
 
-        if (j.contains("limitsSpringSettings")){
+        if (params->contains("limitsSpringSettings")){
             SpringSettings settings;	
-            if(j.at("limitsSpringSettings").at("mode").get<std::string>() == "FrequencyAndDamping"){
+            if(params->at("limitsSpringSettings").at("mode").get<std::string>() == "FrequencyAndDamping"){
                 settings.mMode = ESpringMode::FrequencyAndDamping;
             }else{
                 settings.mMode = ESpringMode::StiffnessAndDamping;
             }
-            if(j.at("limitsSpringSettings").contains("stiffness"))
-                settings.mStiffness = j.at("limitsSpringSettings").at("stiffness").get<float>();
-            if (j.at("limitsSpringSettings").contains("frequency"))
-                settings.mFrequency = j.at("limitsSpringSettings").at("frequency").get<float>();
-            if (j.at("limitsSpringSettings").contains("damping"))
-                settings.mDamping = j.at("limitsSpringSettings").at("damping").get<float>();
+            if(params->at("limitsSpringSettings").contains("stiffness"))
+                settings.mStiffness = params->at("limitsSpringSettings").at("stiffness").get<float>();
+            if (params->at("limitsSpringSettings").contains("frequency"))
+                settings.mFrequency = params->at("limitsSpringSettings").at("frequency").get<float>();
+            if (params->at("limitsSpringSettings").contains("damping"))
+                settings.mDamping = params->at("limitsSpringSettings").at("damping").get<float>();
             mLimitsSpringSettings = settings;
         }
-        if (j.contains("maxFrictionForce"))
-            mMaxFrictionForce = j.at("maxFrictionForce").get<float>();
+        if (params->contains("maxFrictionForce"))
+            mMaxFrictionForce = params->at("maxFrictionForce").get<float>();
 
-        if (j.contains("motorSettings"))
-            mMotorSettings = MotorSettings(j.at("motorSettings").at("frequency").get<float>(), j.at("motorSettings").at("damping").get<float>());
+        if (params->contains("motorSettings"))
+            mMotorSettings = MotorSettings(params->at("motorSettings").at("frequency").get<float>(), params->at("motorSettings").at("damping").get<float>());
 
-        delete &params;
 
         Initialize();
     }

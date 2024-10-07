@@ -1,3 +1,5 @@
 keep_js: true
 target: 32
-preset: xxl
+stack_size: 16777216
+initial_memory: 20971520
+maximum_memory: 2155872256

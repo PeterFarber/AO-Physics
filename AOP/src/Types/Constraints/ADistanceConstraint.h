@@ -25,7 +25,7 @@ namespace AOP
         
 
     public:
-        ADistanceConstraint(const char *params);
+        ADistanceConstraint(json * params);
         void Initialize();
         json GetData();
     };

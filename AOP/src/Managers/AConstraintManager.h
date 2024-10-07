@@ -18,7 +18,7 @@ namespace AOP
         AConstraintManager();
         ~AConstraintManager();
 
-        uint32 AddConstraint(const char *params);
+        uint32 AddConstraint(json * params);
 
         void RemoveConstraint(uint32 constraintID);
 

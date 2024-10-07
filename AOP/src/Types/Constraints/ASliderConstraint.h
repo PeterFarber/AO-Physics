@@ -34,7 +34,7 @@ namespace AOP
         MotorSettings mMotorSettings;
 
     public:
-        ASliderConstraint(const char *params);
+        ASliderConstraint(json * params);
         void Initialize();
         json GetData();
     };

@@ -12,7 +12,7 @@ namespace AOP
     {
     }
 
-    uint32 ABodyManager::AddBody(const char *params)
+    uint32 ABodyManager::AddBody(json *params)
     {
         ABody *body = new ABody(params);
         mBodies[body->mID] = body;
@@ -101,7 +101,7 @@ namespace AOP
         }
     }
 
-    void ABodyManager::SetData(uint32 bodyID, const char *params)
+    void ABodyManager::SetData(uint32 bodyID, json * params)
     {
         if (mBodies.find(bodyID) != mBodies.end())
         {

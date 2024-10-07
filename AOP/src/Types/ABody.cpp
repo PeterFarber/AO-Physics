@@ -18,70 +18,69 @@
 namespace AOP
 {
 
-    ABody::ABody(const char *params)
+    ABody::ABody(json * params)
     {
-        json j = json::parse(params);
-        delete &params;
 
-        if(j.contains("customID")){
-            mCustomID = j.at("customID").get<int>();
+
+        if(params->contains("customID")){
+            mCustomID = params->at("customID").get<int>();
         }
 
-        if (j.contains("data")){
-            mData = j.at("data").get<std::string>();
+        if (params->contains("data")){
+            mData = json::parse(params->at("data").get<std::string>());
         }
-        if (j.contains("shape"))
-            mShape = Helpers::GetShapeSubType(j.at("shape").get<std::string>());
+        if (params->contains("shape"))
+            mShape = Helpers::GetShapeSubType(params->at("shape").get<std::string>());
 
-        if (j.contains("position"))
-            mPosition = Vec3(j.at("position").at(0).get<double>(), j.at("position").at(1).get<double>(), j.at("position").at(2).get<double>());
+        if (params->contains("position"))
+            mPosition = Vec3(params->at("position").at(0).get<double>(), params->at("position").at(1).get<double>(), params->at("position").at(2).get<double>());
 
-        if (j.contains("center"))
-            mCenter = Vec3(j.at("center").at(0).get<double>(), j.at("center").at(1).get<double>(), j.at("center").at(2).get<double>());
+        if (params->contains("center"))
+            mCenter = Vec3(params->at("center").at(0).get<double>(), params->at("center").at(1).get<double>(), params->at("center").at(2).get<double>());
         
-        if (j.contains("rotation"))
-            mRotation = Quat(j.at("rotation").at(0).get<double>(), j.at("rotation").at(1).get<double>(), j.at("rotation").at(2).get<double>(), j.at("rotation").at(3).get<double>());
-        if (j.contains("linearVelocity"))
-            mLinearVelocity = Vec3(j.at("linearVelocity").at(0).get<double>(), j.at("linearVelocity").at(1).get<double>(), j.at("linearVelocity").at(2).get<double>());
-        if (j.contains("angularVelocity"))
-            mAngularVelocity = Vec3(j.at("angularVelocity").at(0).get<double>(), j.at("angularVelocity").at(1).get<double>(), j.at("angularVelocity").at(2).get<double>());
+        if (params->contains("rotation"))
+            mRotation = Quat(params->at("rotation").at(0).get<double>(), params->at("rotation").at(1).get<double>(), params->at("rotation").at(2).get<double>(), params->at("rotation").at(3).get<double>());
+        if (params->contains("linearVelocity"))
+            mLinearVelocity = Vec3(params->at("linearVelocity").at(0).get<double>(), params->at("linearVelocity").at(1).get<double>(), params->at("linearVelocity").at(2).get<double>());
+        if (params->contains("angularVelocity"))
+            mAngularVelocity = Vec3(params->at("angularVelocity").at(0).get<double>(), params->at("angularVelocity").at(1).get<double>(), params->at("angularVelocity").at(2).get<double>());
 
-        if (j.contains("motionType"))
-            mMotionType = Helpers::GetMotionType(j.at("motionType").get<std::string>());
-        if (j.contains("motionQuality"))
-            mMotionQuality = Helpers::GetMotionQuality(j.at("motionQuality").get<std::string>());
+        if (params->contains("motionType"))
+            mMotionType = Helpers::GetMotionType(params->at("motionType").get<std::string>());
+        if (params->contains("motionQuality"))
+            mMotionQuality = Helpers::GetMotionQuality(params->at("motionQuality").get<std::string>());
 
-        if (j.contains("layer"))
-            mLayer = Helpers::GetLayer(j.at("layer").get<std::string>().c_str());
+        if (params->contains("layer"))
+            mLayer = Helpers::GetLayer(params->at("layer").get<std::string>().c_str());
 
-        if (j.contains("activate"))
-            mActivation = Helpers::GetActivation(j.at("activate").get<bool>());
+        if (params->contains("activate"))
+            mActivation = Helpers::GetActivation(params->at("activate").get<bool>());
 
-        if (j.contains("enhancedInternalEdgeRemoval"))
-            mEnhancedInternalEdgeRemoval = j.at("enhancedInternalEdgeRemoval").get<bool>();
-        if (j.contains("allowSleeping"))
-            mAllowSleeping = j.at("allowSleeping").get<bool>();
-        if (j.contains("friction"))
-            mFriction = j.at("friction").get<float>();
-        if (j.contains("restitution"))
-            mRestitution = j.at("restitution").get<float>();
-        if (j.contains("linearDamping"))
-            mLinearDamping = j.at("linearDamping").get<float>();
-        if (j.contains("angularDamping"))
-            mAngularDamping = j.at("angularDamping").get<float>();
-        if (j.contains("maxLinearVelocity"))
-            mMaxLinearVelocity = j.at("maxLinearVelocity").get<float>();
-        if (j.contains("maxAngularVelocity"))
-            mMaxAngularVelocity = j.at("maxAngularVelocity").get<float>();
-        if (j.contains("gravityFactor"))
-            mGravityFactor = j.at("gravityFactor").get<float>();
+        if (params->contains("enhancedInternalEdgeRemoval"))
+            mEnhancedInternalEdgeRemoval = params->at("enhancedInternalEdgeRemoval").get<bool>();
+        if (params->contains("allowSleeping"))
+            mAllowSleeping = params->at("allowSleeping").get<bool>();
+        if (params->contains("friction"))
+            mFriction = params->at("friction").get<float>();
+        if (params->contains("restitution"))
+            mRestitution = params->at("restitution").get<float>();
+        if (params->contains("linearDamping"))
+            mLinearDamping = params->at("linearDamping").get<float>();
+        if (params->contains("angularDamping"))
+            mAngularDamping = params->at("angularDamping").get<float>();
+        if (params->contains("maxLinearVelocity"))
+            mMaxLinearVelocity = params->at("maxLinearVelocity").get<float>();
+        if (params->contains("maxAngularVelocity"))
+            mMaxAngularVelocity = params->at("maxAngularVelocity").get<float>();
+        if (params->contains("gravityFactor"))
+            mGravityFactor = params->at("gravityFactor").get<float>();
 
-        if (j.contains("size"))
-            mSize = Vec3(j.at("size").at(0).get<double>(), j.at("size").at(1).get<double>(), j.at("size").at(2).get<double>());
-        if (j.contains("radius"))
-            mRadius = j.at("radius").get<double>();
-        if (j.contains("height"))
-            mHeight = j.at("height").get<double>();
+        if (params->contains("size"))
+            mSize = Vec3(params->at("size").at(0).get<double>(), params->at("size").at(1).get<double>(), params->at("size").at(2).get<double>());
+        if (params->contains("radius"))
+            mRadius = params->at("radius").get<double>();
+        if (params->contains("height"))
+            mHeight = params->at("height").get<double>();
 
         Initialize();
     }
@@ -203,9 +202,9 @@ namespace AOP
         return j;
     }
 
-    void ABody::SetData(const char *params)
+    void ABody::SetData(json *params)
     {
-        mData = json::parse(params);
+        mData = *params;
     }
 
     json ABody::GetData()
@@ -216,7 +215,7 @@ namespace AOP
     json ABody::GetBodyData()
     {
         json j = Helpers::GetBodyData(AWorld::GetInstance()->mPhysicsSystem, BodyID(mID));
-        j["data"] = mData.dump().c_str(); 
+        j["data"] = mData;
         return j;
     }
 

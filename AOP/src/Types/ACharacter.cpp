@@ -12,88 +12,84 @@
 
 namespace AOP
 {
-    InputParams::InputParams(const char *params)
+    InputParams::InputParams(json * params)
     {
-        json j = json::parse(params);
-
-        if (j.contains("id"))
-            mID = j.at("id");
+        if (params->contains("id"))
+            mID = params->at("id");
 
         mInput = Vec3::sZero();
-        if (j.contains("x"))
-            mInput.SetX(j.at("x").get<double>());
+        if (params->contains("x"))
+            mInput.SetX(params->at("x").get<double>());
 
-        if (j.contains("z"))
-            mInput.SetY(j.at("z").get<double>());
+        if (params->contains("z"))
+            mInput.SetY(params->at("z").get<double>());
 
-        if (j.contains("jump"))
-            mJump = j.at("jump").get<bool>();
+        if (params->contains("jump"))
+            mJump = params->at("jump").get<bool>();
 
-        if (j.contains("sprint"))
-            mSprint = j.at("sprint").get<bool>();
+        if (params->contains("sprint"))
+            mSprint = params->at("sprint").get<bool>();
 
-        if (j.contains("crouch"))
-            mCrouch = j.at("crouch").get<bool>();
+        if (params->contains("crouch"))
+            mCrouch = params->at("crouch").get<bool>();
     }
 
-    ACharacter::ACharacter(const char *params)
+    ACharacter::ACharacter(json * params)
     {
-        json j = json::parse(params);
-        delete &params;
 
-        if (j.contains("data")){
-            mData = j.at("data").get<std::string>();
+        if (params->contains("data")){
+            mData = json::parse(params->at("data").get<std::string>());
         }
 
-        if (j.contains("position"))
-            mPosition = Vec3(j.at("position").at(0).get<double>(), j.at("position").at(1).get<double>(), j.at("position").at(2).get<double>());
-        if (j.contains("rotation"))
-            mRotation = Quat(j.at("rotation").at(0).get<double>(), j.at("rotation").at(1).get<double>(), j.at("rotation").at(2).get<double>(), j.at("rotation").at(3).get<double>());
+        if (params->contains("position"))
+            mPosition = Vec3(params->at("position").at(0).get<double>(), params->at("position").at(1).get<double>(), params->at("position").at(2).get<double>());
+        if (params->contains("rotation"))
+            mRotation = Quat(params->at("rotation").at(0).get<double>(), params->at("rotation").at(1).get<double>(), params->at("rotation").at(2).get<double>(), params->at("rotation").at(3).get<double>());
 
-        if (j.contains("up"))
-            mUp = Vec3(j.at("up").at(0).get<double>(), j.at("up").at(1).get<double>(), j.at("up").at(2).get<double>());
+        if (params->contains("up"))
+            mUp = Vec3(params->at("up").at(0).get<double>(), params->at("up").at(1).get<double>(), params->at("up").at(2).get<double>());
 
-        if (j.contains("heightStanding"))
-            mHeightStanding = j.at("heightStanding").get<float>();
+        if (params->contains("heightStanding"))
+            mHeightStanding = params->at("heightStanding").get<float>();
 
-        if (j.contains("radiusStanding"))
-            mRadiusStanding = j.at("radiusStanding").get<float>();
+        if (params->contains("radiusStanding"))
+            mRadiusStanding = params->at("radiusStanding").get<float>();
 
-        if (j.contains("heightCrouching"))
-            mHeightCrouching = j.at("heightCrouching").get<float>();
+        if (params->contains("heightCrouching"))
+            mHeightCrouching = params->at("heightCrouching").get<float>();
 
-        if (j.contains("radiusCrouching"))
-            mRadiusCrouching = j.at("radiusCrouching").get<float>();
+        if (params->contains("radiusCrouching"))
+            mRadiusCrouching = params->at("radiusCrouching").get<float>();
 
-        if (j.contains("maxSlopeAngle"))
-            mMaxSlopeAngle = DegreesToRadians(j.at("maxSlopeAngle").get<float>());
+        if (params->contains("maxSlopeAngle"))
+            mMaxSlopeAngle = DegreesToRadians(params->at("maxSlopeAngle").get<float>());
 
-        if (j.contains("friction"))
-            mFriction = j.at("friction").get<float>();
+        if (params->contains("friction"))
+            mFriction = params->at("friction").get<float>();
 
-        if (j.contains("mass"))
-            mMass = j.at("mass").get<float>();
+        if (params->contains("mass"))
+            mMass = params->at("mass").get<float>();
 
-        if (j.contains("gravityFactor"))
-            mGravityFactor = j.at("gravityFactor").get<float>();
+        if (params->contains("gravityFactor"))
+            mGravityFactor = params->at("gravityFactor").get<float>();
 
-        if (j.contains("layer"))
-            mLayer = Helpers::GetLayer(j.at("layer").get<std::string>().c_str());
+        if (params->contains("layer"))
+            mLayer = Helpers::GetLayer(params->at("layer").get<std::string>().c_str());
 
-        if (j.contains("activate"))
-            mActivation = Helpers::GetActivation(j.at("activate").get<bool>());
+        if (params->contains("activate"))
+            mActivation = Helpers::GetActivation(params->at("activate").get<bool>());
 
-        if (j.contains("canMoveWhileJumping"))
-            mCanMoveWhileJumping = j.at("canMoveWhileJumping").get<bool>();
+        if (params->contains("canMoveWhileJumping"))
+            mCanMoveWhileJumping = params->at("canMoveWhileJumping").get<bool>();
 
-        if (j.contains("speed"))
-            mSpeed = j.at("speed").get<double>();
+        if (params->contains("speed"))
+            mSpeed = params->at("speed").get<double>();
 
-        if (j.contains("sprintMultiplier"))
-            mSprintMultiplier = j.at("sprintMultiplier").get<double>();
+        if (params->contains("sprintMultiplier"))
+            mSprintMultiplier = params->at("sprintMultiplier").get<double>();
 
-        if (j.contains("jumpForce"))
-            mJumpForce = j.at("jumpForce").get<double>();
+        if (params->contains("jumpForce"))
+            mJumpForce = params->at("jumpForce").get<double>();
 
         Initialize();
     }
@@ -177,9 +173,9 @@ namespace AOP
         mCharacter->PostSimulation(cCollisionTolerance);
     }
 
-    void ACharacter::SetData(const char *params)
+    void ACharacter::SetData(json * params)
     {
-        mData = json::parse(params);
+        mData = *params;
     }
 
     json ACharacter::GetData()
@@ -191,7 +187,7 @@ namespace AOP
     {
 
         json character_data = Helpers::GetBodyData(AWorld::GetInstance()->mPhysicsSystem, mCharacter->GetBodyID());
-        character_data["data"] = mData.dump().c_str();
+        character_data["data"] = mData;
         if(mCrouching){
             character_data["height"] = mHeightCrouching;
             character_data["radius"] = mRadiusCrouching;
@@ -201,4 +197,5 @@ namespace AOP
         }
         return character_data;
     }
-}
+}    
+

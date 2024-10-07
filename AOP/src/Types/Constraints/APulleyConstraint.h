@@ -27,7 +27,7 @@ namespace AOP
         float mMaxLength = 0.0f;  
 
     public:
-        APulleyConstraint(const char *params);
+        APulleyConstraint(json * params);
         void Initialize();
         json GetData();
     };

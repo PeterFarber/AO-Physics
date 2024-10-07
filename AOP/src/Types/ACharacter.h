@@ -20,7 +20,7 @@ namespace AOP
         bool mSprint = false;
         bool mCrouch = false;
 
-        InputParams(const char *params);
+        InputParams(json * params);
 
     };
 
@@ -74,14 +74,14 @@ namespace AOP
 
 
     public:
-        ACharacter(const char *params);
+        ACharacter(json * params);
 
         void Initialize();
         void PreSimulation(float inDeltaTime);
         void HandleInput(InputParams params);
         void PostSimulation(float inDeltaTime);
 
-        void SetData(const char *params);
+        void SetData(json * params);
         json GetData();
 
         json GetCharacterData();

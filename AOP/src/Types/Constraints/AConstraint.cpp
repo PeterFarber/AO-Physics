@@ -10,19 +10,18 @@
 namespace AOP
 {
 
-        AConstraint::AConstraint(const char *params)
+        AConstraint::AConstraint(json * params)
         {
-            json j = json::parse(params);
 
-            if (j.contains("type"))
-                mType = Helpers::GetConstraintSubType(j.at("type").get<std::string>());
-            if (j.contains("body1ID"))
-                mBody1 = Helpers::GetBody(AWorld::GetInstance()->mPhysicsSystem, BodyID(j.at("body1ID").get<uint32_t>()));
-            if (j.contains("body2ID"))
-                mBody2 = Helpers::GetBody(AWorld::GetInstance()->mPhysicsSystem, BodyID(j.at("body2ID").get<uint32_t>()));
+            if (params->contains("type"))
+                mType = Helpers::GetConstraintSubType(params->at("type").get<std::string>());
+            if (params->contains("body1ID"))
+                mBody1 = Helpers::GetBody(AWorld::GetInstance()->mPhysicsSystem, BodyID(params->at("body1ID").get<uint32_t>()));
+            if (params->contains("body2ID"))
+                mBody2 = Helpers::GetBody(AWorld::GetInstance()->mPhysicsSystem, BodyID(params->at("body2ID").get<uint32_t>()));
 
-            if (j.contains("space"))
-                mSpace = Helpers::GetConstraintSpace(j.at("space").get<std::string>());
+            if (params->contains("space"))
+                mSpace = Helpers::GetConstraintSpace(params->at("space").get<std::string>());
         }
 
         AConstraint::~AConstraint()

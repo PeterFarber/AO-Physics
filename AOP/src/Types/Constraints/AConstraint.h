@@ -27,7 +27,7 @@ namespace AOP
         virtual void Initialize() = 0;
         virtual json GetData() = 0;
 
-        AConstraint(const char *params);
+        AConstraint(json * params);
         
         virtual ~AConstraint();
 

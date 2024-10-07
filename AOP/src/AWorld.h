@@ -79,9 +79,9 @@ namespace AOP
         MyContactListener *mContactListener;
 
     public:
-        void ParseParams(const char *params);
-        void Create(const char * params);
-        void LoadWorldState(const char *params);
+        void ParseParams(json * params);
+        void Create(json * params);
+        void LoadWorldState(json * params);
         void Update();
         json GetWorldState();
         void Destroy();

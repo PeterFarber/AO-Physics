@@ -2,7 +2,7 @@
 
 import { test } from 'node:test'
 import * as assert from 'node:assert'
-import AoLoader from './loader/index.cjs'
+import AoLoader from '@permaweb/ao-loader'
 import fs from 'fs'
 
 let simulation = fs.readFileSync("./simulation.lua", "utf8");
@@ -18,6 +18,7 @@ test('Physics', async () => {
     simulation = simulation.replace("__worldstate__", extractedWorldState);
 
     const result = await handle(null, getEval(simulation), getEnv());
+    console.log(result.Memory.byteLength);
     fs.writeFileSync("simulated_world_state.json", result.Output.data);
     assert.ok(result.Output.data.length >= 1);
 })

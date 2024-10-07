@@ -9,16 +9,14 @@
 namespace AOP
 {
 
-    APointConstraint::APointConstraint(const char *params) : AConstraint(params)
+    APointConstraint::APointConstraint(json * params) : AConstraint(params)
     {
-        json j = json::parse(params);
 
-        if (j.contains("point1"))
-            mPoint1 = Vec3(j.at("point1").at(0).get<double>(), j.at("point1").at(1).get<double>(), j.at("point1").at(2).get<double>());
-        if (j.contains("point2"))
-            mPoint2 = Vec3(j.at("point2").at(0).get<double>(), j.at("point2").at(1).get<double>(), j.at("point2").at(2).get<double>());
+        if (params->contains("point1"))
+            mPoint1 = Vec3(params->at("point1").at(0).get<double>(), params->at("point1").at(1).get<double>(), params->at("point1").at(2).get<double>());
+        if (params->contains("point2"))
+            mPoint2 = Vec3(params->at("point2").at(0).get<double>(), params->at("point2").at(1).get<double>(), params->at("point2").at(2).get<double>());
 
-        delete &params;
 
         Initialize();
     }

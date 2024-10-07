@@ -9,32 +9,29 @@
 namespace AOP
 {
 
-    APulleyConstraint::APulleyConstraint(const char *params) : AConstraint(params)
+    APulleyConstraint::APulleyConstraint(json * params) : AConstraint(params)
     {
-        json j = json::parse(params);
         
-        if (j.contains("bodyPoint1"))
-            mBodyPoint1 = Vec3(j.at("bodyPoint1").at(0).get<double>(), j.at("bodyPoint1").at(1).get<double>(), j.at("bodyPoint1").at(2).get<double>());
+        if (params->contains("bodyPoint1"))
+            mBodyPoint1 = Vec3(params->at("bodyPoint1").at(0).get<double>(), params->at("bodyPoint1").at(1).get<double>(), params->at("bodyPoint1").at(2).get<double>());
 
-        if (j.contains("fixedPoint1"))
-            mFixedPoint1 = Vec3(j.at("fixedPoint1").at(0).get<double>(), j.at("fixedPoint1").at(1).get<double>(), j.at("fixedPoint1").at(2).get<double>());
+        if (params->contains("fixedPoint1"))
+            mFixedPoint1 = Vec3(params->at("fixedPoint1").at(0).get<double>(), params->at("fixedPoint1").at(1).get<double>(), params->at("fixedPoint1").at(2).get<double>());
 
-        if (j.contains("bodyPoint2"))
-            mBodyPoint2 = Vec3(j.at("bodyPoint2").at(0).get<double>(), j.at("bodyPoint2").at(1).get<double>(), j.at("bodyPoint2").at(2).get<double>());
+        if (params->contains("bodyPoint2"))
+            mBodyPoint2 = Vec3(params->at("bodyPoint2").at(0).get<double>(), params->at("bodyPoint2").at(1).get<double>(), params->at("bodyPoint2").at(2).get<double>());
 
-        if (j.contains("fixedPoint2"))
-            mFixedPoint2 = Vec3(j.at("fixedPoint2").at(0).get<double>(), j.at("fixedPoint2").at(1).get<double>(), j.at("fixedPoint2").at(2).get<double>());
+        if (params->contains("fixedPoint2"))
+            mFixedPoint2 = Vec3(params->at("fixedPoint2").at(0).get<double>(), params->at("fixedPoint2").at(1).get<double>(), params->at("fixedPoint2").at(2).get<double>());
 
-        if (j.contains("ratio"))
-            mRatio = j.at("ratio").get<float>();
+        if (params->contains("ratio"))
+            mRatio = params->at("ratio").get<float>();
 
-        if (j.contains("minLength"))
-            mMinLength = j.at("minLength").get<float>();
+        if (params->contains("minLength"))
+            mMinLength = params->at("minLength").get<float>();
 
-        if (j.contains("maxLength"))
-            mMaxLength = j.at("maxLength").get<float>();
-
-        delete &params;
+        if (params->contains("maxLength"))
+            mMaxLength = params->at("maxLength").get<float>();
 
         Initialize();
     }
