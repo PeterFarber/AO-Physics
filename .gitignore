@@ -6,12 +6,12 @@ jolt
 AOP/build
 
 aos/process/libs
-tests/jolt.json
+
+*.json
+!package.json
 
 **/*.a
-!build/libs/*.a
+!dist/**/*.a
 docs/site
 process.js
 process.wasm
-**/package-lock.json
-**/yarn.lock

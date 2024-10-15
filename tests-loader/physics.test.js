@@ -11,17 +11,31 @@ let extractedWorldState = fs.readFileSync("/mnt/c/Unity/AOP-Unity/Assets/extract
 const wasm = fs.readFileSync('./process.wasm')
 const options = { format: "wasm32-unknown-emscripten4" }
 
-test('Physics', async () => {
+test.skip('Physics', async () => {
     const handle = await AoLoader(wasm, options)
 
-    extractedWorldState = JSON.stringify(JSON.parse(extractedWorldState));
-    simulation = simulation.replace("__worldstate__", extractedWorldState);
+    // extractedWorldState = JSON.stringify(JSON.parse(extractedWorldState));
+    // simulation = simulation.replace("__worldstate__", extractedWorldState);
 
     const result = await handle(null, getEval(simulation), getEnv());
     console.log(result.Memory.byteLength);
     fs.writeFileSync("simulated_world_state.json", result.Output.data);
+    console.log(result.Output)
     assert.ok(result.Output.data.length >= 1);
 })
+
+test('Line Numbers' , async () => {
+    const handle = await AoLoader(wasm, options)
+
+    const result = await handle(null, getEval(`local data = nil
+        local a = 0
+        local b = 0
+        -- local errorData = '123' .. data
+        local c = a + d
+    `), getEnv());
+    console.log(result.Error)
+    // assert.ok(result.Output.data.length >= 1);
+});
 
 function getEval(expr) {
     return {

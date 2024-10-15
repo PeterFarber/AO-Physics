@@ -1,89 +1,92 @@
 #!/bin/bash
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+# =====================================
+# Setup Paths and Variables
+# =====================================
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 JOLT_DIR="${SCRIPT_DIR}/jolt"
 AOP_DIR="${SCRIPT_DIR}/AOP"
 PROCESS_DIR="${SCRIPT_DIR}/aos/process"
-BUILD_DIR="${SCRIPT_DIR}/build"
-LIBS_DIR="${BUILD_DIR}/libs"
+DIST_DIR="${SCRIPT_DIR}/dist"
+LIBS_DIR="${DIST_DIR}/libs"
 PROCESS_LIBS_DIR="${PROCESS_DIR}/libs"
+TESTS_DIR="${SCRIPT_DIR}/tests"
+TESTS_LOADER_DIR="${SCRIPT_DIR}/tests-loader"
+INJECT_DIR="${SCRIPT_DIR}/inject"
+CONFIG_FILE="${SCRIPT_DIR}/config.yml"
 
+# Docker image and compiler flags
 AO_IMAGE="p3rmaw3b/ao:0.1.3"
+EMXX_CFLAGS="-I/lua-5.3.4-32/src -I/jolt/ -I/jolt/Jolt"
 
-# EMXX_CFLAGS=" -s EXPORT_ALL=1 -s EXPORT_ES6=1 -Wno-unused-command-line-argument -Wno-experimental /lua-5.3.4/src/liblua.a -I/lua-5.3.4/src"
-EMXX_CFLAGS="/lua-5.3.4-32/src/liblua.a -I/lua-5.3.4-32/src -I/jolt/ -I/jolt/Jolt -s SUPPORT_LONGJMP=1"
+# File names
+JOLT_REPO_URL="https://github.com/jrouwe/JoltPhysics.git"
+JOLT_CMAKELIST="${INJECT_DIR}/CMakeLists.txt"
+JOLT_LIB="libJolt.a"
+AOP_LIB="libaop.a"
+PROCESS_WASM="process.wasm"
+PROCESS_JS="process.js"
 
-# # Clone jolt if it doesn't exist
-# rm -rf ${JOLT_DIR}
-# if [ ! -d "${JOLT_DIR}" ]; then \
-# 	git clone https://github.com/jrouwe/JoltPhysics.git ${JOLT_DIR}; \
-# 	cp ${SCRIPT_DIR}/inject/CMakeLists.txt ${JOLT_DIR}/CMakeLists.txt; \
-# fi
-# cd ..
+# =====================================
+# Clone Jolt Repository and Setup
+# =====================================
+# Clean and clone the Jolt repository
+rm -rf "${JOLT_DIR}"
+if [ ! -d "${JOLT_DIR}" ]; then
+    git clone "${JOLT_REPO_URL}" "${JOLT_DIR}"
+    cp "${JOLT_CMAKELIST}" "${JOLT_DIR}/CMakeLists.txt"
+fi
 
-# # Build jolt into a static library with emscripten
-# docker run -v ${JOLT_DIR}:/jolt --platform linux/amd64 ${AO_IMAGE}  sh -c \
-# 		"cd /jolt && emcmake cmake -S . -B ."
+# =====================================
+# Build Jolt as a Static Library with Emscripten
+# =====================================
+docker run -v "${JOLT_DIR}:/jolt" --platform linux/amd64 "${AO_IMAGE}" sh -c \
+    "cd /jolt && emcmake cmake -S . -B . && cmake --build . --parallel"
+sudo chmod -R 777 "${JOLT_DIR}"  # Fix permissions
 
-# docker run -v ${JOLT_DIR}:/jolt --platform linux/amd64  ${AO_IMAGE} sh -c \
-# 		"cd /jolt && cmake --build ." 
+# =====================================
+# Build Lua Jolt as a Static Library with Emscripten
+# =====================================
+# Clean AOP build directory
+rm -rf "${AOP_DIR}/build"
 
-# # Fix permissions
-# sudo chmod -R 777 ${JOLT_DIR}
+# Build AOP
+docker run -v "${AOP_DIR}:/AOP" -v "${JOLT_DIR}:/jolt" --platform linux/amd64 "${AO_IMAGE}" sh -c \
+    "cd /AOP && mkdir build && cd build && emcmake cmake -DCMAKE_CXX_FLAGS='${EMXX_CFLAGS}' -S .. -B . && cmake --build . --parallel"
+sudo chmod -R 777 "${AOP_DIR}"  # Fix permissions
 
+# =====================================
+# Prepare Dist Directory and Copy Libraries
+# =====================================
+# Clear and prepare dist and libs directories
+rm -rf "${DIST_DIR}"
+mkdir -p "${LIBS_DIR}"
 
-# Build lua jolt into a static library with emscripten
-rm -rf ${AOP_DIR}/build
-docker run -v ${AOP_DIR}:/AOP -v ${JOLT_DIR}:/jolt --platform linux/amd64 ${AO_IMAGE}  sh -c \
-		"cd /AOP && mkdir build && cd build && emcmake cmake -DCMAKE_CXX_FLAGS='${EMXX_CFLAGS}' -S .. -B ."
+# Copy libraries and Lua files
+cp "${JOLT_DIR}/${JOLT_LIB}" "${LIBS_DIR}/${JOLT_LIB}"
+cp "${AOP_DIR}/build/${AOP_LIB}" "${LIBS_DIR}/${AOP_LIB}"
+cp -r "${AOP_DIR}/Lua/." "${DIST_DIR}/"
+cp -r "${LIBS_DIR}" "${PROCESS_DIR}"
 
-docker run -v ${AOP_DIR}:/AOP -v ${JOLT_DIR}:/jolt --platform linux/amd64  ${AO_IMAGE} sh -c \
-		"cd /AOP/build && cmake --build ." 
+# Copy configuration and Lua files to process directory
+cp "${CONFIG_FILE}" "${PROCESS_DIR}/config.yml"
+cp -r "${AOP_DIR}/Lua/." "${PROCESS_DIR}/"
 
-# docker run -v ${LUA_JOLT_DIR}:/lua_jolt ${AO_IMAGE} sh -c \
-# 		"cd /lua_jolt/build && emar rcs lJolt2.a lJolt.a"
+# =====================================
+# Build the Process Module with Docker
+# =====================================
+cd "${PROCESS_DIR}"
+docker run -e DEBUG=1 --platform linux/amd64 -v ./:/src "${AO_IMAGE}" ao-build-module
 
+# =====================================
+# Copy Process Module Output to Tests Directories
+# =====================================
+# Only copy if the tests directories exist
+if [ -d "${TESTS_DIR}" ]; then
+    cp "${PROCESS_DIR}/${PROCESS_WASM}" "${TESTS_DIR}/${PROCESS_WASM}"
+    cp "${PROCESS_DIR}/${PROCESS_JS}" "${TESTS_DIR}/${PROCESS_JS}"
+fi
 
-# Fix permissions
-sudo chmod -R 777 ${AOP_DIR}
-
-
-# # Build ljolt into a library with emscripten
-# docker run -v ${LUA_JOLT_DIR}:/lua_jolt -v ${JOLT_DIR}:/jolt ${AO_IMAGE} sh -c \
-# 		"cd /lua_jolt && emcc -s -c l_jolt.c -o l_jolt.o -I/usr/include/**/* /lua-5.3.4/src/liblua.a -I/lua-5.3.4/src -I/jolt/ /jolt/libJolt.a -I/jolt/Jolt && emar rcs l_jolt.a l_jolt.o && rm l_jolt.o"
-
-# Fix permissions
-
-
-# # Copy jolt to the libs directory
-rm -rf ${BUILD_DIR}
-mkdir -p $LIBS_DIR
-cp ${JOLT_DIR}/libJolt.a $LIBS_DIR/libJolt.a
-cp ${AOP_DIR}/build/libaop.a $LIBS_DIR/libaop.a
-cp -r ${AOP_DIR}/Lua/. ${BUILD_DIR}/
-
-cp -r ${LIBS_DIR} ${PROCESS_DIR}
-
-# Copy config.yml to the process directory
-cp ${SCRIPT_DIR}/config.yml ${PROCESS_DIR}/config.yml
-cp -r ${AOP_DIR}/Lua/. ${PROCESS_DIR}/
-
-# Build the process module
-cd ${PROCESS_DIR} 
-docker run -e DEBUG=1 --platform linux/amd64 -v ./:/src ${AO_IMAGE} ao-build-module
-
-# # Copy the process module to the tests directory
-cp ${PROCESS_DIR}/process.wasm ${SCRIPT_DIR}/tests/process.wasm
-cp ${PROCESS_DIR}/process.wasm ${SCRIPT_DIR}/tests-loader/process.wasm
-cp ${PROCESS_DIR}/process.js ${SCRIPT_DIR}/tests/process.js
-
-# rm -rf ${SCRIPT_DIR}/tests/Lua
-# cp -r ${AOP_DIR}/Lua/ ${SCRIPT_DIR}/tests/Lua/
-# cp -r ${AOP_DIR}/Lua/ ${PROCESS_DIR}
-# apt-get -y install --no-install-recommends llvm-dev libclang-dev librocksdb-dev clang
-# git clone https://github.com/emscripten-core/emsdk.git /emsdk
-# cd /emsdk
-# git pull
-# ./emsdk install 3.1.59
-# ./emsdk activate 3.1.59
-#  source "/emsdk/emsdk_env.sh"
+if [ -d "${TESTS_LOADER_DIR}" ]; then
+    cp "${PROCESS_DIR}/${PROCESS_WASM}" "${TESTS_LOADER_DIR}/${PROCESS_WASM}"
+fi

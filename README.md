@@ -1,13 +1,8 @@
 # AO Physics
 
-${\color{white}\Huge{\textsf{Version: }} \color{orange}\Huge{\textsf{0.0.1}}}$
+${\color{white}\Huge{\textsf{Version: }} \color{orange}\Huge{\textsf{0.0.5}}}$
 
 AO Physics is a powerful and flexible physics simulation system designed for creating realistic physical interactions within a virtual environment. It provides components for defining worlds, bodies, and constraints, allowing for detailed and accurate simulations.
-
-> [!CAUTION]
-> The AO Dev-Cli currently does not support building a 32 bit wasm application so you can not compile this application yet.
-> The code for building 32 bit wasm applications has already been written just needs to be merged.
-> Lastly the 32 bit option in AO Loader needs to be updated to support the sys funcs for jolt ( Work in Progress ).
 
 ## Features
 

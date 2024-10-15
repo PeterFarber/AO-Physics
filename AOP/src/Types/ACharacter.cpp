@@ -17,12 +17,8 @@ namespace AOP
         if (params->contains("id"))
             mID = params->at("id");
 
-        mInput = Vec3::sZero();
-        if (params->contains("x"))
-            mInput.SetX(params->at("x").get<double>());
-
-        if (params->contains("z"))
-            mInput.SetY(params->at("z").get<double>());
+        if (params->contains("input"))
+            mInput = Vec3(params->at("input").at(0).get<double>(), 0, params->at("input").at(1).get<double>());
 
         if (params->contains("jump"))
             mJump = params->at("jump").get<bool>();
@@ -121,7 +117,6 @@ namespace AOP
 
     void ACharacter::HandleInput(InputParams params)
     {
-
         Vec3 controlInput = params.mInput;
         bool jump = params.mJump;
         bool sprint = params.mSprint;
